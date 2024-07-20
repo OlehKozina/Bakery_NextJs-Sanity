@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,8 +8,11 @@ interface FormProps {
 
 const Form: React.FC<FormProps> = ({ onClose }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-color-primarydark bg-opacity-50 p-5 transition-opacity-custom">
-      <div className="relative z-5 flex flex-col justify-center items-center w-full max-w-[680px] h-full max-h-[680px] bg-light-color rounded-[32px] p-12 overflow-y-auto transition-opacity-custom md:p-32 md:max-w-[880px]">
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-color-primarydark bg-opacity-50 p-5 {
+}"
+    >
+      <div className="relative z-10 flex flex-col justify-center items-center w-full max-w-[680px] h-full max-h-[680px] bg-light-color rounded-[32px] p-12 overflow-y-auto transition-opacity-custom md:p-32 md:max-w-[880px]">
         <button
           className="border-none bg-transparent cursor-pointer absolute top-[10px] right-[10px] md:top-[40px] md:right-[40px]"
           type="button"
@@ -68,10 +71,13 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
             Request a call
           </button>
           <p className="mx-auto max-w-[220px] text-xs text-center">
-            By clicking the button I agree with
-            <a className="text-brand-color" href="#">
-              privacy policy
-            </a>
+            By clicking the button I agree with{" "}
+            <span>
+              {" "}
+              <a className="text-brand-color underline" href="#">
+                privacy policy
+              </a>
+            </span>
           </p>
         </form>
       </div>

@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
 import Form from "./Form";
@@ -31,7 +30,7 @@ const Header = () => {
             <ul className="hidden md:flex list-none gap-16 flex-grow justify-center">
               <li>
                 <a
-                  className="text-light-color no-underline transition-colors duration-300 hover:text-brand-color"
+                  className="text-light-color no-underline transition-colors duration-500 hover:text-brand-color"
                   href="#traditions"
                 >
                   Our traditions
@@ -72,7 +71,7 @@ const Header = () => {
           </button>
           {isFormVisible && <Form onClose={closeForm} />}
           <button
-            className="bg-transparent border-none text-light-color md:hidden menu-btn-open"
+            className=" bg-transparent border-none text-light-color md:hidden menu-btn-open"
             type="button"
           >
             <FontAwesomeIcon

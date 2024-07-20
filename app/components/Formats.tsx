@@ -27,8 +27,8 @@ export default function Formats() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) setSlidesPerPage(2);
-      else if (window.innerWidth >= 640) setSlidesPerPage(1);
+      if (window.innerWidth >= 768) setSlidesPerPage(3);
+      else if (window.innerWidth >= 640) setSlidesPerPage(2);
       else setSlidesPerPage(1);
     };
 
@@ -39,14 +39,16 @@ export default function Formats() {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex + slidesPerPage < formats.length ? prevIndex + slidesPerPage : 0
+      prevIndex + slidesPerPage >= formats.length
+        ? 0
+        : prevIndex + slidesPerPage
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0
-        ? Math.max(formats.length - slidesPerPage, 0)
+        ? formats.length - slidesPerPage
         : prevIndex - slidesPerPage
     );
   };

@@ -6,7 +6,7 @@ import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 function Footer() {
   return (
     <footer
-      className="relative text-center py-8 bg-cover bg-center bg-no-repeat bg-[#31261a] md:text-left"
+      className="relative  text-center py-8 bg-cover bg-center bg-no-repeat bg-[#31261a] md:text-left"
       style={{
         backgroundImage: "url('/footer-image.png')",
       }}

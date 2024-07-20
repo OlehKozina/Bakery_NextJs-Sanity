@@ -1,4 +1,16 @@
+"use client";
+import Form from "./Form";
+import React, { useState } from "react";
+
 function Hero() {
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const openForm = () => setIsFormVisible(true);
+  const closeForm = () => setIsFormVisible(false);
+
+  const [isMobMenuVisible, setIsMobMenuVisible] = useState(false);
+  const openMenu = () => setIsMobMenuVisible(true);
+  const closeMenu = () => setIsMobMenuVisible(false);
+
   return (
     <section
       className="relative h-[336px] md:h-[536px] lg:h-[736px] flex items-center bg-center-top"
@@ -15,11 +27,13 @@ function Hero() {
           <span className="text-brand-color">Modern </span>Bakery
         </h1>
         <button
-          className="sm:hidden mx-auto block px-4 py-2 bg-brand-color text-light-color border border-brand-color rounded-lg cursor-pointer font-semibold md:px-8 md:py-4"
+          className="md:hidden mx-auto block px-4 py-2 bg-brand-color text-light-color border border-brand-color rounded-lg cursor-pointer font-semibold md:px-8 md:py-4"
           type="button"
+          onClick={openForm}
         >
           Request a call
         </button>
+        {isFormVisible && <Form onClose={closeForm} />}
       </div>
     </section>
   );

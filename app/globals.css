@@ -118,3 +118,9 @@ input::placeholder {
 .is-open {
   transform: translateX(0);
 }
+
+.transition-opacity-visibility {
+  transition:
+    opacity 1s,
+    visibility 1s;
+}
