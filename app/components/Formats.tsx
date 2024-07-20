@@ -9,13 +9,13 @@ interface Format {
   _id: string;
   name: string;
   image: string;
-  content: any; // Adjust based on your content structure
+  content: any;
 }
 
 export default function Formats() {
   const [formats, setFormats] = useState<Format[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesPerPage, setSlidesPerPage] = useState(1); // Default value
+  const [slidesPerPage, setSlidesPerPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,14 +27,12 @@ export default function Formats() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768)
-        setSlidesPerPage(2); // Medium screens and up
-      else if (window.innerWidth >= 640)
-        setSlidesPerPage(1); // Small screens
-      else setSlidesPerPage(1); // Default for very small screens
+      if (window.innerWidth >= 768) setSlidesPerPage(2);
+      else if (window.innerWidth >= 640) setSlidesPerPage(1);
+      else setSlidesPerPage(1);
     };
 
-    handleResize(); // Set initial value
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

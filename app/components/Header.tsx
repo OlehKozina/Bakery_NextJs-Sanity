@@ -78,7 +78,6 @@ const Header = () => {
             <FontAwesomeIcon
               icon={faBars}
               className="hover:text-brand-color w-6"
-              on
               onClick={openMenu}
             />
             {isMobMenuVisible && <MobileMenu onClose={closeMenu} />}
