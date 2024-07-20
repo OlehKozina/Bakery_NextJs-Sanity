@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global */
+
+@layer base {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    background-color: theme("colors.light-color");
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  address {
+    font-style: normal;
+  }
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-top: 0;
+  }
+}
+p {
+  margin-bottom: 20px;
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    max-width: 1288px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .before-desktop::before {
+    content: "";
+    display: block;
+    width: 352px;
+    height: 2px;
+    background-color: #cfcfbc;
+    position: absolute;
+    left: -360px;
+    bottom: 24px;
+    /* @apply block md:hidden; */
+  }
+
+  .after-desktop {
+    @apply hidden;
+  }
+
+  .after-desktop::after {
+    content: "";
+    display: block;
+    width: 352px;
+    height: 2px;
+    background-color: #cfcfbc;
+    position: absolute;
+    right: -360px;
+    bottom: 24px;
+    /* @apply block md:hidden;  */
+  }
+}
+
+@layer utilities {
+  .bg-gradient-custom {
+    background: linear-gradient(
+      103deg,
+      rgba(18, 18, 17, 0.78) 2.03%,
+      rgba(18, 18, 17, 0.6) 58.46%,
+      rgba(18, 18, 17, 0) 90.36%
+    );
+  }
+  .text-custom-color {
+    color: "819b57";
+  }
+  .bg-transparent-important {
+    background-color: transparent !important;
+  }
+}
+input:focus {
+  border-color: theme("colors.brand-color");
+  outline: none;
+}
+input::placeholder {
+  color: #a18268;
+  font-size: 16px;
+  line-height: 1.17;
+}
+.z-10-important {
+  z-index: 10 !important;
+}
+.transition-opacity-custom {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 1000ms;
+}
+.is-open {
+  transform: translateX(0);
+}
