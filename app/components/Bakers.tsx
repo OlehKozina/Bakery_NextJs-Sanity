@@ -6,7 +6,6 @@ import { PortableTextBlock } from "@portabletext/types";
 
 const myPortableTextComponents: PortableTextComponents = {
   types: {
-    // Use <p> tag instead of <img> for demonstration
     image: ({ value }) => (
       <p className="flex justify-center">{value.imageUrl}</p>
     ),
