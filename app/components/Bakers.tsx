@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { getBakers } from "@/sanity/sanity-utils";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
-import { PortableTextBlock } from "@portabletext/types";
 
 const myPortableTextComponents: PortableTextComponents = {
   types: {
