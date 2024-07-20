@@ -16,11 +16,9 @@ function JoinBakery() {
             <p className="text-brand-color text-center mb-3">
               Fill out the form so we can contact you
             </p>
-            <form name="contact-form" autocomplete="off" novalidate>
+            <form name="contact-form">
               <div className="mb-8">
-                <label className="hidden" for="user-name">
-                  Name
-                </label>
+                <label className="hidden">Name</label>
                 <input
                   className="w-full p-4 px-[42px] rounded-lg border border-[#a18268] bg-transparent-important text-[16px] leading-[1.17]"
                   type="text"
@@ -30,22 +28,17 @@ function JoinBakery() {
                 />
               </div>
               <div className="mb-8">
-                <label className="form-field__label hidden" for="phone">
-                  Phone
-                </label>
+                <label className="form-field__label hidden">Phone</label>
                 <input
                   className="w-full p-4 px-[42px] rounded-lg border border-[#a18268] bg-transparent-important text-[16px] leading-[1.17]"
                   type="tel"
                   id="phone"
                   name="phone"
-                  autocomplete="off"
                   placeholder="Phone"
                 />
               </div>
               <div className="mb-8">
-                <label className="form-field__label hidden" for="e-mail">
-                  E-mail
-                </label>
+                <label className="form-field__label hidden">E-mail</label>
                 <input
                   className="w-full p-4 px-[42px] rounded-lg border border-[#a18268] bg-transparent-important text-[16px] leading-[1.17]"
                   type="email"
@@ -77,9 +70,7 @@ function JoinBakery() {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1728.3902700299825!2d-113.49473926336957!3d53.54323228164413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a0224f4fad4c0b%3A0xaf55097e5e001440!2z0K3QtNC80L7QvdGC0L7QvSDQodC40YLQuCDQodC10L3RgtGA!5e0!3m2!1sru!2sca!4v1706565945450!5m2!1sru!2sca"
             width="400"
             height="395"
-            allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>

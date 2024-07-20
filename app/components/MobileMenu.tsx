@@ -9,9 +9,9 @@ interface MenuProps {
 
 const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
   return (
-    <div class="fixed top-0 left-0 w-full h-full bg-light-color">
+    <div className="fixed top-0 left-0 w-full h-full bg-light-color">
       <button
-        class=" text-color-primarydark z-10 border-none absolute top-4 right-[100px] md:top-[40px] md:right-[40px]"
+        className=" text-color-primarydark z-10 border-none absolute top-4 right-[100px] md:top-[40px] md:right-[40px]"
         type="button"
       >
         <FontAwesomeIcon
@@ -20,7 +20,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
           onClick={onClose}
         />
       </button>
-      <ul class="flex flex-col gap-5 m-5">
+      <ul className="flex flex-col gap-5 m-5">
         <li>
           <a className="header__logo" href="#">
             <Image src="/logo.svg" alt="bakery_logo" width={100} height={24} />
@@ -28,7 +28,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
         </li>
         <li>
           <a
-            class="no-underline text-color-primarydark hover:text-brand-color "
+            className="no-underline text-color-primarydark hover:text-brand-color "
             href="#traditions"
           >
             Our traditions
@@ -36,7 +36,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
         </li>
         <li>
           <a
-            class="no-underline text-color-primarydark hover:text-brand-color "
+            className="no-underline text-color-primarydark hover:text-brand-color "
             href="#cooks"
           >
             Bakers
@@ -44,7 +44,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
         </li>
         <li>
           <a
-            class="no-underline text-color-primarydark hover:text-brand-color "
+            className="no-underline text-color-primarydark hover:text-brand-color "
             href="#formats"
           >
             Formats
@@ -52,7 +52,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
         </li>
         <li>
           <a
-            class="no-underline text-color-primarydark hover:text-brand-color "
+            className="no-underline text-color-primarydark hover:text-brand-color "
             href="#contacts"
           >
             Contacts
