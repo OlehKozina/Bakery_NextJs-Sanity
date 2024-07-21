@@ -8,6 +8,8 @@ const nextConfig = {
       },
     ],
   },
+
+  trailingSlash: true, // Optional: Ensures URLs end with a trailing slash
 };
 
 export default nextConfig;

@@ -12,7 +12,7 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
       className="fixed inset-0 z-50 flex items-center justify-center bg-color-primarydark bg-opacity-50 p-5 {
 }"
     >
-      <div className="relative z-10 flex flex-col justify-center items-center w-full max-w-[600px] h-full max-h-[750px] bg-light-color rounded-[32px] p-12  transition-opacity-custom md:p-32 md:max-w-[880px]">
+      <div className="relative z-10 overflow-y-auto flex flex-col justify-center items-center w-full max-w-[600px] h-full  bg-light-color rounded-[32px]  transition-opacity-custom  md:max-w-[880px]">
         <button
           className="border-none bg-transparent cursor-pointer absolute top-[10px] right-[10px] md:top-[40px] md:right-[40px]"
           type="button"

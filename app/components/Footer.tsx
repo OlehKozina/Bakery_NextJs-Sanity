@@ -14,7 +14,7 @@ function Footer() {
       <div className="container">
         <div className="flex flex-col md:flex-row md:gap-10">
           <nav className="flex text-center flex-grow flex-col md:flex-row">
-            <div className=" mt-4 flex justify-center md:inline-block md:justify-start md:mt-0">
+            <div className=" mt-4 flex justify-center md:inline-block md:justify-start md:mt-0 z-[5]">
               <a href="#">
                 <Image
                   src="/logo.svg"
@@ -136,7 +136,7 @@ function Footer() {
         alt="bread-left"
         width={100}
         height={24}
-        className="w-[180px] h-[120px] bg-no-repeat absolute bottom-0 left-0"
+        className="w-[180px] h-[120px] bg-no-repeat absolute bottom-0 left-0 z-[-0]"
       />
       <Image
         src="/bread-large.png"
