@@ -61,7 +61,7 @@ export default function Formats() {
         </h1>
         <div className="relative w-full max-w-[1100px] mx-auto overflow-hidden">
           <div
-            className="flex transition-transform duration-300 relative"
+            className="flex transition-transform duration-300"
             style={{
               transform: `translateX(-${currentIndex * (100 / slidesPerPage)}%)`,
             }}
@@ -69,12 +69,9 @@ export default function Formats() {
             {formats.map((format) => (
               <div
                 key={format._id}
-                className="flex-shrink-0 w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.33%-1rem)] text-custom-white font-medium relative text-2xl mt-8 mb-2 mx-2"
+                className="flex-shrink-0 w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.33%-1rem)] text-custom-white font-medium relative mt-8 mb-2 mx-2"
               >
-                <div className="relative z-10 top-[190px] left-8">
-                  {format.name}
-                </div>
-                <div className="relative rounded-3xl overflow-hidden w-full h-auto">
+                <div className="relative w-full h-full rounded-3xl overflow-hidden">
                   <Image
                     src={format.image}
                     alt={format.name}
@@ -90,22 +87,25 @@ export default function Formats() {
                         "linear-gradient(180deg, rgba(49, 38, 26, 0) 55.21%, rgba(49, 38, 26, 0.71) 72.92%, #31261a 100%)",
                     }}
                   ></div>
-                </div>
-                <div className="text-sm absolute z-9 top-[240px] left-8 max-w-[300px]">
-                  <PortableText value={format.content} />
+                  <div className="absolute top-[190px] left-8 z-10 text-2xl">
+                    {format.name}
+                  </div>
+                  <div className="absolute top-[240px] left-8 z-10 text-sm max-w-[300px]">
+                    <PortableText value={format.content} />
+                  </div>
                 </div>
               </div>
             ))}
           </div>
           <button
             onClick={prevSlide}
-            className="absolute bg-custom-white rounded-full h-8 w-8 top-1/2 left-0 transform -translate-y-1/2 bg-black text-white p-2 z-9"
+            className="absolute bg-custom-white rounded-full h-8 w-8 top-1/2 left-0 transform -translate-y-1/2 bg-black text-white p-2 z-10"
           >
             <FontAwesomeIcon icon={faAngleLeft} className="text-[16px]" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute bg-custom-white rounded-full h-8 w-8 top-1/2 right-0 transform -translate-y-1/2 bg-black text-white p-2 z-9"
+            className="absolute bg-custom-white rounded-full h-8 w-8 top-1/2 right-0 transform -translate-y-1/2 bg-black text-white p-2 z-10"
           >
             <FontAwesomeIcon icon={faAngleRight} className="text-[16px]" />
           </button>

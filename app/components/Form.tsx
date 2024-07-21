@@ -9,7 +9,7 @@ interface FormProps {
 const Form: React.FC<FormProps> = ({ onClose }) => {
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-color-primarydark bg-opacity-50 p-5 {
+      className="fixed inset-0 z-50 flex items-center justify-center bg-color-primarydark bg-opacity-50 p-5 {
 }"
     >
       <div className="relative z-10 flex flex-col justify-center items-center w-full max-w-[680px] h-full max-h-[680px] bg-light-color rounded-[32px] p-12 overflow-y-auto transition-opacity-custom md:p-32 md:max-w-[880px]">
