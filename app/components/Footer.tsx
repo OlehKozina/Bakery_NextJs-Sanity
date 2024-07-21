@@ -21,7 +21,7 @@ function Footer() {
                   alt="bakery_logo"
                   width={100}
                   height={24}
-                  className="relative z-10"
+                  className="relative z-5"
                 />
               </a>
             </div>
