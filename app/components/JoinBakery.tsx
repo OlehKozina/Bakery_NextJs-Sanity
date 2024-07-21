@@ -17,9 +17,11 @@ function JoinBakery() {
             <p className="text-brand-color text-center mb-3">
               Fill out the form so we can contact you
             </p>
-            <div name="contact-form">
+            <div data-form="contact-form">
               <div className="mb-8">
-                <label className="hidden">Name</label>
+                <label className="hidden" htmlFor="user-name">
+                  Name
+                </label>
                 <input
                   className="w-full p-4 px-[42px] rounded-lg border border-[#a18268] bg-transparent-important text-[16px] leading-[1.17]"
                   type="text"
@@ -29,7 +31,9 @@ function JoinBakery() {
                 />
               </div>
               <div className="mb-8">
-                <label className="form-field__label hidden">Phone</label>
+                <label className="form-field__label hidden" htmlFor="phone">
+                  Phone
+                </label>
                 <input
                   className="w-full p-4 px-[42px] rounded-lg border border-[#a18268] bg-transparent-important text-[16px] leading-[1.17]"
                   type="tel"
@@ -39,7 +43,9 @@ function JoinBakery() {
                 />
               </div>
               <div className="mb-8">
-                <label className="form-field__label hidden">E-mail</label>
+                <label className="form-field__label hidden" htmlFor="e-mail">
+                  E-mail
+                </label>
                 <input
                   className="w-full p-4 px-[42px] rounded-lg border border-[#a18268] bg-transparent-important text-[16px] leading-[1.17]"
                   type="email"
