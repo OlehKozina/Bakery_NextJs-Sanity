@@ -42,7 +42,7 @@
   }
 }
 p {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 @layer components {
@@ -123,4 +123,21 @@ input::placeholder {
   transition:
     opacity 1s,
     visibility 1s;
+}
+
+.carousel {
+  @apply overflow-x-auto gap-1;
+  display: grid;
+  grid-auto-flow: column;
+  /* Adjust 300px to the minimum width you prefer */
+  scroll-snap-type: x mandatory;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }

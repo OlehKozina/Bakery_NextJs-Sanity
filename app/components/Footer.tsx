@@ -80,7 +80,7 @@ function Footer() {
                   </li>
                   <li className="flex justify-center  md:block">
                     <a
-                      className=" font-thin max-w-[290px] text-light-color hover:text-brand-color transition-colors flex flex-col md:flex-row "
+                      className=" font-thin max-w-[290px] text-light-color hover:text-brand-color transition-colors flex flex-col md:flex-row z-20"
                       href="https://maps.app.goo.gl/S6ubsjYejrpp1G1W6"
                       target="_blank"
                     >
@@ -90,7 +90,7 @@ function Footer() {
                   <li>
                     <div className="flex space-x-4 justify-center md:justify-start">
                       <a
-                        className="text-light-color hover:text-brand-color transition-colors flex items-center"
+                        className="text-light-color hover:text-brand-color transition-colors flex items-center z-20"
                         href="#"
                       >
                         <FontAwesomeIcon
@@ -99,7 +99,7 @@ function Footer() {
                         />
                       </a>
                       <a
-                        className="text-light-color hover:text-brand-color transition-colors flex items-center"
+                        className="text-light-color hover:text-brand-color transition-colors flex items-center z-20"
                         href="#"
                       >
                         <FontAwesomeIcon

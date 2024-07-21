@@ -9,7 +9,7 @@ interface MenuProps {
 
 const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-light-color">
+    <div className="fixed top-0 left-0 w-full h-full bg-light-color z-50">
       <button
         className=" text-color-primarydark z-10 border-none absolute top-4 right-[100px] md:top-[40px] md:right-[40px]"
         type="button"
