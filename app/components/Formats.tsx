@@ -59,7 +59,7 @@ export default function Formats() {
         <h1 className="mb-6 text-black text-2xl font-extrabold text-center md:mb-10 md:text-5xl">
           Formats
         </h1>
-        <div className=" relative w-full max-w-[1100px] mx-auto overflow-hidden">
+        <div className=" relative w-full max-w-[1100px] max-h-[486px] mx-auto overflow-hidden">
           <div
             className=" flex transition-transform duration-300"
             style={{
