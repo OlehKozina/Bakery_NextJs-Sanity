@@ -5,6 +5,7 @@ function JoinBakery() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const openForm = () => setIsFormVisible(true);
   const closeForm = () => setIsFormVisible(false);
+
   return (
     <section className="py-5 md:py-12" id="contacts">
       <div className="container">
@@ -16,7 +17,7 @@ function JoinBakery() {
             <p className="text-brand-color text-center mb-3">
               Fill out the form so we can contact you
             </p>
-            <form name="contact-form">
+            <div name="contact-form">
               <div className="mb-8">
                 <label className="hidden">Name</label>
                 <input
@@ -54,7 +55,6 @@ function JoinBakery() {
               >
                 Request a call
               </button>
-              {isFormVisible && <Form onClose={closeForm} />}
               <p className="mx-auto max-w-[240px] text-[12px] text-center">
                 By clicking the button I agree with{" "}
                 <span>
@@ -63,7 +63,7 @@ function JoinBakery() {
                   </a>
                 </span>
               </p>
-            </form>
+            </div>
           </div>
           <iframe
             className="flex-shrink-0 h-44 -mx-6 rounded-lg w-full border-none md:mx-auto md:w-80 md:h-[500px] lg:w-[603px] lg:h-[595px]"
@@ -73,6 +73,7 @@ function JoinBakery() {
             loading="lazy"
           ></iframe>
         </div>
+        {isFormVisible && <Form onClose={closeForm} />}
       </div>
     </section>
   );

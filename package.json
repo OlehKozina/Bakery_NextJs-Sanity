@@ -24,7 +24,8 @@
     "react-slick": "^0.30.2",
     "sanity": "^3.51.0",
     "slick-carousel": "^1.8.1",
-    "swiper": "^11.1.5"
+    "swiper": "^11.1.5",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "^20",

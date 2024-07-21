@@ -114,7 +114,7 @@ function Footer() {
             </div>
           </nav>
           <ul className="footer__bottom">
-            <li>
+            <li className="flex justify-center lg:block">
               <a
                 className="text-sm font-light max-w-[211px] text-light-color hover:text-brand-color transition-colors flex flex-col md:flex-row items-start"
                 href="#"
@@ -136,7 +136,7 @@ function Footer() {
         alt="bread-left"
         width={100}
         height={24}
-        className="w-[180px] h-[120px] bg-no-repeat absolute bottom-0 left-0 z-[-0]"
+        className="w-[180px] h-[120px] bg-no-repeat absolute bottom-0 left-0 z-[-1] lg:z-0"
       />
       <Image
         src="/bread-large.png"

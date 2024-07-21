@@ -1,7 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { getBakers } from "@/sanity/sanity-utils";
+import useSWR from "swr";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
+import { getBakers } from "@/sanity/sanity-utils";
+
+// Define a fetcher function to use with SWR
+const fetcher = async () => {
+  const data = await getBakers();
+  return data;
+};
 
 const myPortableTextComponents: PortableTextComponents = {
   types: {
@@ -31,8 +38,15 @@ const myPortableTextComponents: PortableTextComponents = {
   },
 };
 
-export default async function Bakers() {
-  const bakers = await getBakers();
+export default function Bakers() {
+  // Use SWR to fetch data from the API route
+  const { data: bakers, error } = useSWR("/api/getBakers", fetcher);
+
+  // Handle loading state
+  if (!bakers) return <p>Loading...</p>;
+
+  // Handle error state
+  if (error) return <p>Error loading bakers</p>;
 
   return (
     <section className="py-5 md:py-12" id="cooks">
@@ -52,7 +66,7 @@ export default async function Bakers() {
                   alt={baker.name}
                   width={240}
                   height={388}
-                  className="ist-none w-[140px] rounded-[4px] rounded-bl-[200px] shadow-custom md:w-[240px]"
+                  className="list-none w-[140px] rounded-[4px] rounded-bl-[200px] shadow-custom md:w-[240px]"
                 />
                 <div>
                   {baker.name}
