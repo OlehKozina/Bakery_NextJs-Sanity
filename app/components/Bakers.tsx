@@ -10,37 +10,37 @@ const fetcher = async () => {
   return data;
 };
 
-const myPortableTextComponents: PortableTextComponents = {
-  types: {
-    image: ({ value }) => (
-      <p className="flex justify-center">{value.imageUrl}</p>
-    ),
+// const myPortableTextComponents: PortableTextComponents = {
+//   types: {
+//     image: ({ value }) => (
+//       <p className="flex justify-center">{value.imageUrl}</p>
+//     ),
 
-    callToAction: ({ value, isInline }) =>
-      isInline ? (
-        <a href={value.url}>{value.text}</a>
-      ) : (
-        <div className="callToAction">{value.text}</div>
-      ),
-  },
+//     callToAction: ({ value, isInline }) =>
+//       isInline ? (
+//         <a href={value.url}>{value.text}</a>
+//       ) : (
+//         <div className="callToAction">{value.text}</div>
+//       ),
+//   },
 
-  marks: {
-    link: ({ children, value }) => {
-      const rel = !value.href.startsWith("/")
-        ? "noreferrer noopener"
-        : undefined;
-      return (
-        <a href={value.href} rel={rel}>
-          {children}
-        </a>
-      );
-    },
-  },
-};
+//   marks: {
+//     link: ({ children, value }) => {
+//       const rel = !value.href.startsWith("/")
+//         ? "noreferrer noopener"
+//         : undefined;
+//       return (
+//         <a href={value.href} rel={rel}>
+//           {children}
+//         </a>
+//       );
+//     },
+//   },
+// };
 
 export default function Bakers() {
   // Use SWR to fetch data from the API route
-  const { data: bakers, error } = useSWR("/api/getBakers", fetcher);
+  const { data: bakers, error } = useSWR("bakers", fetcher);
 
   // Handle loading state
   if (!bakers) return <p>Loading...</p>;
@@ -73,7 +73,7 @@ export default function Bakers() {
                   <div className="max-w-[187px] mt-6 mb-6 text-sm font-thin last:mb-0 md:text-xl md:max-w-[334px]">
                     <PortableText
                       value={baker.content}
-                      components={myPortableTextComponents}
+                      // components={myPortableTextComponents}
                     />
                   </div>
                 </div>
