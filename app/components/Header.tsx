@@ -39,7 +39,7 @@ const Header = () => {
               <li>
                 <a
                   className="text-light-color no-underline transition-colors duration-300 hover:text-brand-color"
-                  href="#cooks"
+                  href="#bakers"
                 >
                   Bakers
                 </a>
@@ -108,7 +108,7 @@ const Header = () => {
               <li>
                 <a
                   className="no-underline text-color-primarydark hover:text-brand-color menu-btn-close"
-                  href="#cooks"
+                  href="#bakers"
                 >
                   Bakers
                 </a>
