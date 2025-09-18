@@ -4,48 +4,15 @@ import useSWR from "swr";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { getBakers } from "@/sanity/sanity-utils";
 
-// Define a fetcher function to use with SWR
 const fetcher = async () => {
   const data = await getBakers();
   return data;
 };
 
-// const myPortableTextComponents: PortableTextComponents = {
-//   types: {
-//     image: ({ value }) => (
-//       <p className="flex justify-center">{value.imageUrl}</p>
-//     ),
-
-//     callToAction: ({ value, isInline }) =>
-//       isInline ? (
-//         <a href={value.url}>{value.text}</a>
-//       ) : (
-//         <div className="callToAction">{value.text}</div>
-//       ),
-//   },
-
-//   marks: {
-//     link: ({ children, value }) => {
-//       const rel = !value.href.startsWith("/")
-//         ? "noreferrer noopener"
-//         : undefined;
-//       return (
-//         <a href={value.href} rel={rel}>
-//           {children}
-//         </a>
-//       );
-//     },
-//   },
-// };
-
 export default function Bakers() {
-  // Use SWR to fetch data from the API route
   const { data: bakers, error } = useSWR("bakers", fetcher);
-
-  // Handle loading state
   if (!bakers) return <p>Loading...</p>;
 
-  // Handle error state
   if (error) return <p>Error loading bakers</p>;
 
   return (
