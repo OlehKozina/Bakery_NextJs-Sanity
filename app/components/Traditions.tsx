@@ -5,20 +5,20 @@ function Traditions() {
     <section className="py-10 md:py-24 text-sm md:text-base" id="traditions">
       <div className="container">
         <div className="flex flex-col md:flex-row items-start justify-center gap-10 md:gap-0 md:space-x-10 text-base md:text-xl">
-          <div className="max-w-[710px]">
-            <h2 className="mb-6  text-black text-[32px] font-extrabold leading-tight mx-auto text-center md:mb-10 md:text-[64px]">
+          <div className="max-w-[43rem]">
+            <h2 className="mb-6 text-[2rem] font-extrabold leading-tight mx-auto text-center md:mb-10 md:text-[4rem]">
               A new format of traditions
             </h2>
             <p className="mb-5">
-              <span className="text-brand-color font-bold uppercase">
+              <span className="text-brand-default font-bold uppercase">
                 Modern bakery
               </span>
               — this is a bakery that took all the best, and preserved the taste
               of traditional baking and the naturalness of the ingredients
             </p>
-            <p className="mb-5 max-w-[350px]">
+            <p className="mb-5 max-w-[22rem]">
               We work as the most famous networks—
-              <span className="text-brand-color font-bold">
+              <span className="text-brand-default font-bold">
                 5 minutes and the order is ready
               </span>
               . Our bakeries also have a stylish design and high quality

@@ -56,10 +56,10 @@ export default function Formats() {
   return (
     <section className="py-5 md:py-12" id="formats">
       <div className="container mx-auto">
-        <h1 className="mb-6 text-black text-2xl font-extrabold text-center md:mb-10 md:text-5xl">
+        <h1 className="mb-6 text-2xl font-extrabold text-center md:mb-10 md:text-5xl">
           Formats
         </h1>
-        <div className=" relative w-full max-w-[1100px] max-h-[486px] mx-auto overflow-hidden">
+        <div className=" relative w-full max-w-[69rem] max-h-[30rem] mx-auto overflow-hidden">
           <div
             className=" flex transition-transform duration-300"
             style={{
@@ -69,7 +69,7 @@ export default function Formats() {
             {formats.map((format) => (
               <div
                 key={format._id}
-                className="flex-shrink-0 w-full max-w-[250px] sm:max-w-[350px] sm:w-[calc(50%-1rem)] md:w-[calc(33.33%-1rem)] text-custom-white font-medium relative mt-8 mb-2 mx-2"
+                className="flex-shrink-0 w-full max-w-[15rem] sm:max-w-[22rem] sm:w-[calc(50%-1rem)] md:w-[calc(33.33%-1rem)] text-white font-medium relative mt-8 mb-2 mx-2"
               >
                 <div className="relative w-full h-full rounded-3xl overflow-hidden">
                   <Image
@@ -87,10 +87,10 @@ export default function Formats() {
                         "linear-gradient(180deg, rgba(49, 38, 26, 0) 55.21%, rgba(49, 38, 26, 0.71) 72.92%, #31261a 100%)",
                     }}
                   ></div>
-                  <div className="absolute top-[150px] left-8 z-10 text-xl lg:text-2xl md:top-[120px] lg:top-[160px] ">
+                  <div className="absolute top-[9.5rem] left-8 z-10 text-xl lg:text-2xl md:top-[8rem] lg:top-[10rem]">
                     {format.name}
                   </div>
-                  <div className="absolute  left-8 z-10 text-[10px] max-w-[300px] top-[200px] sm:text-[13px] md:text-[10px] md:top-[170px] lg:text-sm lg:top-[220px]">
+                  <div className="absolute  left-8 z-10 text-[0.6rem] max-w-[19rem] top-[12.5rem] sm:text-xs md:text-[0.6rem] md:top-[10rem] lg:text-sm lg:top-[14rem]">
                     <PortableText value={format.content} />
                   </div>
                 </div>
@@ -99,15 +99,15 @@ export default function Formats() {
           </div>
           <button
             onClick={prevSlide}
-            className="absolute bg-custom-white rounded-full h-8 w-8 top-1/2 left-0 transform -translate-y-1/2 bg-black text-white p-2 z-5"
+            className="absolute bg-white rounded-full h-8 w-8 top-1/2 left-0 transform -translate-y-1/2 bg-black p-2 z-5"
           >
-            <FontAwesomeIcon icon={faAngleLeft} className="text-[16px]" />
+            <FontAwesomeIcon icon={faAngleLeft} className="text-base" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute bg-custom-white rounded-full h-8 w-8 top-1/2 right-0 transform -translate-y-1/2 bg-black text-white p-2 z-5"
+            className="absolute bg-white rounded-full h-8 w-8 top-1/2 right-0 transform -translate-y-1/2 bg-black p-2 z-5"
           >
-            <FontAwesomeIcon icon={faAngleRight} className="text-[16px]" />
+            <FontAwesomeIcon icon={faAngleRight} className="text-base" />
           </button>
         </div>
       </div>

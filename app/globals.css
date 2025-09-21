@@ -16,7 +16,7 @@
     font-weight: 400;
     line-height: 1.5;
     margin: 0;
-    background-color: theme("colors.light-color");
+    background-color: theme("colors.brand-light");
   }
   img {
     display: block;
@@ -99,7 +99,7 @@ p {
   }
 }
 input:focus {
-  border-color: theme("colors.brand-color");
+  border-color: theme("colors.brand-default");
   outline: none;
 }
 input::placeholder {

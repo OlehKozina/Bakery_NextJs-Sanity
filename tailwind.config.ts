@@ -21,11 +21,11 @@ const config: Config = {
       thin: "400",
     },
     colors: {
-      "brand-color": "#819b57",
-      "light-color": "#faf4ea",
-      "color-primarydark": "#31261a",
-      "custom-white": "#ffffff",
-      "custom-black": "#0000",
+      "brand-default": "#819b57",
+      "brand-light": "#faf4ea",
+      "brand-dark": "#31261a",
+      white: "#ffffff",
+      "brand-brick": "#a18268",
     },
     extend: {
       fontFamily: {

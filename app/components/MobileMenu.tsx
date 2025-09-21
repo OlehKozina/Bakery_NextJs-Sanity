@@ -9,14 +9,14 @@ interface MenuProps {
 
 const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-light-color z-50">
+    <div className="fixed top-0 left-0 w-full h-full bg-brand-light z-50">
       <button
-        className=" text-color-primarydark z-10 border-none absolute top-4 right-[100px] md:top-[40px] md:right-[40px]"
+        className=" text-brand-dark z-10 border-none absolute top-4 right-[6.25rem] md:top-[2.5rem] md:right-[2.5rem]"
         type="button"
       >
         <FontAwesomeIcon
           icon={faXmark}
-          className="hover:text-brand-color text-xl"
+          className="hover:text-brand-default text-xl"
           onClick={onClose}
         />
       </button>
@@ -28,7 +28,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
         </li>
         <li>
           <a
-            className="no-underline text-color-primarydark hover:text-brand-color "
+            className="no-underline text-brand-dark hover:text-brand-default"
             href="#traditions"
           >
             Our traditions
@@ -36,7 +36,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
         </li>
         <li>
           <a
-            className="no-underline text-color-primarydark hover:text-brand-color "
+            className="no-underline text-brand-dark hover:text-brand-default"
             href="#cooks"
           >
             Bakers
@@ -44,7 +44,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
         </li>
         <li>
           <a
-            className="no-underline text-color-primarydark hover:text-brand-color "
+            className="no-underline text-brand-dark hover:text-brand-default"
             href="#formats"
           >
             Formats
@@ -52,7 +52,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
         </li>
         <li>
           <a
-            className="no-underline text-color-primarydark hover:text-brand-color "
+            className="no-underline text-brand-dark hover:text-brand-default"
             href="#contacts"
           >
             Contacts

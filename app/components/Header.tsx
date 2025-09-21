@@ -30,7 +30,7 @@ const Header = () => {
             <ul className="hidden md:flex list-none gap-16 flex-grow justify-center">
               <li>
                 <a
-                  className="text-light-color no-underline transition-colors duration-500 hover:text-brand-color"
+                  className="text-brand-light no-underline transition-colors duration-500 hover:text-brand-default"
                   href="#traditions"
                 >
                   Our traditions
@@ -38,7 +38,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="text-light-color no-underline transition-colors duration-300 hover:text-brand-color"
+                  className="text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
                   href="#bakers"
                 >
                   Bakers
@@ -46,7 +46,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="text-light-color no-underline transition-colors duration-300 hover:text-brand-color"
+                  className="text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
                   href="#formats"
                 >
                   Formats
@@ -54,7 +54,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="text-light-color no-underline transition-colors duration-300 hover:text-brand-color"
+                  className="text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
                   href="#contacts"
                 >
                   Contacts
@@ -63,7 +63,7 @@ const Header = () => {
             </ul>
           </nav>
           <button
-            className="hidden md:block px-5 py-2.5 bg-brand-color text-light-color border border-brand-color rounded-lg cursor-pointer font-semibold hover:opacity-80 md:px-8 md:py-4"
+            className="hidden md:block px-5 py-2.5 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold hover:opacity-80 md:px-8 md:py-4"
             type="button"
             onClick={openForm}
           >
@@ -71,17 +71,17 @@ const Header = () => {
           </button>
           {isFormVisible && <Form onClose={closeForm} />}
           <button
-            className=" bg-transparent border-none text-light-color md:hidden menu-btn-open"
+            className=" bg-transparent border-none text-brand-light md:hidden menu-btn-open"
             type="button"
           >
             <FontAwesomeIcon
               icon={faBars}
-              className="hover:text-brand-color w-6"
+              className="hover:text-brand-default w-6"
               onClick={openMenu}
             />
             {isMobMenuVisible && <MobileMenu onClose={closeMenu} />}
           </button>
-          <div className="fixed top-0 left-0 w-full h-full bg-light-color transform translate-x-full transition-transform duration-500 is-open:translate-x-0">
+          <div className="fixed top-0 left-0 w-full h-full bg-brand-light transform translate-x-full transition-transform duration-500 is-open:translate-x-0">
             <button
               className="bg-transparent border-none absolute top-4 right-24 menu-btn-close"
               type="button"
@@ -99,7 +99,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="no-underline text-color-primarydark hover:text-brand-color menu-btn-close"
+                  className="no-underline text-brand-dark hover:text-brand-default menu-btn-close"
                   href="#traditions"
                 >
                   Our traditions
@@ -107,7 +107,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="no-underline text-color-primarydark hover:text-brand-color menu-btn-close"
+                  className="no-underline text-brand-dark hover:text-brand-default menu-btn-close"
                   href="#bakers"
                 >
                   Bakers
@@ -115,7 +115,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="no-underline text-color-primarydark hover:text-brand-color menu-btn-close"
+                  className="no-underline text-brand-dark hover:text-brand-default menu-btn-close"
                   href="#formats"
                 >
                   Formats
@@ -123,7 +123,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="no-underline text-color-primarydark hover:text-brand-color menu-btn-close"
+                  className="no-underline text-brand-dark hover:text-brand-default menu-btn-close"
                   href="#contacts"
                 >
                   Contacts

@@ -6,7 +6,7 @@ import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 function Footer() {
   return (
     <footer
-      className="relative  text-center py-8 bg-cover bg-center bg-no-repeat bg-[#31261a] md:text-left"
+      className="relative text-center py-8 bg-cover bg-center bg-no-repeat bg-brand-dark md:text-left"
       style={{
         backgroundImage: "url('/footer-image.png')",
       }}
@@ -29,7 +29,7 @@ function Footer() {
               <ul>
                 <li>
                   <a
-                    className=" text-light-color no-underline transition-colors duration-300 hover:text-brand-color"
+                    className=" text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
                     href="#traditions"
                   >
                     Franchise
@@ -37,7 +37,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    className=" text-light-color no-underline transition-colors duration-300 hover:text-brand-color"
+                    className=" text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
                     href="#cooks"
                   >
                     Bakers
@@ -45,7 +45,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    className=" text-light-color no-underline transition-colors duration-300 hover:text-brand-color"
+                    className=" text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
                     href="#formats"
                   >
                     Formats
@@ -53,7 +53,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    className=" text-light-color no-underline transition-colors duration-300 hover:text-brand-color"
+                    className=" text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
                     href="#contacts"
                   >
                     Contacts
@@ -64,7 +64,7 @@ function Footer() {
                 <ul>
                   <li className="flex justify-center  md:block">
                     <a
-                      className=" font-thin max-w-[211px] text-light-color hover:text-brand-color transition-colors flex flex-col md:flex-row"
+                      className=" font-thin text-brand-light hover:text-brand-default transition-colors flex flex-col md:flex-row"
                       href="tel:+380960000007"
                     >
                       + 1 (325) 333 7777
@@ -72,15 +72,15 @@ function Footer() {
                   </li>
                   <li className="flex justify-center md:block">
                     <a
-                      className=" font-thin max-w-[211px] text-light-color hover:text-brand-color transition-colors flex flex-col md:flex-row "
+                      className=" font-thin text-brand-light hover:text-brand-default transition-colors flex flex-col md:flex-row"
                       href="mailto:shopbakery@gmail.com"
                     >
                       shopbakery@gmail.com
                     </a>
                   </li>
-                  <li className="flex justify-center  md:block">
+                  <li className="flex justify-center md:block">
                     <a
-                      className=" font-thin max-w-[290px] text-light-color hover:text-brand-color transition-colors flex flex-col md:flex-row z-20"
+                      className="font-thin text-brand-light hover:text-brand-default transition-colors flex flex-col md:flex-row z-20"
                       href="https://maps.app.goo.gl/S6ubsjYejrpp1G1W6"
                       target="_blank"
                     >
@@ -90,7 +90,7 @@ function Footer() {
                   <li>
                     <div className="flex space-x-4 justify-center md:justify-start">
                       <a
-                        className="text-light-color hover:text-brand-color transition-colors flex items-center z-20"
+                        className="text-brand-light hover:text-brand-default transition-colors flex items-center z-20"
                         href="#"
                       >
                         <FontAwesomeIcon
@@ -99,7 +99,7 @@ function Footer() {
                         />
                       </a>
                       <a
-                        className="text-light-color hover:text-brand-color transition-colors flex items-center z-20"
+                        className="text-brand-light hover:text-brand-default transition-colors flex items-center z-20"
                         href="#"
                       >
                         <FontAwesomeIcon
@@ -116,7 +116,7 @@ function Footer() {
           <ul className="footer__bottom">
             <li className="flex justify-center lg:block">
               <a
-                className="text-sm font-light max-w-[211px] text-light-color hover:text-brand-color transition-colors flex flex-col md:flex-row items-start"
+                className="text-sm font-light text-brand-light hover:text-brand-default transition-colors flex flex-col md:flex-row items-start"
                 href="#"
                 target="_blank"
               >
@@ -124,7 +124,7 @@ function Footer() {
               </a>
             </li>
             <li>
-              <p className="text-[#a18268] text-[14px] font-normal">
+              <p className="text-brand-brick text-sm font-normal">
                 &copy;Data is protected!
               </p>
             </li>
@@ -136,14 +136,14 @@ function Footer() {
         alt="bread-left"
         width={100}
         height={24}
-        className="w-[180px] h-[120px] bg-no-repeat absolute bottom-0 left-0 z-[-1] lg:z-0"
+        className="w-[11rem] h-[8rem] bg-no-repeat absolute bottom-0 left-0 z-[-1] lg:z-0"
       />
       <Image
         src="/bread-large.png"
         alt="bread-left"
         width={100}
         height={24}
-        className="absolute bottom-0 right-0 w-[329px] h-[154px] bg-no-repeat md:w-[380px] md:h-[190px]"
+        className="absolute bottom-0 right-0 w-[20rem] h-[10rem] bg-no-repeat md:w-[24rem] md:h-[12rem]"
       />
     </footer>
   );
