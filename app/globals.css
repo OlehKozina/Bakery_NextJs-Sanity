@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global */
-
 @layer base {
   ul {
     list-style: none;

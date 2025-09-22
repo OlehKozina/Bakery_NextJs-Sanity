@@ -1,4 +1,5 @@
-import baker from "./baker-schema";
-import format from "./format-schema";
-const schemas = [baker, format];
+import baker from "./baker";
+import format from "./format";
+import hero from "./hero";
+const schemas = [baker, format, hero];
 export default schemas;

@@ -1,9 +1,8 @@
-import { Baker } from "@/types/Baker";
+import { Item } from "@/types/Item";
 import { createClient, groq } from "next-sanity";
-// import clientConfig from "./config/client-config";
-import { Format } from "@/types/Format";
+import { Hero } from "@/types/Hero";
 
-export async function getBakers(): Promise<[Baker]> {
+export async function getBakers(): Promise<[Item]> {
   const baker = createClient({
     projectId: "fqinbqr2",
     dataset: "production",
@@ -15,72 +14,43 @@ export async function getBakers(): Promise<[Baker]> {
     _id,
     _createdAt,
     name,
-    "slug": slug.current,
     "image": image.asset->url,
-    url,
     content
     }`
   );
 }
 
-export async function getBaker(slug: string): Promise<Baker> {
-  const client = createClient({
+export async function getFormats(): Promise<[Item]> {
+  const format = createClient({
     projectId: "fqinbqr2",
     dataset: "production",
     apiVersion: "2024-07-17",
   });
 
-  return client.fetch(
-    groq`*[_type == "baker" && slug.current == $slug][0]{
-    _id,
-    _createdAt,
-    name,
-    "slug": slug.current,
-    "image": image.asset->url,
-    url,
-    content
-    }`,
-    { slug: slug }
-  );
-}
-
-export async function getFormats(): Promise<[Format]> {
-  const baker = createClient({
-    projectId: "fqinbqr2",
-    dataset: "production",
-    apiVersion: "2024-07-17",
-  });
-
-  return baker.fetch(
+  return format.fetch(
     groq`*[_type == "format"]{
     _id,
     _createdAt,
     name,
-    "slug": slug.current,
     "image": image.asset->url,
-    url,
     content
     }`
   );
 }
 
-export async function getFormat(slug: string): Promise<Format> {
-  const client = createClient({
+export async function getHero(): Promise<[Hero]> {
+  const hero = createClient({
     projectId: "fqinbqr2",
     dataset: "production",
     apiVersion: "2024-07-17",
   });
 
-  return client.fetch(
-    groq`*[_type == "format" && slug.current == $slug][0]{
+  return hero.fetch(
+    groq`*[_type == "hero"]{
     _id,
     _createdAt,
-    name,
-    "slug": slug.current,
+    heading,
     "image": image.asset->url,
-    url,
-    content
-    }`,
-    { slug: slug }
+    }`
   );
 }

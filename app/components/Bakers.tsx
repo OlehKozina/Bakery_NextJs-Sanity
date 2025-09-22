@@ -18,7 +18,7 @@ export default function Bakers() {
   return (
     <section className="py-5 md:py-12" id="bakers">
       <div className="container">
-        <h2 className="block text-3xl font-extrabold leading-tight mx-auto text-center mb-6 max-w-[32.5rem] relative before-desktop after-desktop md:text-6xl md:mb-20">
+        <h2 className="block text-3xl font-extrabold leading-tight mx-auto text-center mb-6 max-w-[32.5rem] relative md:text-6xl md:mb-20">
           Our best <span className="text-brand-default">bakers</span>
         </h2>
         <div className="list-none justify-center flex gap-8 flex-wrap sm:justify-center">
