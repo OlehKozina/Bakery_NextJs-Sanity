@@ -37,7 +37,7 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose }) => {
         <li>
           <a
             className="no-underline text-brand-dark hover:text-brand-default"
-            href="#cooks"
+            href="#bakers"
           >
             Bakers
           </a>

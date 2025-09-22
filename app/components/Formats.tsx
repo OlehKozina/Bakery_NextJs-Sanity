@@ -55,7 +55,7 @@ export default function Formats() {
 
   return (
     <section className="py-5 md:py-12" id="formats">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-0">
         <h1 className="mb-6 text-2xl font-extrabold text-center md:mb-10 md:text-5xl">
           Formats
         </h1>
@@ -93,13 +93,13 @@ export default function Formats() {
           </div>
           <button
             onClick={prevSlide}
-            className="absolute bg-white rounded-full h-8 w-8 top-1/2 left-0 transform -translate-y-1/2 bg-black p-2 z-5"
+            className="absolute bg-white rounded-full h-8 w-8 top-1/2 left-0 transform -translate-y-1/2 p-2 z-5"
           >
             <FontAwesomeIcon icon={faAngleLeft} className="text-base" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute bg-white rounded-full h-8 w-8 top-1/2 right-0 transform -translate-y-1/2 bg-black p-2 z-5"
+            className="absolute bg-white rounded-full h-8 w-8 top-1/2 right-0 transform -translate-y-1/2 p-2 z-5"
           >
             <FontAwesomeIcon icon={faAngleRight} className="text-base" />
           </button>
