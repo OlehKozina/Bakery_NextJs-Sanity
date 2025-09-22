@@ -5,6 +5,7 @@ import {
   duration,
   type,
   boxShadow,
+  zIndex,
 } from "./app/design/tokens";
 
 const config: Config = {
@@ -16,6 +17,7 @@ const config: Config = {
     extend: {
       boxShadow: boxShadow,
       transitionDuration: duration,
+      zIndex,
     },
   },
   plugins: [],

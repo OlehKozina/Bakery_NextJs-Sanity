@@ -19,7 +19,7 @@ const Header = () => {
       <div className="container">
         <div className="flex items-center gap-10">
           <nav className="flex items-center flex-grow gap-10">
-            <a className="header__logo" href="#">
+            <a href="#" className="z-cover relative">
               <Image
                 src="/logo.svg"
                 alt="bakery_logo"
@@ -79,7 +79,7 @@ const Header = () => {
               className="hover:text-brand-default w-6"
               onClick={openMenu}
             />
-            {isMobMenuVisible && <MobileMenu onClose={closeMenu} />}
+            <MobileMenu onClose={closeMenu} isVisible={isMobMenuVisible} />
           </button>
         </div>
       </div>
