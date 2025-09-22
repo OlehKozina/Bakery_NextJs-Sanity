@@ -1,5 +1,3 @@
-import { ALL_FIELDS_GROUP } from "sanity";
-
 const format = {
   name: "format",
   title: "Formats",
@@ -12,10 +10,6 @@ const format = {
     {
       name: "seo",
       title: "SEO",
-    },
-    {
-      ...ALL_FIELDS_GROUP,
-      hidden: true,
     },
   ],
   fields: [

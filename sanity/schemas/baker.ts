@@ -1,5 +1,3 @@
-import { ALL_FIELDS_GROUP } from "sanity";
-
 const baker = {
   name: "baker",
   title: "Bakers",
@@ -12,10 +10,6 @@ const baker = {
     {
       name: "seo",
       title: "SEO",
-    },
-    {
-      ...ALL_FIELDS_GROUP,
-      hidden: true,
     },
   ],
   fields: [
