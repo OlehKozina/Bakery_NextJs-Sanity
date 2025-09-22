@@ -3,6 +3,7 @@ export const colors = {
   "brand-light": "#faf4ea",
   "brand-dark": "#31261a",
   white: "#ffffff",
+  black: "#000",
   "muted-green": "#cfcfbc",
   "brand-brick": "#a18268",
 };

@@ -59,7 +59,7 @@ export default function Formats() {
         <h1 className="mb-6 text-2xl font-extrabold text-center md:mb-10 md:text-5xl">
           Formats
         </h1>
-        <div className=" relative w-full max-w-[69rem] max-h-[30rem] mx-auto overflow-hidden">
+        <div className=" relative w-full max-w-[69rem] mx-auto overflow-hidden">
           <div
             className=" flex transition-transform duration-300"
             style={{
@@ -80,13 +80,7 @@ export default function Formats() {
                     height={444}
                     className="object-cover"
                   />
-                  <div
-                    className="absolute inset-0 z-9"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(180deg, rgba(49, 38, 26, 0) 55.21%, rgba(49, 38, 26, 0.71) 72.92%, #31261a 100%)",
-                    }}
-                  ></div>
+                  <div className="absolute inset-0 z-9 bg-gradient-to-b from-white/0 via-white/0 to-brand-dark"></div>
                   <div className="absolute top-[9.5rem] left-8 z-10 text-xl lg:text-2xl md:top-[8rem] lg:top-[10rem]">
                     {format.name}
                   </div>

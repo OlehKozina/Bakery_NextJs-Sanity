@@ -15,24 +15,21 @@ const fetcher = async () => {
 };
 
 const Hero = ({ heading, image }: HeroProps) => {
-  const { data, error } = useSWR("hero", fetcher);
+  const { data } = useSWR("hero", fetcher);
   const hero = data?.[0];
   console.log("hero", hero);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const openForm = () => setIsFormVisible(true);
   const closeForm = () => setIsFormVisible(false);
 
-  const [isMobMenuVisible, setIsMobMenuVisible] = useState(false);
-  const openMenu = () => setIsMobMenuVisible(true);
-  const closeMenu = () => setIsMobMenuVisible(false);
-
   return (
     <section
-      className="relative h-[21rem] md:h-[33.5rem] lg:h-[46rem] flex items-center bg-center-top bg-cover bg-no-repeat bg-top"
+      className="relative h-[21rem] md:h-[33.5rem] lg:h-[46rem] flex items-center bg-cover bg-top"
       style={{
-        backgroundImage: `linear-gradient(103deg, rgba(18, 18, 17, 0.78) 2.03%, rgba(18, 18, 17, 0.6) 58.46%, rgba(18, 18, 17, 0) 90.36%), url(${hero?.image})`,
+        backgroundImage: `url(${hero?.image})`,
       }}
     >
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/0"></div>
       <div className="container">
         <h1 className="relative font-extrabold text-center text-5xl mb-25 leading-tight text-brand-light md:top-0 md:mb-12 md:text-8xl lg:text-9xl lg:line-height-[1.5] lg:mb-0">
           <span className="text-brand-default">
