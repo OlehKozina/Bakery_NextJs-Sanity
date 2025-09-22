@@ -10,7 +10,7 @@ function JoinBakery() {
     <section className="py-5 md:py-12" id="contacts">
       <div className="container">
         <div className="flex flex-col items-center gap-6 pb-0 md:flex-row md:gap-10 md:pb-24">
-          <div className="max-w-605">
+          <div className="max-w-[38rem]">
             <h2 className="mb-4 text-4xl font-extrabold leading-[1.3] mx-auto text-center md:text-6xl">
               Join the bakery network
             </h2>
@@ -23,7 +23,7 @@ function JoinBakery() {
                   Name
                 </label>
                 <input
-                  className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-transparent-important text-base leading-[1.17]"
+                  className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17]"
                   type="text"
                   id="user-name"
                   name="user-name"
@@ -35,7 +35,7 @@ function JoinBakery() {
                   Phone
                 </label>
                 <input
-                  className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-transparent-important text-base leading-[1.17]"
+                  className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17]"
                   type="tel"
                   id="phone"
                   name="phone"
@@ -47,7 +47,7 @@ function JoinBakery() {
                   E-mail
                 </label>
                 <input
-                  className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-transparent-important text-base leading-[1.17]"
+                  className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17]"
                   type="email"
                   id="e-mail"
                   name="e-mail"

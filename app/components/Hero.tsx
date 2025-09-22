@@ -20,7 +20,7 @@ function Hero() {
       }}
     >
       <div className="container">
-        <h1 className="relative font-extrabold text-center text-[3rem] mb-25 leading-tight text-brand-light md:top-0 md:mb-12 md:text-[6.5rem] lg:text-[8rem] lg:line-height-[1.5] lg:mb-0">
+        <h1 className="relative font-extrabold text-center text-5xl mb-25 leading-tight text-brand-light md:top-0 md:mb-12 md:text-8xl lg:text-9xl lg:line-height-[1.5] lg:mb-0">
           <span className="text-brand-default">Modern </span>Bakery
         </h1>
         <button

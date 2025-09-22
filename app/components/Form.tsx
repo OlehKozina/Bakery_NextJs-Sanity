@@ -12,7 +12,7 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
       className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5 {
 }"
     >
-      <div className="relative z-10 overflow-y-auto flex flex-col justify-center items-center w-full max-w-[37rem] h-full bg-brand-light rounded-[2rem] transition-opacity-custom md:max-w-[55rem]">
+      <div className="relative z-10 overflow-y-auto flex flex-col justify-center items-center w-full max-w-[37rem] h-full bg-brand-light rounded-[2rem] transition-opacity duration-slow md:max-w-[55rem]">
         <button
           className="border-none bg-transparent cursor-pointer absolute top-3 right-3 md:top-10 md:right-10"
           type="button"
@@ -33,7 +33,7 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
           <div className="mb-8">
             <label className="hidden">Name</label>
             <input
-              className="w-full px-10 py-4 rounded-lg border border-brand-brick bg-transparent-important text-base leading-[1.17] placeholder-brand-brick placeholder:text-base placeholder:leading-[1.17] focus:border-brand-default outline-none"
+              className="w-full px-10 py-4 rounded-lg border border-brand-brick bg-brand-light !text-base leading-[1.17] placeholder-brand-brick placeholder:text-base placeholder:leading-[1.17] focus:border-brand-default outline-none"
               type="text"
               id="user-name"
               name="user-name"
@@ -44,7 +44,7 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
           <div className="mb-8">
             <label className="hidden">Phone</label>
             <input
-              className="w-full px-10 py-4 rounded-lg border border-brand-brick bg-transparent-important text-base leading-[1.17] placeholder-brand-brick placeholder:text-base placeholder:leading-[1.17] focus:border-brand-default outline-none"
+              className="w-full px-10 py-4 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17] placeholder-brand-brick placeholder:text-base placeholder:leading-[1.17] focus:border-brand-default outline-none"
               type="tel"
               id="phone"
               name="phone"
@@ -56,7 +56,7 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
           <div className="mb-8">
             <label className="hidden">E-mail</label>
             <input
-              className="w-full px-10 py-4 rounded-lg border border-brand-brick bg-transparent-important text-base leading-[1.17] placeholder-brand-brick placeholder:text-base placeholder:leading-[1.17] focus:border-brand-default outline-none"
+              className="w-full px-10 py-4 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17] placeholder-brand-brick placeholder:text-base placeholder:leading-[1.17] focus:border-brand-default outline-none"
               type="email"
               id="e-mail"
               name="e-mail"

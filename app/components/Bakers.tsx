@@ -16,7 +16,7 @@ export default function Bakers() {
   if (error) return <p>Error loading bakers</p>;
 
   return (
-    <section className="py-5 md:py-12" id="cooks">
+    <section className="py-5 md:py-12" id="bakers">
       <div className="container">
         <h2 className="block text-3xl font-extrabold leading-tight mx-auto text-center mb-6 max-w-[32.5rem] relative before-desktop after-desktop md:text-6xl md:mb-20">
           Our best <span className="text-brand-default">bakers</span>
@@ -34,7 +34,7 @@ export default function Bakers() {
                     alt={baker?.name}
                     width={240}
                     height={388}
-                    className="list-none w-[9rem] rounded-md rounded-bl-[12.5rem] shadow-custom md:w-[15rem]"
+                    className="list-none w-[9rem] rounded-md rounded-bl-[12.5rem] shadow-bakerCard md:w-[15rem]"
                   />
                   <div>
                     {baker.name}

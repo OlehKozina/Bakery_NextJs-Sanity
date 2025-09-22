@@ -29,7 +29,7 @@ function Footer() {
               <ul>
                 <li>
                   <a
-                    className=" text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
+                    className=" text-brand-light no-underline transition-colors hover:text-brand-default"
                     href="#traditions"
                   >
                     Franchise
@@ -37,7 +37,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    className=" text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
+                    className=" text-brand-light no-underline transition-colors hover:text-brand-default"
                     href="#cooks"
                   >
                     Bakers
@@ -45,7 +45,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    className=" text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
+                    className=" text-brand-light no-underline transition-colors hover:text-brand-default"
                     href="#formats"
                   >
                     Formats
@@ -53,7 +53,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    className=" text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
+                    className=" text-brand-light no-underline transition-colors hover:text-brand-default"
                     href="#contacts"
                   >
                     Contacts

@@ -30,7 +30,7 @@ const Header = () => {
             <ul className="hidden md:flex list-none gap-16 flex-grow justify-center">
               <li>
                 <a
-                  className="text-brand-light no-underline transition-colors duration-500 hover:text-brand-default"
+                  className="text-brand-light no-underline transition-colors hover:text-brand-default"
                   href="#traditions"
                 >
                   Our traditions
@@ -38,7 +38,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
+                  className="text-brand-light no-underline transition-colors hover:text-brand-default"
                   href="#bakers"
                 >
                   Bakers
@@ -46,7 +46,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
+                  className="text-brand-light no-underline transition-colors hover:text-brand-default"
                   href="#formats"
                 >
                   Formats
@@ -54,7 +54,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  className="text-brand-light no-underline transition-colors duration-300 hover:text-brand-default"
+                  className="text-brand-light no-underline transition-colors hover:text-brand-default"
                   href="#contacts"
                 >
                   Contacts
@@ -81,56 +81,6 @@ const Header = () => {
             />
             {isMobMenuVisible && <MobileMenu onClose={closeMenu} />}
           </button>
-          <div className="fixed top-0 left-0 w-full h-full bg-brand-light transform translate-x-full transition-transform duration-500 is-open:translate-x-0">
-            <button
-              className="bg-transparent border-none absolute top-4 right-24 menu-btn-close"
-              type="button"
-            >
-              <i className="fa-solid fa-xmark"></i>
-            </button>
-            <ul className="flex flex-col gap-5 m-5">
-              <li>
-                <Image
-                  src="/logo_mobile_menu.svg"
-                  alt="mobile_logo"
-                  width={100}
-                  height={24}
-                />
-              </li>
-              <li>
-                <a
-                  className="no-underline text-brand-dark hover:text-brand-default menu-btn-close"
-                  href="#traditions"
-                >
-                  Our traditions
-                </a>
-              </li>
-              <li>
-                <a
-                  className="no-underline text-brand-dark hover:text-brand-default menu-btn-close"
-                  href="#bakers"
-                >
-                  Bakers
-                </a>
-              </li>
-              <li>
-                <a
-                  className="no-underline text-brand-dark hover:text-brand-default menu-btn-close"
-                  href="#formats"
-                >
-                  Formats
-                </a>
-              </li>
-              <li>
-                <a
-                  className="no-underline text-brand-dark hover:text-brand-default menu-btn-close"
-                  href="#contacts"
-                >
-                  Contacts
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </header>

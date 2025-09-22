@@ -1,42 +1,21 @@
 import type { Config } from "tailwindcss";
+import {
+  screens,
+  colors,
+  duration,
+  type,
+  boxShadow,
+} from "./app/design/tokens";
 
 const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    screens: {
-      sm: "640px",
-      md: "768px",
-      md_lg: "960px",
-      lg: "1024px",
-      xl: "1280px",
-    },
-    fontWeight: {
-      extrabold: "900",
-      bold: "600",
-      medium: "500",
-      thin: "400",
-    },
-    colors: {
-      "brand-default": "#819b57",
-      "brand-light": "#faf4ea",
-      "brand-dark": "#31261a",
-      white: "#ffffff",
-      "brand-brick": "#a18268",
-    },
+    screens,
+    colors,
+    ...type,
     extend: {
-      fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
-      },
-      maxWidth: {
-        "605": "605px",
-      },
-      boxShadow: {
-        custom: "-16px 16px 0px 0px #faf4ea, -16px 16px 0px 2px black",
-      },
+      boxShadow: boxShadow,
+      transitionDuration: duration,
     },
   },
   plugins: [],
