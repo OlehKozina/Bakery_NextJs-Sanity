@@ -57,7 +57,7 @@ export default function Formats() {
     <section className="py-5 md:py-12" id="formats">
       <div className="container mx-auto px-0">
         <h1 className="mb-6 text-2xl font-extrabold text-center md:mb-10 md:text-5xl">
-          Formats
+          Format
         </h1>
         <div className=" relative w-full max-w-[69rem] mx-auto overflow-hidden">
           <div
