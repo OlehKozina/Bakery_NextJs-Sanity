@@ -1,5 +1,5 @@
 "use client";
-import Form from "./Form";
+import ModalForm from "./ModalForm";
 import React, { useState } from "react";
 import { getHero } from "@/sanity/sanity-utils";
 import useSWR from "swr";
@@ -44,7 +44,7 @@ const Hero = ({ heading, image }: HeroProps) => {
         >
           Request a call
         </button>
-        {isFormVisible && <Form onClose={closeForm} />}
+        {isFormVisible && <ModalForm onClose={closeForm} />}
       </div>
     </section>
   );
