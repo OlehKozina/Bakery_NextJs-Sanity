@@ -4,6 +4,7 @@ export type Item = {
   _id: string;
   _createdAt: Date;
   name: string;
+  heading?: string;
   image: string;
   content: PortableTextBlock[];
 };

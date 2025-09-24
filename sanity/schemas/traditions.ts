@@ -1,6 +1,6 @@
-const baker = {
-  name: "baker",
-  title: "Bakers",
+const traditions = {
+  name: "traditions",
+  title: "Traditions",
   type: "document",
   groups: [
     {
@@ -14,8 +14,8 @@ const baker = {
   ],
   fields: [
     {
-      name: "name",
-      title: "Name",
+      name: "heading",
+      title: "Heading",
       type: "string",
       group: "content",
     },
@@ -40,4 +40,4 @@ const baker = {
   ],
 };
 
-export default baker;
+export default traditions;

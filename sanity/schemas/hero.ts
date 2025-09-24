@@ -2,7 +2,6 @@ const hero = {
   name: "hero",
   title: "Hero",
   type: "document",
-  __experimental_actions: ["update", "publish"],
   groups: [
     {
       name: "content",

@@ -1,32 +1,33 @@
 import Image from "next/image";
+import { getTraditions } from "@/sanity/sanity-utils";
+import useSWR from "swr";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
+
+const fetcher = async () => {
+  const data = await getTraditions();
+  return data;
+};
 
 function Traditions() {
+  const { data } = useSWR("traditions", fetcher);
+  const traditions = data?.[0];
+  if (!traditions) return null;
+  const { heading, content, image } = traditions;
+  console.log("data", data);
   return (
     <section className="py-10 md:py-24 text-sm md:text-base" id="traditions">
       <div className="container">
         <div className="flex flex-col md:flex-row items-start justify-center gap-10 md:gap-0 md:space-x-10 text-base md:text-xl">
           <div className="max-w-[43rem]">
             <h2 className="mb-6 text-[2rem] font-extrabold leading-tight mx-auto text-center md:mb-10 md:text-[4rem]">
-              A new format of traditions
+              {heading}
             </h2>
             <p className="mb-5">
-              <span className="text-brand-default font-bold uppercase">
-                Modern bakery
-              </span>
-              — this is a bakery that took all the best, and preserved the taste
-              of traditional baking and the naturalness of the ingredients
-            </p>
-            <p className="mb-5 max-w-[22rem]">
-              We work as the most famous networks—
-              <span className="text-brand-default font-bold">
-                5 minutes and the order is ready
-              </span>
-              . Our bakeries also have a stylish design and high quality
-              service!
+              <PortableText value={content} />
             </p>
           </div>
           <Image
-            src="/baker-man.jpg"
+            src={image}
             alt="baker"
             width={393}
             height={466}
