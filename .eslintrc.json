@@ -2,8 +2,11 @@
   "extends": ["next/core-web-vitals"],
   "plugins": ["perfectionist"],
   "rules": {
-    "perfectionist/sort-imports": "error",
-    "perfectionist/sort-objects": "error",
-    "perfectionist/sort-array-includes": "error"
+    "perfectionist/sort-imports": [
+      "error",
+      { "type": "natural", "newlinesBetween": "ignore" }
+    ],
+    "perfectionist/sort-objects": ["error", { "type": "natural" }],
+    "perfectionist/sort-array-includes": ["error", { "type": "natural" }]
   }
 }

@@ -2,7 +2,6 @@ import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import React from "react";
 import useSWR from "swr";
-
 import { getBakers } from "@/sanity/sanity-utils";
 
 const fetcher = async () => {

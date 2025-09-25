@@ -4,7 +4,6 @@ import { PortableText } from "next-sanity";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import useSWR from "swr";
-
 import { getFormats } from "@/sanity/sanity-utils";
 
 const fetcher = async () => {

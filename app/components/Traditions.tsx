@@ -1,7 +1,6 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import useSWR from "swr";
-
 import { getTraditions } from "@/sanity/sanity-utils";
 
 const fetcher = async () => {

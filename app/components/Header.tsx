@@ -4,9 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React, { useState } from "react";
 import useSWR from "swr";
-
 import { getHeader } from "@/sanity/sanity-utils";
-
 import MobileMenu from "./MobileMenu";
 import Form from "./ModalForm";
 
