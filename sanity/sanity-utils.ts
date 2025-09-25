@@ -18,6 +18,7 @@ export async function getFormats(): Promise<[Format]> {
     _id,
     heading,
     bakeryTypes[]{
+      _key,
       name,
       "image": image.asset->url,
       content

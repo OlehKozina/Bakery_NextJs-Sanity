@@ -27,7 +27,6 @@ export default function Formats() {
   }, []);
   const { data } = useSWR("formats", fetcher);
   const formats = data?.[0];
-  console.log("formats", formats);
   if (!formats) return null;
   const { heading, bakeryTypes } = formats;
   const nextSlide = () => {
@@ -60,10 +59,10 @@ export default function Formats() {
             }}
           >
             {bakeryTypes.map((type) => {
-              const { image, name, content } = type;
+              const { image, name, content, _key } = type;
               return (
                 <div
-                  key={type._id}
+                  key={_key}
                   className="flex-shrink-0 w-full max-w-[15rem] sm:max-w-[22rem] sm:w-[calc(50%-1rem)] md:w-[calc(33.33%-1rem)] text-white font-medium relative mt-8 mb-2 mx-2"
                 >
                   <div className="relative w-full h-full rounded-3xl overflow-hidden">

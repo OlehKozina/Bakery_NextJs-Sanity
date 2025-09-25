@@ -7,9 +7,17 @@ import Form from "./Form";
 interface MenuProps {
   onClose: () => void;
   isVisible?: boolean;
+  navigation?: {
+    title?: string;
+    sectionId?: string;
+  }[];
 }
 
-const MobileMenu: React.FC<MenuProps> = ({ onClose, isVisible }) => {
+const MobileMenu: React.FC<MenuProps> = ({
+  onClose,
+  isVisible,
+  navigation,
+}) => {
   useEffect(() => {
     if (isVisible) {
       document.body.style.overflow = "hidden";
@@ -45,38 +53,17 @@ const MobileMenu: React.FC<MenuProps> = ({ onClose, isVisible }) => {
             />
           </button>
           <ul className="flex mx-auto flex-col gap-5 m-5 bg-muted-green rounded-3xl py-2 mb-20 max-w-[38rem]">
-            <li>
-              <a
-                className="no-underline transition-colors text-brand-dark hover:text-brand-light"
-                href="#traditions"
-              >
-                Our traditions
-              </a>
-            </li>
-            <li>
-              <a
-                className="no-underline transition-colors text-brand-dark hover:text-brand-light"
-                href="#bakers"
-              >
-                Bakers
-              </a>
-            </li>
-            <li>
-              <a
-                className="no-underline transition-colors text-brand-dark hover:text-brand-light"
-                href="#formats"
-              >
-                Formats
-              </a>
-            </li>
-            <li>
-              <a
-                className="no-underline transition-colors text-brand-dark hover:text-brand-light"
-                href="#contacts"
-              >
-                Contacts
-              </a>
-            </li>
+            {!!navigation?.length &&
+              navigation.map((link) => (
+                <li key={link.sectionId}>
+                  <a
+                    className="no-underline transition-colors text-brand-dark hover:text-brand-light"
+                    href={`#${link.sectionId}`}
+                  >
+                    {link.title}
+                  </a>
+                </li>
+              ))}
           </ul>
           <Form heading="Join the Bakery network" theme="dark" />
         </motion.div>

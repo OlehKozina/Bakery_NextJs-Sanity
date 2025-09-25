@@ -6,7 +6,7 @@ export type Format = {
     image: string;
     content: PortableTextBlock[];
     name: string;
-    _id?: string;
+    _key?: string;
   }[];
   heading?: string;
 };

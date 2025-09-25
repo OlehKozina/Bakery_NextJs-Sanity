@@ -26,7 +26,7 @@ const Header = () => {
   const header = data?.[0];
   if (!header) return null;
   const { navigation } = header;
-  console.log("navigation", navigation);
+
   return (
     <header className="absolute top-0 left-0 w-full pt-4 z-10 md:pt-8">
       <div className="container">
@@ -42,13 +42,13 @@ const Header = () => {
             </a>
             <ul className="hidden md:flex list-none gap-16 flex-grow justify-center">
               {!!navigation?.length &&
-                navigation.map((navItem) => (
-                  <li key={navItem.sectionId}>
+                navigation.map((link) => (
+                  <li key={link.sectionId}>
                     <a
                       className="text-brand-light no-underline transition-colors hover:text-brand-default"
-                      href={`#${navItem.sectionId}`}
+                      href={`#${link.sectionId}`}
                     >
-                      {navItem.title}
+                      {link.title}
                     </a>
                   </li>
                 ))}
@@ -71,7 +71,11 @@ const Header = () => {
               className="hover:text-brand-default w-6"
               onClick={openMenu}
             />
-            <MobileMenu onClose={closeMenu} isVisible={isMobMenuVisible} />
+            <MobileMenu
+              onClose={closeMenu}
+              isVisible={isMobMenuVisible}
+              navigation={navigation}
+            />
           </button>
         </div>
       </div>
