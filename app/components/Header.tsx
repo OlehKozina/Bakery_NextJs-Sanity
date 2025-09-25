@@ -5,6 +5,13 @@ import Form from "./ModalForm";
 import MobileMenu from "./MobileMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import useSWR from "swr";
+import { getHeader } from "@/sanity/sanity-utils";
+
+const fetcher = async () => {
+  const data = await getHeader();
+  return data;
+};
 
 const Header = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -14,6 +21,12 @@ const Header = () => {
   const [isMobMenuVisible, setIsMobMenuVisible] = useState(false);
   const openMenu = () => setIsMobMenuVisible(true);
   const closeMenu = () => setIsMobMenuVisible(false);
+
+  const { data } = useSWR("header", fetcher);
+  const header = data?.[0];
+  if (!header) return null;
+  const { navigation } = header;
+  console.log("navigation", navigation);
   return (
     <header className="absolute top-0 left-0 w-full pt-4 z-10 md:pt-8">
       <div className="container">
@@ -28,38 +41,17 @@ const Header = () => {
               />
             </a>
             <ul className="hidden md:flex list-none gap-16 flex-grow justify-center">
-              <li>
-                <a
-                  className="text-brand-light no-underline transition-colors hover:text-brand-default"
-                  href="#traditions"
-                >
-                  Our traditions
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-brand-light no-underline transition-colors hover:text-brand-default"
-                  href="#bakers"
-                >
-                  Bakers
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-brand-light no-underline transition-colors hover:text-brand-default"
-                  href="#formats"
-                >
-                  Formats
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-brand-light no-underline transition-colors hover:text-brand-default"
-                  href="#contacts"
-                >
-                  Contacts
-                </a>
-              </li>
+              {!!navigation?.length &&
+                navigation.map((navItem) => (
+                  <li key={navItem.sectionId}>
+                    <a
+                      className="text-brand-light no-underline transition-colors hover:text-brand-default"
+                      href={`#${navItem.sectionId}`}
+                    >
+                      {navItem.title}
+                    </a>
+                  </li>
+                ))}
             </ul>
           </nav>
           <button

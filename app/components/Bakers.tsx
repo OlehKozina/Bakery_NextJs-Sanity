@@ -12,6 +12,7 @@ const fetcher = async () => {
 export default function Bakers() {
   const { data } = useSWR("bakers", fetcher);
   const bakers = data?.[0];
+
   if (!bakers) return <p>Loading...</p>;
   const { heading, bakersList } = bakers;
 
@@ -30,7 +31,7 @@ export default function Bakers() {
           {!!bakersList?.length &&
             bakersList.map((baker) => (
               <div
-                key={baker?.key}
+                key={baker?._id}
                 className="mb-4 text-brand-dark text-2xl font-bold md:text-4xl"
               >
                 <div className="flex gap-4 list-none items-start">

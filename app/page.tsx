@@ -1,7 +1,7 @@
 "use client";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Pros from "./components/Pros";
+import Features from "./components/Features";
 import Traditions from "./components/Traditions";
 import Bakers from "./components/Bakers";
 import JoinBakery from "./components/JoinBakery";
@@ -13,7 +13,7 @@ export default function Home() {
     <div>
       <Header />
       <Hero />
-      <Pros />
+      <Features />
       <Traditions />
       <Bakers />
       <Formats />

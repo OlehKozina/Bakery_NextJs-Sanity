@@ -2,8 +2,11 @@ import { Item } from "@/types/Item";
 import { createClient, groq } from "next-sanity";
 import { Hero } from "@/types/Hero";
 import { Bakers } from "@/types/Bakers";
+import { Features } from "@/types/Features";
+import { Format } from "@/types/Formats";
+import { Header } from "@/types/Header";
 
-export async function getFormats(): Promise<[Item]> {
+export async function getFormats(): Promise<[Format]> {
   const format = createClient({
     projectId: "fqinbqr2",
     dataset: "production",
@@ -11,12 +14,69 @@ export async function getFormats(): Promise<[Item]> {
   });
 
   return format.fetch(
-    groq`*[_type == "format"]{
+    groq`*[_type == "formats"]{
     _id,
-    _createdAt,
+    heading,
+    bakeryTypes[]{
+      name,
+      "image": image.asset->url,
+      content
+      }
+    }`
+  );
+}
+
+export async function getHeader(): Promise<[Header]> {
+  const header = createClient({
+    projectId: "fqinbqr2",
+    dataset: "production",
+    apiVersion: "2024-07-17",
+  });
+
+  return header.fetch(
+    groq`*[_type == "header"]{
+      navigation[]{
+      title,
+      sectionId
+      }
+    }`
+  );
+}
+
+export async function getBakers(): Promise<[Bakers]> {
+  const bakers = createClient({
+    projectId: "fqinbqr2",
+    dataset: "production",
+    apiVersion: "2024-07-17",
+  });
+
+  return bakers.fetch(
+    groq`*[_type == "bakers"]{
+    _id,
+    heading,
+    "bakersList": *[_type == "baker"]{
+    ...,
+    _id,
     name,
     "image": image.asset->url,
     content
+      }
+    }`
+  );
+}
+
+export async function getFeatures(): Promise<[Features]> {
+  const feature = createClient({
+    projectId: "fqinbqr2",
+    dataset: "production",
+    apiVersion: "2024-07-17",
+  });
+
+  return feature.fetch(
+    groq`*[_type == "features"]{
+    _id,
+    heading,
+    advantages
     }`
   );
 }
@@ -49,26 +109,6 @@ export async function getTraditions(): Promise<[Item]> {
     heading,
     "image": image.asset->url,
     content,
-    }`
-  );
-}
-export async function getBakers(): Promise<[Bakers]> {
-  const bakers = createClient({
-    projectId: "fqinbqr2",
-    dataset: "production",
-    apiVersion: "2024-07-17",
-  });
-
-  return bakers.fetch(
-    groq`*[_type == "bakers"]{
-    _id,
-    heading,
-    "bakersList": *[_type == "baker"]{
-    key,
-    name,
-    "image": image.asset->url,
-    content
-      }
     }`
   );
 }

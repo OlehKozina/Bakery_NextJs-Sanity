@@ -13,7 +13,7 @@ function Traditions() {
   const traditions = data?.[0];
   if (!traditions) return null;
   const { heading, content, image } = traditions;
-  console.log("data", data);
+
   return (
     <section className="py-10 md:py-24 text-sm md:text-base" id="traditions">
       <div className="container">
@@ -22,9 +22,9 @@ function Traditions() {
             <h2 className="mb-6 text-[2rem] font-extrabold leading-tight mx-auto text-center md:mb-10 md:text-[4rem]">
               {heading}
             </h2>
-            <p className="mb-5">
+            <div className="mb-5">
               <PortableText value={content} />
-            </p>
+            </div>
           </div>
           <Image
             src={image}

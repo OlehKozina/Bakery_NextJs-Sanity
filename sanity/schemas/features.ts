@@ -1,6 +1,6 @@
-const format = {
-  name: "format",
-  title: "Formats",
+const features = {
+  name: "features",
+  title: "Features",
   type: "document",
   groups: [
     {
@@ -14,24 +14,25 @@ const format = {
   ],
   fields: [
     {
-      name: "name",
-      title: "Name",
+      name: "heading",
+      title: "Heading",
       type: "string",
+      initialValue: "Features",
+      readOnly: true,
       group: "content",
     },
     {
-      name: "image",
-      title: "Image",
-      type: "image",
-      options: { hotspot: true },
-      group: "content",
-    },
-    {
-      name: "content",
-      title: "Content",
+      name: "advantages",
+      title: "Advantages",
       type: "array",
-      of: [{ type: "block" }],
       group: "content",
+      of: [
+        {
+          type: "string",
+          name: "advantage",
+          title: "Advantage",
+        },
+      ],
     },
     { name: "seoTitle", title: "SEO title", type: "string", group: "seo" },
     { name: "seoKeywords", title: "Keywords", type: "string", group: "seo" },
@@ -40,4 +41,4 @@ const format = {
   ],
 };
 
-export default format;
+export default features;

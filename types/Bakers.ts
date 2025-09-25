@@ -4,7 +4,7 @@ export type Bakers = {
   heading?: string;
   _id?: string;
   bakersList?: {
-    key?: string;
+    _id?: string;
     name?: string;
     image?: string;
     content?: PortableTextBlock;
