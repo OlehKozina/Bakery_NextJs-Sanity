@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect } from "react";
+
 import Form from "./Form";
 
 interface MenuProps {
@@ -14,9 +15,9 @@ interface MenuProps {
 }
 
 const MobileMenu: React.FC<MenuProps> = ({
-  onClose,
   isVisible,
   navigation,
+  onClose,
 }) => {
   useEffect(() => {
     if (isVisible) {

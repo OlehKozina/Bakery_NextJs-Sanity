@@ -1,6 +1,6 @@
 const fontWeight = {
-  extrabold: "900",
   bold: "600",
+  extrabold: "900",
   medium: "500",
   thin: "400",
 };
@@ -9,6 +9,6 @@ const fontFamily = {
 };
 
 export const type = {
-  fontWeight,
   fontFamily,
+  fontWeight,
 };

@@ -1,12 +1,12 @@
 "use client";
+import Bakers from "./components/Bakers";
+import Features from "./components/Features";
+import Footer from "./components/Footer";
+import Formats from "./components/Formats";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Features from "./components/Features";
-import Traditions from "./components/Traditions";
-import Bakers from "./components/Bakers";
 import JoinBakery from "./components/JoinBakery";
-import Formats from "./components/Formats";
-import Footer from "./components/Footer";
+import Traditions from "./components/Traditions";
 
 export default function Home() {
   return (

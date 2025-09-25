@@ -1,5 +1,6 @@
-import { getFeatures } from "@/sanity/sanity-utils";
 import useSWR from "swr";
+
+import { getFeatures } from "@/sanity/sanity-utils";
 
 const fetcher = async () => {
   const data = await getFeatures();

@@ -1,12 +1,9 @@
 const footer = {
-  name: "footer",
-  type: "document",
-  title: "Footer",
   fields: [
     {
       name: "navigation",
-      type: "array",
       of: [{ type: "link" }],
+      type: "array",
     },
     {
       name: "phone",
@@ -21,5 +18,8 @@ const footer = {
       type: "string",
     },
   ],
+  name: "footer",
+  title: "Footer",
+  type: "document",
 };
 export default footer;

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { getFormats } from "@/sanity/sanity-utils";
-import { PortableText } from "next-sanity";
-import useSWR from "swr";
-import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PortableText } from "next-sanity";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import useSWR from "swr";
+
+import { getFormats } from "@/sanity/sanity-utils";
 
 const fetcher = async () => {
   const data = await getFormats();
@@ -28,7 +29,7 @@ export default function Formats() {
   const { data } = useSWR("formats", fetcher);
   const formats = data?.[0];
   if (!formats) return null;
-  const { heading, bakeryTypes } = formats;
+  const { bakeryTypes, heading } = formats;
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex + slidesPerPage >= bakeryTypes.length
@@ -59,7 +60,7 @@ export default function Formats() {
             }}
           >
             {bakeryTypes.map((type) => {
-              const { image, name, content, _key } = type;
+              const { _key, content, image, name } = type;
               return (
                 <div
                   key={_key}

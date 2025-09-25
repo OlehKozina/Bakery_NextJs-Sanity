@@ -1,14 +1,14 @@
 const header = {
-  name: "header",
-  type: "document",
-  title: "Header",
   fields: [
     {
       name: "navigation",
-      type: "array",
       of: [{ type: "link" }],
+      type: "array",
     },
   ],
+  name: "header",
+  title: "Header",
+  type: "document",
 };
 
 export default header;

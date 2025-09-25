@@ -1,16 +1,17 @@
-import { Item } from "@/types/Item";
 import { createClient, groq } from "next-sanity";
-import { Hero } from "@/types/Hero";
+
 import { Bakers } from "@/types/Bakers";
 import { Features } from "@/types/Features";
 import { Format } from "@/types/Formats";
 import { Header } from "@/types/Header";
+import { Hero } from "@/types/Hero";
+import { Item } from "@/types/Item";
 
 export async function getFormats(): Promise<[Format]> {
   const format = createClient({
-    projectId: "fqinbqr2",
-    dataset: "production",
     apiVersion: "2024-07-17",
+    dataset: "production",
+    projectId: "fqinbqr2",
   });
 
   return format.fetch(
@@ -29,9 +30,9 @@ export async function getFormats(): Promise<[Format]> {
 
 export async function getHeader(): Promise<[Header]> {
   const header = createClient({
-    projectId: "fqinbqr2",
-    dataset: "production",
     apiVersion: "2024-07-17",
+    dataset: "production",
+    projectId: "fqinbqr2",
   });
 
   return header.fetch(
@@ -46,9 +47,9 @@ export async function getHeader(): Promise<[Header]> {
 
 export async function getBakers(): Promise<[Bakers]> {
   const bakers = createClient({
-    projectId: "fqinbqr2",
-    dataset: "production",
     apiVersion: "2024-07-17",
+    dataset: "production",
+    projectId: "fqinbqr2",
   });
 
   return bakers.fetch(
@@ -68,9 +69,9 @@ export async function getBakers(): Promise<[Bakers]> {
 
 export async function getFeatures(): Promise<[Features]> {
   const feature = createClient({
-    projectId: "fqinbqr2",
-    dataset: "production",
     apiVersion: "2024-07-17",
+    dataset: "production",
+    projectId: "fqinbqr2",
   });
 
   return feature.fetch(
@@ -84,9 +85,9 @@ export async function getFeatures(): Promise<[Features]> {
 
 export async function getHero(): Promise<[Hero]> {
   const hero = createClient({
-    projectId: "fqinbqr2",
-    dataset: "production",
     apiVersion: "2024-07-17",
+    dataset: "production",
+    projectId: "fqinbqr2",
   });
 
   return hero.fetch(
@@ -100,9 +101,9 @@ export async function getHero(): Promise<[Hero]> {
 }
 export async function getTraditions(): Promise<[Item]> {
   const traditions = createClient({
-    projectId: "fqinbqr2",
-    dataset: "production",
     apiVersion: "2024-07-17",
+    dataset: "production",
+    projectId: "fqinbqr2",
   });
 
   return traditions.fetch(

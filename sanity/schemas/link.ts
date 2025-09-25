@@ -1,11 +1,11 @@
 const link = {
-  name: "link",
-  type: "object",
-  title: "Link",
   fields: [
     { name: "title", type: "string" },
-    { name: "sectionId", type: "string", title: "Section ID" },
+    { name: "sectionId", title: "Section ID", type: "string" },
   ],
+  name: "link",
+  title: "Link",
+  type: "object",
 };
 
 export default link;

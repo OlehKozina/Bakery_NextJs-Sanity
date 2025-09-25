@@ -1,7 +1,30 @@
 const traditions = {
-  name: "traditions",
-  title: "Traditions",
-  type: "document",
+  fields: [
+    {
+      group: "content",
+      name: "heading",
+      title: "Heading",
+      type: "string",
+    },
+    {
+      group: "content",
+      name: "image",
+      options: { hotspot: true },
+      title: "Image",
+      type: "image",
+    },
+    {
+      group: "content",
+      name: "content",
+      of: [{ type: "block" }],
+      title: "Content",
+      type: "array",
+    },
+    { group: "seo", name: "seoTitle", title: "SEO title", type: "string" },
+    { group: "seo", name: "seoKeywords", title: "Keywords", type: "string" },
+    { group: "seo", name: "seoSlug", title: "Slug", type: "slug" },
+    { group: "seo", name: "seoImage", title: "Image", type: "image" },
+  ],
   groups: [
     {
       name: "content",
@@ -12,32 +35,9 @@ const traditions = {
       title: "SEO",
     },
   ],
-  fields: [
-    {
-      name: "heading",
-      title: "Heading",
-      type: "string",
-      group: "content",
-    },
-    {
-      name: "image",
-      title: "Image",
-      type: "image",
-      options: { hotspot: true },
-      group: "content",
-    },
-    {
-      name: "content",
-      title: "Content",
-      type: "array",
-      of: [{ type: "block" }],
-      group: "content",
-    },
-    { name: "seoTitle", title: "SEO title", type: "string", group: "seo" },
-    { name: "seoKeywords", title: "Keywords", type: "string", group: "seo" },
-    { name: "seoSlug", title: "Slug", type: "slug", group: "seo" },
-    { name: "seoImage", title: "Image", type: "image", group: "seo" },
-  ],
+  name: "traditions",
+  title: "Traditions",
+  type: "document",
 };
 
 export default traditions;

@@ -1,12 +1,14 @@
 "use client";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React, { useState } from "react";
-import Form from "./ModalForm";
-import MobileMenu from "./MobileMenu";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import useSWR from "swr";
+
 import { getHeader } from "@/sanity/sanity-utils";
+
+import MobileMenu from "./MobileMenu";
+import Form from "./ModalForm";
 
 const fetcher = async () => {
   const data = await getHeader();

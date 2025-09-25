@@ -1,7 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import useSWR from "swr";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
+import Image from "next/image";
+import React from "react";
+import useSWR from "swr";
+
 import { getBakers } from "@/sanity/sanity-utils";
 
 const fetcher = async () => {
@@ -14,7 +15,7 @@ export default function Bakers() {
   const bakers = data?.[0];
 
   if (!bakers) return <p>Loading...</p>;
-  const { heading, bakersList } = bakers;
+  const { bakersList, heading } = bakers;
 
   return (
     <section className="py-5 md:py-12" id="bakers">

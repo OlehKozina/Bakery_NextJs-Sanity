@@ -1,11 +1,11 @@
-import formats from "./formats";
-import hero from "./hero";
 import bakers from "./bakers";
-import traditions from "./traditions";
 import features from "./features";
-import header from "./header";
-import link from "./link";
 import footer from "./footer";
+import formats from "./formats";
+import header from "./header";
+import hero from "./hero";
+import link from "./link";
+import traditions from "./traditions";
 const schemas = [
   formats,
   hero,

@@ -1,7 +1,44 @@
 const bakers = {
-  name: "bakers",
-  title: "Bakers",
-  type: "document",
+  fields: [
+    {
+      group: "content",
+      name: "heading",
+      title: "Heading",
+      type: "string",
+    },
+    {
+      group: "content",
+      name: "bakers",
+      of: [
+        {
+          fields: [
+            { name: "name", title: "Name", type: "string" },
+            {
+              name: "image",
+              options: { hotspot: true },
+              title: "Image",
+              type: "image",
+            },
+            {
+              name: "content",
+              of: [{ type: "block" }],
+              title: "Content",
+              type: "array",
+            },
+          ],
+          name: "baker",
+          title: "Baker",
+          type: "object",
+        },
+      ],
+      title: "Bakers",
+      type: "array",
+    },
+    { group: "seo", name: "seoTitle", title: "SEO title", type: "string" },
+    { group: "seo", name: "seoKeywords", title: "Keywords", type: "string" },
+    { group: "seo", name: "seoSlug", title: "Slug", type: "slug" },
+    { group: "seo", name: "seoImage", title: "Image", type: "image" },
+  ],
   groups: [
     {
       name: "content",
@@ -12,46 +49,9 @@ const bakers = {
       title: "SEO",
     },
   ],
-  fields: [
-    {
-      name: "heading",
-      title: "Heading",
-      type: "string",
-      group: "content",
-    },
-    {
-      name: "bakers",
-      title: "Bakers",
-      type: "array",
-      group: "content",
-      of: [
-        {
-          type: "object",
-          name: "baker",
-          title: "Baker",
-          fields: [
-            { name: "name", title: "Name", type: "string" },
-            {
-              name: "image",
-              title: "Image",
-              type: "image",
-              options: { hotspot: true },
-            },
-            {
-              name: "content",
-              title: "Content",
-              type: "array",
-              of: [{ type: "block" }],
-            },
-          ],
-        },
-      ],
-    },
-    { name: "seoTitle", title: "SEO title", type: "string", group: "seo" },
-    { name: "seoKeywords", title: "Keywords", type: "string", group: "seo" },
-    { name: "seoSlug", title: "Slug", type: "slug", group: "seo" },
-    { name: "seoImage", title: "Image", type: "image", group: "seo" },
-  ],
+  name: "bakers",
+  title: "Bakers",
+  type: "document",
 };
 
 export default bakers;

@@ -1,8 +1,10 @@
 "use client";
-import ModalForm from "./ModalForm";
 import React, { useState } from "react";
-import { getHero } from "@/sanity/sanity-utils";
 import useSWR from "swr";
+
+import { getHero } from "@/sanity/sanity-utils";
+
+import ModalForm from "./ModalForm";
 
 const fetcher = async () => {
   const data = await getHero();

@@ -1,7 +1,8 @@
-import Image from "next/image";
-import { getTraditions } from "@/sanity/sanity-utils";
-import useSWR from "swr";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
+import Image from "next/image";
+import useSWR from "swr";
+
+import { getTraditions } from "@/sanity/sanity-utils";
 
 const fetcher = async () => {
   const data = await getTraditions();
@@ -12,7 +13,7 @@ function Traditions() {
   const { data } = useSWR("traditions", fetcher);
   const traditions = data?.[0];
   if (!traditions) return null;
-  const { heading, content, image } = traditions;
+  const { content, heading, image } = traditions;
 
   return (
     <section className="py-10 md:py-24 text-sm md:text-base" id="traditions">
