@@ -2,8 +2,20 @@ import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
+import useSWR from "swr";
+import { getFooter } from "@/sanity/sanity-utils";
+
+const fetcher = async () => {
+  const data = await getFooter();
+  return data;
+};
 
 function Footer() {
+  const { data } = useSWR("footer", fetcher);
+  const footer = data?.[0];
+  if (!footer) return null;
+  console.log("footer", footer);
+  const { address, email, navigation, phone } = footer;
   return (
     <footer
       className="relative text-center py-8 bg-cover bg-center bg-no-repeat bg-brand-dark md:text-left"
@@ -27,64 +39,43 @@ function Footer() {
             </div>
             <div className="flex z-9 mt-4 flex-grow justify-evenly flex-col md:flex-row text-center md:mt-0">
               <ul>
-                <li>
-                  <a
-                    className=" text-brand-light no-underline transition-colors hover:text-brand-default"
-                    href="#traditions"
-                  >
-                    Franchise
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className=" text-brand-light no-underline transition-colors hover:text-brand-default"
-                    href="#cooks"
-                  >
-                    Bakers
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className=" text-brand-light no-underline transition-colors hover:text-brand-default"
-                    href="#formats"
-                  >
-                    Formats
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className=" text-brand-light no-underline transition-colors hover:text-brand-default"
-                    href="#contacts"
-                  >
-                    Contacts
-                  </a>
-                </li>
+                {!!navigation?.length &&
+                  navigation.map((link) => (
+                    <li key={link.sectionId}>
+                      <a
+                        className=" text-brand-light no-underline transition-colors hover:text-brand-default"
+                        href={`#${link.sectionId}`}
+                      >
+                        {link.title}
+                      </a>
+                    </li>
+                  ))}
               </ul>
               <address className="flex justify-center text-center mt-4 md:mt-0">
                 <ul>
                   <li className="flex justify-center  md:block">
                     <a
                       className=" font-thin text-brand-light hover:text-brand-default transition-colors flex flex-col md:flex-row"
-                      href="tel:+380960000007"
+                      href={`tel:${phone}`}
                     >
-                      + 1 (325) 333 7777
+                      {phone}
                     </a>
                   </li>
                   <li className="flex justify-center md:block">
                     <a
                       className=" font-thin text-brand-light hover:text-brand-default transition-colors flex flex-col md:flex-row"
-                      href="mailto:shopbakery@gmail.com"
+                      href={`mailto:${email}`}
                     >
-                      shopbakery@gmail.com
+                      {email}
                     </a>
                   </li>
                   <li className="flex justify-center md:block">
                     <a
                       className="font-thin text-brand-light hover:text-brand-default transition-colors flex flex-col md:flex-row z-20"
-                      href="https://maps.app.goo.gl/S6ubsjYejrpp1G1W6"
+                      href={address?.link}
                       target="_blank"
                     >
-                      Edmonton, AB, 13000 67 st NW AB T0C0C0
+                      {address?.name}
                     </a>
                   </li>
                   <li>

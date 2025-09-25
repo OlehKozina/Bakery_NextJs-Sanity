@@ -45,6 +45,26 @@ export async function getHeader(): Promise<[Header]> {
   );
 }
 
+export async function getFooter(): Promise<[Header]> {
+  const footer = createClient({
+    apiVersion: "2024-07-17",
+    dataset: "production",
+    projectId: "fqinbqr2",
+  });
+
+  return footer.fetch(
+    groq`*[_type == "footer"]{
+      navigation[]{
+      title,
+      sectionId
+      },
+      phone,
+      email,
+      address,
+    }`
+  );
+}
+
 export async function getBakers(): Promise<[Bakers]> {
   const bakers = createClient({
     apiVersion: "2024-07-17",

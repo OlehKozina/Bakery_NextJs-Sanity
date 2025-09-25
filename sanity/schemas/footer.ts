@@ -14,8 +14,20 @@ const footer = {
       type: "string",
     },
     {
+      fields: [
+        {
+          name: "name",
+          title: "Name",
+          type: "string",
+        },
+        {
+          name: "link",
+          title: "Link",
+          type: "string",
+        },
+      ],
       name: "address",
-      type: "string",
+      type: "object",
     },
   ],
   name: "footer",
