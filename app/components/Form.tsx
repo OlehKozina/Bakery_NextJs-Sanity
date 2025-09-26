@@ -1,12 +1,18 @@
 import clsx from "clsx";
-import React from "react";
+import { PortableTextBlock } from "next-sanity";
+import React, { useState } from "react";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 interface FormProps {
   heading?: string;
   theme?: "light" | "dark";
+  privacyPolicy?: PortableTextBlock;
 }
 
-const Form = ({ heading, theme = "light" }: FormProps) => {
+const Form = ({ heading, privacyPolicy, theme = "light" }: FormProps) => {
+  const [isPolicyVisible, setIsPolicyVisible] = useState(false);
+  const openPolicy = () => setIsPolicyVisible(true);
+  const closePolicy = () => setIsPolicyVisible(false);
   return (
     <div
       className={clsx(
@@ -71,9 +77,20 @@ const Form = ({ heading, theme = "light" }: FormProps) => {
         <p className="mx-auto max-w-[15rem] text-xs text-center">
           By clicking the button I agree with{" "}
           <span>
-            <a className="text-brand-default underline" href="#">
+            <button
+              type="button"
+              className="text-brand-default underline"
+              onClick={openPolicy}
+            >
               privacy policy
-            </a>
+            </button>
+            {privacyPolicy && (
+              <PrivacyPolicy
+                onClose={closePolicy}
+                privacyPolicy={privacyPolicy}
+                isVisible={isPolicyVisible}
+              />
+            )}
           </span>
         </p>
       </div>

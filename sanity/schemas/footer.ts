@@ -14,6 +14,12 @@ const footer = {
       type: "string",
     },
     {
+      name: "privacyPolicy",
+      title: "Privacy Policy",
+      to: [{ type: "privacyPolicy" }],
+      type: "reference",
+    },
+    {
       fields: [
         {
           name: "name",

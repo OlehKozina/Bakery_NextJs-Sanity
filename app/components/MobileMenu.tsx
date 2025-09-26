@@ -37,7 +37,7 @@ const MobileMenu: React.FC<MenuProps> = ({
           animate={{ opacity: 1, pointerEvents: "all" }}
           exit={{ opacity: 0, pointerEvents: "none" }}
           transition={{ duration: 0.5 }}
-          className="fixed top-0 left-0 w-full h-full bg-brand-light z-50 p-14 overflow-scroll"
+          className="fixed inset-0 bg-brand-light z-50 p-14 overflow-scroll"
           style={{
             backgroundImage: `url(/mobile-bakery.jpg)`,
           }}

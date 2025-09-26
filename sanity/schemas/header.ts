@@ -5,6 +5,12 @@ const header = {
       of: [{ type: "link" }],
       type: "array",
     },
+    {
+      name: "privacyPolicy",
+      title: "Privacy Policy",
+      to: [{ type: "privacyPolicy" }],
+      type: "reference",
+    },
   ],
   name: "header",
   title: "Header",

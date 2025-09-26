@@ -1,9 +1,10 @@
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import useSWR from "swr";
 import { getFooter } from "@/sanity/sanity-utils";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 const fetcher = async () => {
   const data = await getFooter();
@@ -11,11 +12,15 @@ const fetcher = async () => {
 };
 
 function Footer() {
+  const [isPolicyVisible, setIsPolicyVisible] = useState(false);
+  const openPolicy = () => setIsPolicyVisible(true);
+  const closePolicy = () => setIsPolicyVisible(false);
   const { data } = useSWR("footer", fetcher);
   const footer = data?.[0];
   if (!footer) return null;
-  console.log("footer", footer);
-  const { address, email, navigation, phone } = footer;
+
+  const { address, email, navigation, phone, privacyPolicy } = footer;
+  console.log("footer policy", privacyPolicy);
   return (
     <footer
       className="relative text-center py-8 bg-cover bg-center bg-no-repeat bg-brand-dark md:text-left"
@@ -104,15 +109,20 @@ function Footer() {
               </address>
             </div>
           </nav>
-          <ul className="footer__bottom">
+          <ul className="footer__bottom z-content">
             <li className="flex justify-center lg:block">
-              <a
+              <button
                 className="text-sm font-light text-brand-light hover:text-brand-default transition-colors flex flex-col md:flex-row items-start"
-                href="#"
-                target="_blank"
+                type="button"
+                onClick={openPolicy}
               >
                 Privacy Policy
-              </a>
+              </button>
+              <PrivacyPolicy
+                onClose={closePolicy}
+                privacyPolicy={privacyPolicy}
+                isVisible={isPolicyVisible}
+              />
             </li>
             <li>
               <p className="text-brand-brick text-sm font-normal">

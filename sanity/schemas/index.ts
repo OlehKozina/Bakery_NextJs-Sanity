@@ -5,6 +5,7 @@ import formats from "./formats";
 import header from "./header";
 import hero from "./hero";
 import link from "./link";
+import privacyPolicy from "./privacyPolicy";
 import traditions from "./traditions";
 const schemas = [
   formats,
@@ -15,5 +16,6 @@ const schemas = [
   features,
   header,
   link,
+  privacyPolicy,
 ];
 export default schemas;

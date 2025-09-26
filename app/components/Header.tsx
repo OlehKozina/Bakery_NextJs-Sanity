@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import useSWR from "swr";
 import { getHeader } from "@/sanity/sanity-utils";
 import MobileMenu from "./MobileMenu";
-import Form from "./ModalForm";
+import ModalForm from "./ModalForm";
 
 const fetcher = async () => {
   const data = await getHeader();
@@ -24,8 +24,9 @@ const Header = () => {
 
   const { data } = useSWR("header", fetcher);
   const header = data?.[0];
+  console.log("data", header);
   if (!header) return null;
-  const { navigation } = header;
+  const { navigation, privacyPolicy } = header;
 
   return (
     <header className="absolute top-0 left-0 w-full pt-4 z-10 md:pt-8">
@@ -61,7 +62,11 @@ const Header = () => {
           >
             Request a call
           </button>
-          {isFormVisible && <Form onClose={closeForm} />}
+          <ModalForm
+            onClose={closeForm}
+            isVisible={isFormVisible}
+            privacyPolicy={privacyPolicy}
+          />
           <button
             className=" bg-transparent border-none text-brand-light md:hidden menu-btn-open"
             type="button"

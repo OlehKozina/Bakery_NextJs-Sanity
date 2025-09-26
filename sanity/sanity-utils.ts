@@ -7,15 +7,18 @@ import { Header } from "@/types/Header";
 import { Hero } from "@/types/Hero";
 import { Item } from "@/types/Item";
 
-export async function getFormats(): Promise<[Format]> {
-  const format = createClient({
-    apiVersion: "2024-07-17",
-    dataset: "production",
-    projectId: "fqinbqr2",
-  });
+const client = createClient({
+  apiVersion: "2024-07-17",
+  dataset: "production",
+  projectId: "fqinbqr2",
+});
 
-  return format.fetch(
-    groq`*[_type == "formats"]{
+async function fetchSanity<T>(query: string): Promise<T[]> {
+  return client.fetch(query);
+}
+
+export function getFormats() {
+  return fetchSanity<Format>(groq`*[_type == "formats"]{
     _id,
     heading,
     bakeryTypes[]{
@@ -23,114 +26,62 @@ export async function getFormats(): Promise<[Format]> {
       name,
       "image": image.asset->url,
       content
-      }
-    }`
-  );
+    }
+  }`);
 }
 
-export async function getHeader(): Promise<[Header]> {
-  const header = createClient({
-    apiVersion: "2024-07-17",
-    dataset: "production",
-    projectId: "fqinbqr2",
-  });
-
-  return header.fetch(
-    groq`*[_type == "header"]{
-      navigation[]{
-      title,
-      sectionId
-      }
-    }`
-  );
+export function getHeader() {
+  return fetchSanity<Header>(groq`*[_type == "header"]{
+    navigation[]{ title, sectionId },
+    "privacyPolicy": privacyPolicy->content,
+  }`);
 }
 
-export async function getFooter(): Promise<[Header]> {
-  const footer = createClient({
-    apiVersion: "2024-07-17",
-    dataset: "production",
-    projectId: "fqinbqr2",
-  });
-
-  return footer.fetch(
-    groq`*[_type == "footer"]{
-      navigation[]{
-      title,
-      sectionId
-      },
-      phone,
-      email,
-      address,
-    }`
-  );
+export function getFooter() {
+  return fetchSanity<Header>(groq`*[_type == "footer"]{
+    navigation[]{ title, sectionId },
+    phone,
+    email,
+    address,
+    "privacyPolicy": privacyPolicy->content,
+  }`);
 }
 
-export async function getBakers(): Promise<[Bakers]> {
-  const bakers = createClient({
-    apiVersion: "2024-07-17",
-    dataset: "production",
-    projectId: "fqinbqr2",
-  });
-
-  return bakers.fetch(
-    groq`*[_type == "bakers"]{
+export function getBakers() {
+  return fetchSanity<Bakers>(groq`*[_type == "bakers"]{
     _id,
     heading,
     "bakersList": *[_type == "baker"]{
-    ...,
-    _id,
-    name,
-    "image": image.asset->url,
-    content
-      }
-    }`
-  );
+      ...,
+      _id,
+      name,
+      "image": image.asset->url,
+      content
+    }
+  }`);
 }
 
-export async function getFeatures(): Promise<[Features]> {
-  const feature = createClient({
-    apiVersion: "2024-07-17",
-    dataset: "production",
-    projectId: "fqinbqr2",
-  });
-
-  return feature.fetch(
-    groq`*[_type == "features"]{
+export function getFeatures() {
+  return fetchSanity<Features>(groq`*[_type == "features"]{
     _id,
     heading,
     advantages
-    }`
-  );
+  }`);
 }
 
-export async function getHero(): Promise<[Hero]> {
-  const hero = createClient({
-    apiVersion: "2024-07-17",
-    dataset: "production",
-    projectId: "fqinbqr2",
-  });
-
-  return hero.fetch(
-    groq`*[_type == "hero"]{
+export function getHero() {
+  return fetchSanity<Hero>(groq`*[_type == "hero"]{
     _id,
     _createdAt,
     heading,
     "image": image.asset->url,
-    }`
-  );
+  }`);
 }
-export async function getTraditions(): Promise<[Item]> {
-  const traditions = createClient({
-    apiVersion: "2024-07-17",
-    dataset: "production",
-    projectId: "fqinbqr2",
-  });
 
-  return traditions.fetch(
-    groq`*[_type == "traditions"]{
+export function getTraditions() {
+  return fetchSanity<Item>(groq`*[_type == "traditions"]{
     heading,
     "image": image.asset->url,
     content,
-    }`
-  );
+  }`);
 }
