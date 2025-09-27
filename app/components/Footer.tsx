@@ -20,7 +20,7 @@ function Footer() {
   if (!footer) return null;
 
   const { address, email, navigation, phone, privacyPolicy } = footer;
-  console.log("footer policy", privacyPolicy);
+
   return (
     <footer
       className="relative text-center py-8 bg-cover bg-center bg-no-repeat bg-brand-dark md:text-left"

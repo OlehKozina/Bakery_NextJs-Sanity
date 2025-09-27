@@ -34,7 +34,7 @@ const ModalForm: React.FC<FormProps> = ({
             >
               <FontAwesomeIcon
                 icon={faXmark}
-                className="hover:text-brand-default w-6"
+                className="hover:text-brand-default text-xl transition-colors"
                 onClick={onClose}
               />
             </button>

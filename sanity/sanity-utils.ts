@@ -51,13 +51,7 @@ export function getBakers() {
   return fetchSanity<Bakers>(groq`*[_type == "bakers"]{
     _id,
     heading,
-    "bakersList": *[_type == "baker"]{
-      ...,
-      _id,
-      name,
-      "image": image.asset->url,
-      content
-    }
+    bakers[]{_key, name, content, "image": image.asset->url},
   }`);
 }
 

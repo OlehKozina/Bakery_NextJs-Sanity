@@ -26,7 +26,7 @@ const bakers = {
               type: "array",
             },
           ],
-          name: "baker",
+          name: "bakerInfo",
           title: "Baker",
           type: "object",
         },

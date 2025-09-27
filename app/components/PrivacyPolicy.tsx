@@ -56,7 +56,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
         >
           <div className="relative z-10 overflow-y-auto flex flex-col justify-center items-left w-full max-w-[37rem] h-full bg-brand-light rounded-[2rem] transition-opacity duration-slow md:max-w-[55rem] px-8">
             <button
-              className="text-brand-dark z-10 border-none absolute top-7 right-7"
+              className="text-brand-dark z-10 border-none absolute top-10 right-10"
               type="button"
             >
               <FontAwesomeIcon

@@ -11,10 +11,10 @@ const fetcher = async () => {
 
 export default function Bakers() {
   const { data } = useSWR("bakers", fetcher);
-  const bakers = data?.[0];
+  const bakersData = data?.[0];
 
-  if (!bakers) return <p>Loading...</p>;
-  const { bakersList, heading } = bakers;
+  if (!bakersData) return <p>Loading...</p>;
+  const { bakers, heading } = bakersData;
 
   return (
     <section className="py-5 md:py-12" id="bakers">
@@ -28,10 +28,10 @@ export default function Bakers() {
           </h2>
         )}
         <div className="list-none justify-center flex gap-8 flex-wrap sm:justify-center">
-          {!!bakersList?.length &&
-            bakersList.map((baker) => (
+          {!!bakers?.length &&
+            bakers.map((baker) => (
               <div
-                key={baker?._id}
+                key={baker?._key}
                 className="mb-4 text-brand-dark text-2xl font-bold md:text-4xl"
               >
                 <div className="flex gap-4 list-none items-start">

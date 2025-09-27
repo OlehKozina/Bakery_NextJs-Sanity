@@ -24,7 +24,7 @@ const Header = () => {
 
   const { data } = useSWR("header", fetcher);
   const header = data?.[0];
-  console.log("data", header);
+
   if (!header) return null;
   const { navigation, privacyPolicy } = header;
 
