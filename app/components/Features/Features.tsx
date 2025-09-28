@@ -1,6 +1,6 @@
 import { FeaturesType } from "@/types";
 
-function Pros({ features }: { features?: FeaturesType }) {
+function Features({ features }: { features?: FeaturesType }) {
   if (!features) return null;
   const { advantages } = features;
 
@@ -23,4 +23,4 @@ function Pros({ features }: { features?: FeaturesType }) {
   );
 }
 
-export default Pros;
+export default Features;

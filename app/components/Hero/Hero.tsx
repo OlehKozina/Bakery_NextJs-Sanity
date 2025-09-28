@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { HeroType } from "@/types/Hero";
-import ModalForm from "./ModalForm";
+import { ModalForm } from "../Form";
 
 const Hero = ({ hero }: { hero: HeroType }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);

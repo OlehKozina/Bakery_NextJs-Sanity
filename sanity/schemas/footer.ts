@@ -20,6 +20,24 @@ const footer = {
       type: "reference",
     },
     {
+      name: "footerImages",
+      type: "object",
+      fields: [
+        {
+          name: "leftImage",
+          options: { hotspot: true },
+          title: "Left Image",
+          type: "image",
+        },
+        {
+          name: "rightImage",
+          options: { hotspot: true },
+          title: "Right Image",
+          type: "image",
+        },
+      ],
+    },
+    {
       fields: [
         {
           name: "name",

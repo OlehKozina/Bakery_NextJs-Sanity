@@ -2,6 +2,7 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import React from "react";
 import { BakersType } from "@/types";
+import Baker from "./Baker";
 
 export default function Bakers({
   bakers: bakersData,
@@ -24,28 +25,10 @@ export default function Bakers({
         )}
         <div className="list-none justify-center flex gap-8 flex-wrap sm:justify-center">
           {!!bakers?.length &&
-            bakers.map((baker) => (
-              <div
-                key={baker?._key}
-                className="mb-4 text-brand-dark text-2xl font-bold md:text-4xl"
-              >
-                <div className="flex gap-4 list-none items-start">
-                  <Image
-                    src={baker?.image || ""}
-                    alt={baker?.name || "Baker"}
-                    width={240}
-                    height={388}
-                    className="list-none w-[9rem] rounded-md rounded-bl-[12.5rem] shadow-bakerCard md:w-[15rem]"
-                  />
-                  <div>
-                    {baker.name}
-                    <div className="max-w-[12rem] mt-6 mb-6 text-sm font-thin last:mb-0 md:text-xl md:max-w-[21rem]">
-                      <PortableText value={baker?.content || []} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+            bakers.map((baker) => {
+              const { _key, name, content, image } = baker;
+              return <Baker key={_key} {...{ name, content, image }} />;
+            })}
         </div>
       </div>
     </section>

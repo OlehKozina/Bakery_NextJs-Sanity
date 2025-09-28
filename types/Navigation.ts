@@ -12,4 +12,8 @@ export type NavigationType = {
     link?: string;
   };
   email?: string;
+  footerImages?: {
+    left?: string;
+    right?: string;
+  };
 };

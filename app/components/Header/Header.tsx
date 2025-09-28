@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React, { useState } from "react";
 import { NavigationType, FormType } from "@/types";
-import MobileMenu from "./MobileMenu";
-import ModalForm from "./ModalForm";
+import MobileMenu from "../MobileMenu/MobileMenu";
+import { ModalForm } from "../Form";
 
 const Header = ({
   header,
@@ -53,7 +53,7 @@ const Header = ({
             </ul>
           </nav>
           <button
-            className="hidden md:block px-5 py-2.5 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold hover:opacity-80 md:px-8 md:py-4"
+            className="hidden transition-opacity md:block px-5 py-2.5 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold hover:opacity-80 md:px-8 md:py-4"
             type="button"
             onClick={openForm}
           >

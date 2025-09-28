@@ -7,6 +7,6 @@ export type BakersType = {
     _key?: string;
     name?: string;
     image?: string;
-    content?: PortableTextBlock;
+    content?: PortableTextBlock[];
   }[];
 };

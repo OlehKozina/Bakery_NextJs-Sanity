@@ -54,7 +54,7 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
             );
           })}
         <button
-          className="mx-auto mb-6 block px-5 py-2 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold md:px-8 md:py-4"
+          className="mx-auto transition-opacity mb-6 block px-5 py-2 bg-brand-default hover:opacity-80 text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold md:px-8 md:py-4"
           type="button"
         >
           {buttonLabel}
@@ -64,7 +64,7 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
           <span>
             <button
               type="button"
-              className="text-brand-default underline"
+              className="text-brand-default underline hover:opacity-80 transition-opacity"
               onClick={openPolicy}
             >
               privacy policy

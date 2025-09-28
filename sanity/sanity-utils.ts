@@ -46,6 +46,10 @@ export function getFooter() {
     phone,
     email,
     address,
+    footerImages{
+    "left": leftImage.asset->url,
+    "right": rightImage.asset->url
+    },
     "privacyPolicy": privacyPolicy->content,
   }`);
 }
