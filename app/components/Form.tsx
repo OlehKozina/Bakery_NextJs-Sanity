@@ -3,25 +3,21 @@ import clsx from "clsx";
 import { PortableTextBlock } from "next-sanity";
 import React, { useState } from "react";
 import PrivacyPolicy from "./PrivacyPolicy";
+import { FormType } from "@/types";
 
 interface FormProps {
   heading?: string;
   theme?: "light" | "dark";
   privacyPolicy?: PortableTextBlock;
-  form?: {
-    name?: string;
-    fields?: {
-      label?: string;
-      name?: string;
-      required?: boolean;
-    }[];
-  };
+  form?: FormType;
 }
 
 const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
   const [isPolicyVisible, setIsPolicyVisible] = useState(false);
   const openPolicy = () => setIsPolicyVisible(true);
   const closePolicy = () => setIsPolicyVisible(false);
+  if (!form) return;
+  const { name, fields, buttonLabel } = form;
 
   return (
     <div
@@ -38,49 +34,30 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
       >
         {heading}
       </h2>
-      <p className="text-brand-default text-center mb-3">{form?.name}</p>
-      <div data-form="contact-form">
-        <div className="mb-8">
-          <label className="hidden" htmlFor="user-name">
-            Name
-          </label>
-          <input
-            className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17]"
-            type="text"
-            id="user-name"
-            name="user-name"
-            placeholder="Name"
-          />
-        </div>
-        <div className="mb-8">
-          <label className="form-field__label hidden" htmlFor="phone">
-            Phone
-          </label>
-          <input
-            className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17]"
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Phone"
-          />
-        </div>
-        <div className="mb-8">
-          <label className="form-field__label hidden" htmlFor="e-mail">
-            E-mail
-          </label>
-          <input
-            className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17]"
-            type="email"
-            id="e-mail"
-            name="e-mail"
-            placeholder="Your e-mail"
-          />
-        </div>
+      <p className="text-brand-default text-center mb-3">{name}</p>
+      <form data-form="contact-form">
+        {!!fields?.length &&
+          fields.map((field) => {
+            const { name, required, type, label } = field;
+            return (
+              <div className="mb-8" key={label}>
+                <label className="hidden" htmlFor="user-name">
+                  {label}
+                </label>
+                <input
+                  className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17]"
+                  type={type}
+                  placeholder={name}
+                  required={required}
+                />
+              </div>
+            );
+          })}
         <button
           className="mx-auto mb-6 block px-5 py-2 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold md:px-8 md:py-4"
           type="button"
         >
-          Request a call
+          {buttonLabel}
         </button>
         <p className="mx-auto max-w-[15rem] text-xs text-center">
           By clicking the button I agree with{" "}
@@ -101,7 +78,7 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
             )}
           </span>
         </p>
-      </div>
+      </form>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import {
   FormatType,
   ItemType,
   JoinBakeryType,
+  FormType,
 } from "@/types";
 
 const client = createClient({
@@ -80,7 +81,9 @@ export function getJoinBakery() {
     direction,
     form->{
     name, 
-    fields},
+    fields,
+    buttonLabel
+    },
   }`);
 }
 
@@ -89,5 +92,12 @@ export function getTraditions() {
     heading,
     "image": image.asset->url,
     content,
+  }`);
+}
+export function getForm() {
+  return fetchSanity<FormType>(groq`*[_type == "form"]{
+    name, 
+    fields,
+    buttonLabel
   }`);
 }

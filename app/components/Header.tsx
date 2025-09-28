@@ -3,11 +3,17 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React, { useState } from "react";
-import { NavigationType } from "@/types/Navigation";
+import { NavigationType, FormType } from "@/types";
 import MobileMenu from "./MobileMenu";
 import ModalForm from "./ModalForm";
 
-const Header = ({ header }: { header: NavigationType }) => {
+const Header = ({
+  header,
+  form,
+}: {
+  header: NavigationType;
+  form: FormType;
+}) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const openForm = () => setIsFormVisible(true);
   const closeForm = () => setIsFormVisible(false);
@@ -57,6 +63,7 @@ const Header = ({ header }: { header: NavigationType }) => {
             onClose={closeForm}
             isVisible={isFormVisible}
             privacyPolicy={privacyPolicy}
+            form={form}
           />
           <button
             className=" bg-transparent border-none text-brand-light md:hidden menu-btn-open"
@@ -69,6 +76,7 @@ const Header = ({ header }: { header: NavigationType }) => {
             />
             <MobileMenu
               onClose={closeMenu}
+              form={form}
               isVisible={isMobMenuVisible}
               navigation={navigation}
             />

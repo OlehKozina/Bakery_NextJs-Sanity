@@ -7,6 +7,7 @@ import {
   getBakers,
   getFormats,
   getFooter,
+  getForm,
 } from "@/sanity/sanity-utils";
 import Bakers from "./components/Bakers";
 import Features from "./components/Features";
@@ -27,6 +28,7 @@ export default async function Home() {
     formats,
     footer,
     joinBakery,
+    form,
   ] = await Promise.all([
     getHeader(),
     getHero(),
@@ -36,11 +38,12 @@ export default async function Home() {
     getFormats(),
     getFooter(),
     getJoinBakery(),
+    getForm(),
   ]);
 
   return (
     <div>
-      <Header header={header[0]} />
+      <Header header={header[0]} form={form[0]} />
       <Hero hero={hero[0]} />
       <Features features={features[0]} />
       <Traditions traditions={traditions[0]} />

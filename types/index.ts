@@ -3,7 +3,7 @@ import { FeaturesType } from "./Features";
 import { FormatType } from "./Formats";
 import { HeroType } from "./Hero";
 import { ItemType } from "./Item";
-import { JoinBakeryType } from "./JoinBakeryType";
+import { JoinBakeryType, FormType } from "./JoinBakeryType";
 import { NavigationType } from "./Navigation";
 
 export type {
@@ -14,4 +14,5 @@ export type {
   BakersType,
   ItemType,
   JoinBakeryType,
+  FormType,
 };

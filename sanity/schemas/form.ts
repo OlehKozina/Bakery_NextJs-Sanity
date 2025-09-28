@@ -42,6 +42,11 @@ const form = {
       title: "Fields",
       type: "array",
     },
+    {
+      name: "buttonLabel",
+      title: "Button Label",
+      type: "string",
+    },
   ],
   name: "form",
   title: "Form",

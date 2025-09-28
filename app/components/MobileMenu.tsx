@@ -3,9 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect } from "react";
 import Form from "./Form";
+import { FormType } from "@/types";
 
 interface MenuProps {
   onClose: () => void;
+  form?: FormType;
   isVisible?: boolean;
   navigation?: {
     title?: string;
@@ -17,6 +19,7 @@ const MobileMenu: React.FC<MenuProps> = ({
   isVisible,
   navigation,
   onClose,
+  form,
 }) => {
   useEffect(() => {
     if (isVisible) {
@@ -65,7 +68,7 @@ const MobileMenu: React.FC<MenuProps> = ({
                 </li>
               ))}
           </ul>
-          <Form heading="Join the Bakery network" theme="dark" />
+          <Form heading="Join the Bakery network" theme="dark" form={form} />
         </motion.div>
       )}
     </AnimatePresence>

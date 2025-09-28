@@ -4,17 +4,20 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PortableTextBlock } from "next-sanity";
 import React from "react";
 import Form from "./Form";
+import { FormType } from "@/types";
 
 interface FormProps {
   onClose: () => void;
   isVisible?: boolean;
   privacyPolicy?: PortableTextBlock;
+  form?: FormType;
 }
 
 const ModalForm: React.FC<FormProps> = ({
   isVisible,
   onClose,
   privacyPolicy,
+  form,
 }) => {
   return (
     <AnimatePresence>
@@ -42,6 +45,7 @@ const ModalForm: React.FC<FormProps> = ({
               theme="light"
               heading="Request a call"
               privacyPolicy={privacyPolicy}
+              form={form}
             />
           </div>
         </motion.div>
