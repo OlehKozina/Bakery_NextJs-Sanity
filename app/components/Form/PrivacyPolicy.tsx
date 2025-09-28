@@ -52,7 +52,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5 text-black"
         >
           <div className="relative z-10 overflow-y-auto flex flex-col justify-center items-left w-full max-w-[37rem] h-full bg-brand-light rounded-[2rem] transition-opacity duration-slow md:max-w-[55rem] px-8">
             <button

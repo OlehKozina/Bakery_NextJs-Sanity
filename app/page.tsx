@@ -44,7 +44,11 @@ export default async function Home() {
   return (
     <div>
       <Header header={header[0]} form={form[0]} />
-      <Hero hero={hero[0]} />
+      <Hero
+        hero={hero[0]}
+        form={form[0]}
+        privacyPolicy={header[0].privacyPolicy}
+      />
       <Features features={features[0]} />
       <Traditions traditions={traditions[0]} />
       <Bakers bakers={bakers[0]} />

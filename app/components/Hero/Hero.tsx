@@ -2,8 +2,18 @@
 import React, { useState } from "react";
 import { HeroType } from "@/types/Hero";
 import { ModalForm } from "../Form";
+import { FormType } from "@/types";
+import { PortableTextBlock } from "next-sanity";
 
-const Hero = ({ hero }: { hero: HeroType }) => {
+const Hero = ({
+  hero,
+  form,
+  privacyPolicy,
+}: {
+  hero: HeroType;
+  form?: FormType;
+  privacyPolicy?: PortableTextBlock;
+}) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const openForm = () => setIsFormVisible(true);
   const closeForm = () => setIsFormVisible(false);
@@ -17,7 +27,7 @@ const Hero = ({ hero }: { hero: HeroType }) => {
         backgroundImage: `url(${image})`,
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/0"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/0" />
       <div className="container flex flex-col gap-5">
         {heading && (
           <h1 className="relative font-extrabold text-center text-5xl mb-25 leading-tight text-brand-light md:top-0 md:mb-12 md:text-8xl lg:text-9xl lg:line-height-[1.5] lg:mb-0">
@@ -32,7 +42,12 @@ const Hero = ({ hero }: { hero: HeroType }) => {
         >
           Request a call
         </button>
-        {isFormVisible && <ModalForm onClose={closeForm} />}
+        <ModalForm
+          onClose={closeForm}
+          isVisible={isFormVisible}
+          form={form}
+          privacyPolicy={privacyPolicy}
+        />
       </div>
     </section>
   );

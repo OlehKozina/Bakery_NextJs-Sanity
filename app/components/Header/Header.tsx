@@ -1,7 +1,7 @@
 "use client";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
+import HeaderNav from "./HeaderNav";
 import React, { useState } from "react";
 import { NavigationType, FormType } from "@/types";
 import MobileMenu from "../MobileMenu/MobileMenu";
@@ -29,29 +29,7 @@ const Header = ({
     <header className="absolute top-0 left-0 w-full pt-4 z-10 md:pt-8">
       <div className="container">
         <div className="flex items-center gap-10">
-          <nav className="flex items-center flex-grow gap-10">
-            <a href="#" className="z-cover relative">
-              <Image
-                src="/logo.svg"
-                alt="bakery_logo"
-                width={100}
-                height={24}
-              />
-            </a>
-            <ul className="hidden md:flex list-none gap-16 flex-grow justify-center">
-              {!!navigation?.length &&
-                navigation.map((link) => (
-                  <li key={link.sectionId}>
-                    <a
-                      className="text-brand-light no-underline transition-colors hover:text-brand-default"
-                      href={`#${link.sectionId}`}
-                    >
-                      {link.title}
-                    </a>
-                  </li>
-                ))}
-            </ul>
-          </nav>
+          <HeaderNav navigation={navigation} />
           <button
             className="hidden transition-opacity md:block px-5 py-2.5 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold hover:opacity-80 md:px-8 md:py-4"
             type="button"
@@ -74,13 +52,14 @@ const Header = ({
               className="hover:text-brand-default w-6"
               onClick={openMenu}
             />
-            <MobileMenu
-              onClose={closeMenu}
-              form={form}
-              isVisible={isMobMenuVisible}
-              navigation={navigation}
-            />
           </button>
+          <MobileMenu
+            onClose={closeMenu}
+            form={form}
+            isVisible={isMobMenuVisible}
+            navigation={navigation}
+            privacyPolicy={privacyPolicy}
+          />
         </div>
       </div>
     </header>

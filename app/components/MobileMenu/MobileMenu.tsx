@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect } from "react";
 import Form from "../Form/Form";
 import { FormType } from "@/types";
+import { PortableTextBlock } from "next-sanity";
 
 interface MenuProps {
   onClose: () => void;
@@ -13,6 +14,7 @@ interface MenuProps {
     title?: string;
     sectionId?: string;
   }[];
+  privacyPolicy?: PortableTextBlock;
 }
 
 const MobileMenu: React.FC<MenuProps> = ({
@@ -20,6 +22,7 @@ const MobileMenu: React.FC<MenuProps> = ({
   navigation,
   onClose,
   form,
+  privacyPolicy,
 }) => {
   useEffect(() => {
     if (isVisible) {
@@ -55,20 +58,26 @@ const MobileMenu: React.FC<MenuProps> = ({
               onClick={onClose}
             />
           </button>
-          <ul className="flex mx-auto flex-col gap-5 m-5 bg-muted-green rounded-3xl py-2 mb-20 max-w-[38rem]">
+          <ul className="flex text-center mx-auto flex-col gap-5 m-5 bg-muted-green rounded-3xl py-2 mb-20 max-w-[38rem]">
             {!!navigation?.length &&
               navigation.map((link) => (
                 <li key={link.sectionId}>
                   <a
                     className="no-underline transition-colors text-brand-dark hover:text-brand-light"
                     href={`#${link.sectionId}`}
+                    onClick={onClose}
                   >
                     {link.title}
                   </a>
                 </li>
               ))}
           </ul>
-          <Form heading="Join the Bakery network" theme="dark" form={form} />
+          <Form
+            heading="Join the Bakery network"
+            theme="dark"
+            form={form}
+            privacyPolicy={privacyPolicy}
+          />
         </motion.div>
       )}
     </AnimatePresence>

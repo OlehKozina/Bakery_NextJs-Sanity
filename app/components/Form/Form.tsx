@@ -59,7 +59,12 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
         >
           {buttonLabel}
         </button>
-        <p className="mx-auto max-w-[15rem] text-xs text-center">
+        <p
+          className={clsx(
+            "mx-auto max-w-[15rem] text-xs text-center",
+            theme == "dark" && "text-brand-default"
+          )}
+        >
           By clicking the button I agree with{" "}
           <span>
             <button

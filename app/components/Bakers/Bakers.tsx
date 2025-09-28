@@ -1,5 +1,3 @@
-import { PortableText } from "@portabletext/react";
-import Image from "next/image";
 import React from "react";
 import { BakersType } from "@/types";
 import Baker from "./Baker";
