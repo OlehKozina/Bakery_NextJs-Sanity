@@ -1,16 +1,9 @@
-import useSWR from "swr";
-import { getFeatures } from "@/sanity/sanity-utils";
-const fetcher = async () => {
-  const data = await getFeatures();
-  return data;
-};
+import { FeaturesType } from "@/types";
 
-function Pros() {
-  const { data } = useSWR("features", fetcher);
-  const pros = data?.[0];
+function Pros({ features }: { features?: FeaturesType }) {
+  if (!features) return null;
+  const { advantages } = features;
 
-  if (!pros) return null;
-  const { advantages } = pros;
   return (
     <section className="pt-10 pb-0 md:pt-4 md:pb-4 md:bg-brand-default">
       <div className="container">

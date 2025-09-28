@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 import { PortableTextBlock } from "next-sanity";
 import React, { useState } from "react";
@@ -7,12 +8,21 @@ interface FormProps {
   heading?: string;
   theme?: "light" | "dark";
   privacyPolicy?: PortableTextBlock;
+  form?: {
+    name?: string;
+    fields?: {
+      label?: string;
+      name?: string;
+      required?: boolean;
+    }[];
+  };
 }
 
-const Form = ({ heading, privacyPolicy, theme = "light" }: FormProps) => {
+const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
   const [isPolicyVisible, setIsPolicyVisible] = useState(false);
   const openPolicy = () => setIsPolicyVisible(true);
   const closePolicy = () => setIsPolicyVisible(false);
+
   return (
     <div
       className={clsx(
@@ -28,9 +38,7 @@ const Form = ({ heading, privacyPolicy, theme = "light" }: FormProps) => {
       >
         {heading}
       </h2>
-      <p className="text-brand-default text-center mb-3">
-        Fill out the form so we can contact you
-      </p>
+      <p className="text-brand-default text-center mb-3">{form?.name}</p>
       <div data-form="contact-form">
         <div className="mb-8">
           <label className="hidden" htmlFor="user-name">

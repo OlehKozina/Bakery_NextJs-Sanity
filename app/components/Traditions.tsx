@@ -1,16 +1,8 @@
-import { PortableText, PortableTextComponents } from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import useSWR from "swr";
-import { getTraditions } from "@/sanity/sanity-utils";
+import { ItemType } from "@/types";
 
-const fetcher = async () => {
-  const data = await getTraditions();
-  return data;
-};
-
-function Traditions() {
-  const { data } = useSWR("traditions", fetcher);
-  const traditions = data?.[0];
+function Traditions({ traditions }: { traditions?: ItemType }) {
   if (!traditions) return null;
   const { content, heading, image } = traditions;
 

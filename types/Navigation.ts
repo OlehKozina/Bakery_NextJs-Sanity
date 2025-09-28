@@ -1,6 +1,6 @@
 import { PortableTextBlock } from "next-sanity";
 
-export type Header = {
+export type NavigationType = {
   navigation?: {
     title?: string;
     sectionId?: string;

@@ -3,17 +3,11 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React, { useState } from "react";
-import useSWR from "swr";
-import { getHeader } from "@/sanity/sanity-utils";
+import { NavigationType } from "@/types/Navigation";
 import MobileMenu from "./MobileMenu";
 import ModalForm from "./ModalForm";
 
-const fetcher = async () => {
-  const data = await getHeader();
-  return data;
-};
-
-const Header = () => {
+const Header = ({ header }: { header: NavigationType }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const openForm = () => setIsFormVisible(true);
   const closeForm = () => setIsFormVisible(false);
@@ -21,9 +15,6 @@ const Header = () => {
   const [isMobMenuVisible, setIsMobMenuVisible] = useState(false);
   const openMenu = () => setIsMobMenuVisible(true);
   const closeMenu = () => setIsMobMenuVisible(false);
-
-  const { data } = useSWR("header", fetcher);
-  const header = data?.[0];
 
   if (!header) return null;
   const { navigation, privacyPolicy } = header;

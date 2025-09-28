@@ -1,11 +1,13 @@
 import { createClient, groq } from "next-sanity";
-
-import { Bakers } from "@/types/Bakers";
-import { Features } from "@/types/Features";
-import { Format } from "@/types/Formats";
-import { Header } from "@/types/Header";
-import { Hero } from "@/types/Hero";
-import { Item } from "@/types/Item";
+import {
+  NavigationType,
+  HeroType,
+  BakersType,
+  FeaturesType,
+  FormatType,
+  ItemType,
+  JoinBakeryType,
+} from "@/types";
 
 const client = createClient({
   apiVersion: "2024-07-17",
@@ -18,7 +20,7 @@ async function fetchSanity<T>(query: string): Promise<T[]> {
 }
 
 export function getFormats() {
-  return fetchSanity<Format>(groq`*[_type == "formats"]{
+  return fetchSanity<FormatType>(groq`*[_type == "formats"]{
     _id,
     heading,
     bakeryTypes[]{
@@ -31,14 +33,14 @@ export function getFormats() {
 }
 
 export function getHeader() {
-  return fetchSanity<Header>(groq`*[_type == "header"]{
+  return fetchSanity<NavigationType>(groq`*[_type == "header"]{
     navigation[]{ title, sectionId },
     "privacyPolicy": privacyPolicy->content,
   }`);
 }
 
 export function getFooter() {
-  return fetchSanity<Header>(groq`*[_type == "footer"]{
+  return fetchSanity<NavigationType>(groq`*[_type == "footer"]{
     navigation[]{ title, sectionId },
     phone,
     email,
@@ -48,7 +50,7 @@ export function getFooter() {
 }
 
 export function getBakers() {
-  return fetchSanity<Bakers>(groq`*[_type == "bakers"]{
+  return fetchSanity<BakersType>(groq`*[_type == "bakers"]{
     _id,
     heading,
     bakers[]{_key, name, content, "image": image.asset->url},
@@ -56,7 +58,7 @@ export function getBakers() {
 }
 
 export function getFeatures() {
-  return fetchSanity<Features>(groq`*[_type == "features"]{
+  return fetchSanity<FeaturesType>(groq`*[_type == "features"]{
     _id,
     heading,
     advantages
@@ -64,7 +66,7 @@ export function getFeatures() {
 }
 
 export function getHero() {
-  return fetchSanity<Hero>(groq`*[_type == "hero"]{
+  return fetchSanity<HeroType>(groq`*[_type == "hero"]{
     _id,
     _createdAt,
     heading,
@@ -72,8 +74,18 @@ export function getHero() {
   }`);
 }
 
+export function getJoinBakery() {
+  return fetchSanity<JoinBakeryType>(groq`*[_type == "joinBakery"]{
+    heading,
+    direction,
+    form->{
+    name, 
+    fields},
+  }`);
+}
+
 export function getTraditions() {
-  return fetchSanity<Item>(groq`*[_type == "traditions"]{
+  return fetchSanity<ItemType>(groq`*[_type == "traditions"]{
     heading,
     "image": image.asset->url,
     content,

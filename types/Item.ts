@@ -1,10 +1,11 @@
 import { PortableTextBlock } from "next-sanity";
 
-export type Item = {
+export type ItemType = {
   _id: string;
   _createdAt: Date;
   name: string;
   heading?: string;
   image: string;
   content: PortableTextBlock[];
+  joinBakery?: any;
 };

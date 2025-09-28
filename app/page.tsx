@@ -1,4 +1,13 @@
-"use client";
+import {
+  getHeader,
+  getHero,
+  getFeatures,
+  getTraditions,
+  getJoinBakery,
+  getBakers,
+  getFormats,
+  getFooter,
+} from "@/sanity/sanity-utils";
 import Bakers from "./components/Bakers";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
@@ -8,17 +17,37 @@ import Hero from "./components/Hero";
 import JoinBakery from "./components/JoinBakery";
 import Traditions from "./components/Traditions";
 
-export default function Home() {
+export default async function Home() {
+  const [
+    header,
+    hero,
+    features,
+    traditions,
+    bakers,
+    formats,
+    footer,
+    joinBakery,
+  ] = await Promise.all([
+    getHeader(),
+    getHero(),
+    getFeatures(),
+    getTraditions(),
+    getBakers(),
+    getFormats(),
+    getFooter(),
+    getJoinBakery(),
+  ]);
+
   return (
     <div>
-      <Header />
-      <Hero />
-      <Features />
-      <Traditions />
-      <Bakers />
-      <Formats />
-      <JoinBakery />
-      <Footer />
+      <Header header={header[0]} />
+      <Hero hero={hero[0]} />
+      <Features features={features[0]} />
+      <Traditions traditions={traditions[0]} />
+      <Bakers bakers={bakers[0]} />
+      <Formats formats={formats[0]} />
+      <JoinBakery joinBakery={joinBakery[0]} />
+      <Footer footer={footer[0]} />
     </div>
   );
 }

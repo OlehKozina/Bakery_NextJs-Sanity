@@ -1,17 +1,12 @@
+"use client";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import useSWR from "swr";
-import { getFormats } from "@/sanity/sanity-utils";
+import { FormatType } from "@/types";
 
-const fetcher = async () => {
-  const data = await getFormats();
-  return data;
-};
-
-export default function Formats() {
+export default function Formats({ formats }: { formats?: FormatType }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesPerPage, setSlidesPerPage] = useState(1);
   useEffect(() => {
@@ -25,8 +20,6 @@ export default function Formats() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  const { data } = useSWR("formats", fetcher);
-  const formats = data?.[0];
   if (!formats) return null;
   const { bakeryTypes, heading } = formats;
   const nextSlide = () => {

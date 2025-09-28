@@ -1,6 +1,6 @@
 import { PortableTextBlock } from "next-sanity";
 
-export type Bakers = {
+export type BakersType = {
   heading?: string;
   _id?: string;
   bakers?: {

@@ -1,6 +1,6 @@
 import { PortableTextBlock } from "next-sanity";
 
-export type Format = {
+export type FormatType = {
   _id: string;
   bakeryTypes: {
     image: string;

@@ -1,19 +1,14 @@
-import { PortableText, PortableTextComponents } from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import React from "react";
-import useSWR from "swr";
-import { getBakers } from "@/sanity/sanity-utils";
+import { BakersType } from "@/types";
 
-const fetcher = async () => {
-  const data = await getBakers();
-  return data;
-};
-
-export default function Bakers() {
-  const { data } = useSWR("bakers", fetcher);
-  const bakersData = data?.[0];
-
-  if (!bakersData) return <p>Loading...</p>;
+export default function Bakers({
+  bakers: bakersData,
+}: {
+  bakers?: BakersType;
+}) {
+  if (!bakersData) return <p>No bakers found</p>;
   const { bakers, heading } = bakersData;
 
   return (

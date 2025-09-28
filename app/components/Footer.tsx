@@ -1,24 +1,16 @@
+"use client";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React, { useState } from "react";
-import useSWR from "swr";
-import { getFooter } from "@/sanity/sanity-utils";
+import { NavigationType } from "@/types";
 import PrivacyPolicy from "./PrivacyPolicy";
 
-const fetcher = async () => {
-  const data = await getFooter();
-  return data;
-};
-
-function Footer() {
+function Footer({ footer }: { footer?: NavigationType }) {
   const [isPolicyVisible, setIsPolicyVisible] = useState(false);
   const openPolicy = () => setIsPolicyVisible(true);
   const closePolicy = () => setIsPolicyVisible(false);
-  const { data } = useSWR("footer", fetcher);
-  const footer = data?.[0];
   if (!footer) return null;
-
   const { address, email, navigation, phone, privacyPolicy } = footer;
 
   return (

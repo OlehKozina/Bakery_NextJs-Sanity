@@ -1,20 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import useSWR from "swr";
-import { getHero } from "@/sanity/sanity-utils";
+import { HeroType } from "@/types/Hero";
 import ModalForm from "./ModalForm";
 
-const fetcher = async () => {
-  const data = await getHero();
-  return data;
-};
-
-const Hero = () => {
-  const { data } = useSWR("hero", fetcher);
+const Hero = ({ hero }: { hero: HeroType }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const openForm = () => setIsFormVisible(true);
   const closeForm = () => setIsFormVisible(false);
-  const hero = data?.[0];
   if (!hero) return null;
   const { heading, image } = hero;
 
