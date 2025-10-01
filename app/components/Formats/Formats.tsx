@@ -1,10 +1,9 @@
 "use client";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { PortableText } from "next-sanity";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { FormatType } from "@/types";
+import Format from "./Format";
 
 export default function Formats({ formats }: { formats?: FormatType }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,30 +52,7 @@ export default function Formats({ formats }: { formats?: FormatType }) {
           >
             {bakeryTypes.map((type) => {
               const { _key, content, image, name } = type;
-              return (
-                <div
-                  key={_key}
-                  className="flex-shrink-0 w-full max-w-[15rem] sm:max-w-[22rem] sm:w-[calc(50%-1rem)] md:w-[calc(33.33%-1rem)] text-white font-medium relative mt-8 mb-2 mx-2"
-                >
-                  <div className="relative w-full h-full rounded-3xl overflow-hidden">
-                    <Image
-                      src={image}
-                      alt={name}
-                      layout="responsive"
-                      width={349}
-                      height={444}
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 z-9 bg-gradient-to-b from-white/0 via-white/0 to-brand-dark"></div>
-                    <div className="absolute top-[9.5rem] left-8 z-10 text-xl lg:text-2xl md:top-[8rem] lg:top-[10rem]">
-                      {name}
-                    </div>
-                    <div className="absolute  left-8 z-10 text-[0.6rem] max-w-[19rem] top-[12.5rem] sm:text-xs md:text-[0.6rem] md:top-[10rem] lg:text-sm lg:top-[14rem]">
-                      <PortableText value={content} />
-                    </div>
-                  </div>
-                </div>
-              );
+              return <Format key={_key} {...{ content, image, name }} />;
             })}
           </div>
           <button

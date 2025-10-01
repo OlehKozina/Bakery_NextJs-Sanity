@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import Form from "../Form/Form";
 import { FormType } from "@/types";
 import { PortableTextBlock } from "next-sanity";
+import Navigation from "../Navigation";
 
 interface MenuProps {
   onClose: () => void;
@@ -58,20 +59,14 @@ const MobileMenu: React.FC<MenuProps> = ({
               onClick={onClose}
             />
           </button>
-          <ul className="flex text-center mx-auto flex-col gap-5 m-5 bg-muted-green rounded-3xl py-2 mb-20 max-w-[38rem]">
-            {!!navigation?.length &&
-              navigation.map((link) => (
-                <li key={link.sectionId}>
-                  <a
-                    className="no-underline transition-colors text-brand-dark hover:text-brand-light"
-                    href={`#${link.sectionId}`}
-                    onClick={onClose}
-                  >
-                    {link.title}
-                  </a>
-                </li>
-              ))}
-          </ul>
+          <Navigation
+            navigation={navigation}
+            onClose={onClose}
+            classNames={{
+              root: "flex text-center mx-auto flex-col gap-5 m-5 bg-muted-green rounded-3xl py-2 mb-20 max-w-[38rem]",
+              link: "no-underline transition-colors !text-brand-dark hover:!text-brand-light",
+            }}
+          />
           <Form
             heading="Join the Bakery network"
             theme="dark"

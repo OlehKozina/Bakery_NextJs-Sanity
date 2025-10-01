@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FooterPrivacy from "./FooterPrivacy";
 import { NavigationType } from "@/types";
+import Navigation from "../Navigation";
 
 const FooterNavigation = ({
   footerNavigation,
@@ -28,19 +29,7 @@ const FooterNavigation = ({
   ];
   return (
     <div className="flex z-9 mt-4 flex-grow justify-evenly flex-col md:flex-row text-center md:mt-0">
-      <ul>
-        {!!navigation?.length &&
-          navigation.map((link) => (
-            <li key={link.sectionId}>
-              <a
-                className=" text-brand-light no-underline transition-colors hover:text-brand-default"
-                href={`#${link.sectionId}`}
-              >
-                {link.title}
-              </a>
-            </li>
-          ))}
-      </ul>
+      <Navigation navigation={navigation} />
       <ul className="flex flex-col justify-center text-center mt-4 md:mt-0">
         {contactLinks.map(
           (link) =>

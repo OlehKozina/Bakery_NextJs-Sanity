@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Navigation from "../Navigation";
 
 const HeaderNav = ({
   navigation,
@@ -14,19 +15,12 @@ const HeaderNav = ({
       <a href="#" className="z-cover relative">
         <Image src="/logo.svg" alt="bakery_logo" width={100} height={24} />
       </a>
-      <ul className="hidden md:flex list-none gap-16 flex-grow justify-center">
-        {!!navigation?.length &&
-          navigation.map((link) => (
-            <li key={link.sectionId}>
-              <a
-                className="text-brand-light no-underline transition-colors hover:text-brand-default"
-                href={`#${link.sectionId}`}
-              >
-                {link.title}
-              </a>
-            </li>
-          ))}
-      </ul>
+      <Navigation
+        navigation={navigation}
+        classNames={{
+          root: "hidden md:flex list-none gap-16 flex-grow justify-center",
+        }}
+      />
     </nav>
   );
 };
