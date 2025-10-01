@@ -2,6 +2,7 @@
 import React from "react";
 import { JoinBakeryType } from "@/types";
 import Form from "../Form/Form";
+import Heading from "../Heading";
 
 function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
   if (!joinBakery) return null;

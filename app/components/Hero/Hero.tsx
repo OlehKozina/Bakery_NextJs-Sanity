@@ -4,6 +4,7 @@ import { HeroType } from "@/types/Hero";
 import { ModalForm } from "../Form";
 import { FormType } from "@/types";
 import { PortableTextBlock } from "next-sanity";
+import { motion } from "framer-motion";
 
 const Hero = ({
   hero,
@@ -20,6 +21,20 @@ const Hero = ({
   if (!hero) return null;
   const { heading, image } = hero;
 
+  const words = heading.split(" ");
+  const firstWord = words[0];
+  const fullText = heading.split("");
+  const containerVariants = {
+    animate: {
+      transition: { staggerChildren: 0.03 },
+    },
+  };
+
+  const charVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.2 } },
+  };
+
   return (
     <section
       className="relative flex items-center bg-cover bg-top py-[10rem] lg:py-[20rem] max-md:-mt-20"
@@ -30,10 +45,25 @@ const Hero = ({
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/0" />
       <div className="container flex flex-col gap-5">
         {heading && (
-          <h1 className="relative font-extrabold text-center text-5xl mb-25 leading-tight text-brand-light md:top-0 md:mb-12 md:text-8xl lg:text-9xl lg:line-height-[1.5] lg:mb-0">
-            <span className="text-brand-default">{heading.split(" ")[0]} </span>
-            {heading.split(" ").slice(1).join(" ")}
-          </h1>
+          <motion.h1
+            initial="initial"
+            animate="animate"
+            variants={containerVariants}
+            className="relative font-extrabold text-center text-5xl mb-25 leading-tight text-brand-light md:top-0 md:mb-12 md:text-8xl lg:text-9xl lg:line-height-[1.5] lg:mb-0"
+          >
+            {fullText.map((char, index) => {
+              const isFirstWordChar = index < firstWord.length;
+              return (
+                <motion.span
+                  key={index}
+                  variants={charVariants}
+                  className={isFirstWordChar ? "text-brand-default" : ""}
+                >
+                  {char}
+                </motion.span>
+              );
+            })}
+          </motion.h1>
         )}
         <button
           className="md:hidden mx-auto block px-4 py-2 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold md:px-8 md:py-4 z-1 relative"

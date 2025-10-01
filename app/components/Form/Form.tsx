@@ -4,6 +4,7 @@ import { PortableTextBlock } from "next-sanity";
 import React, { useState } from "react";
 import PrivacyPolicy from "./PrivacyPolicy";
 import { FormType } from "@/types";
+import Heading from "../Heading";
 
 interface FormProps {
   heading?: string;
@@ -26,14 +27,14 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
         theme === "dark" ? "bg-brand-dark" : "bg-brand-light"
       )}
     >
-      <h2
+      <Heading
+        heading={heading}
+        highlightLastWord
         className={clsx(
-          "mb-4 text-4xl font-extrabold leading-[1.3] mx-auto text-center md:text-6xl",
+          "mb-4 mx-auto text-center",
           theme === "dark" ? "text-brand-light" : "text-black"
         )}
-      >
-        {heading}
-      </h2>
+      />
       <p className="text-brand-default text-center mb-3">{name}</p>
       <form data-form="contact-form">
         {!!fields?.length &&
