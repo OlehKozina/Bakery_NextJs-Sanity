@@ -22,7 +22,7 @@ const Hero = ({
 
   return (
     <section
-      className="relative flex items-center bg-cover bg-top py-[10rem] lg:py-[20rem]"
+      className="relative flex items-center bg-cover bg-top py-[10rem] lg:py-[20rem] max-md:-mt-20"
       style={{
         backgroundImage: `url(${image})`,
       }}
