@@ -53,6 +53,11 @@ const footer = {
       name: "address",
       type: "object",
     },
+    {
+      name: "socialLinks",
+      of: [{ name: "socialLink", type: "string" }],
+      type: "array",
+    },
   ],
   name: "footer",
   title: "Footer",

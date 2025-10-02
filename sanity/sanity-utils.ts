@@ -14,10 +14,11 @@ const client = createClient({
   apiVersion: "2024-07-17",
   dataset: "production",
   projectId: "fqinbqr2",
+  useCdn: false,
 });
 
 async function fetchSanity<T>(query: string): Promise<T[]> {
-  return client.fetch(query);
+  return client.fetch(query, {}, { cache: "no-store" });
 }
 
 export function getFormats() {
@@ -46,6 +47,7 @@ export function getFooter() {
     phone,
     email,
     address,
+    socialLinks,
     footerImages{
     "left": leftImage.asset->url,
     "right": rightImage.asset->url
@@ -72,8 +74,6 @@ export function getFeatures() {
 
 export function getHero() {
   return fetchSanity<HeroType>(groq`*[_type == "hero"]{
-    _id,
-    _createdAt,
     heading,
     "image": image.asset->url,
   }`);

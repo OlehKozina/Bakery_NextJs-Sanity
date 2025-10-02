@@ -1,13 +1,9 @@
 import React from "react";
-import {
-  faInstagram,
-  faFacebook,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FooterPrivacy from "./FooterPrivacy";
 import { NavigationType } from "@/types";
 import Navigation from "../Navigation";
+import { buildContactLinks, buildSocialLinks } from "./utils";
 
 const FooterNavigation = ({
   footerNavigation,
@@ -15,25 +11,25 @@ const FooterNavigation = ({
   footerNavigation?: NavigationType;
 }) => {
   if (!footerNavigation) return null;
-  const { address, email, navigation, phone, privacyPolicy } = footerNavigation;
-  const contactLinks = [
-    { href: `tel:${phone}`, label: phone },
-    { href: `mailto:${email}`, label: email },
-    { href: address?.link, label: address?.name, external: true },
-  ];
+  const {
+    address,
+    email,
+    navigation,
+    phone,
+    privacyPolicy,
+    socialLinks: _socialLinks,
+  } = footerNavigation;
 
-  const socialLinks = [
-    { href: "#", icon: faInstagram, label: "Instagram" },
-    { href: "#", icon: faFacebook, label: "Facebook" },
-    { href: "#", icon: faXTwitter, label: "Twitter" },
-  ];
+  const contactLinks = buildContactLinks(phone, email, address);
+  const socialLinks = buildSocialLinks(_socialLinks);
+
   return (
     <div className="flex z-9 mt-4 flex-grow justify-evenly flex-col md:flex-row text-center md:mt-0">
       <Navigation navigation={navigation} />
       <ul className="flex flex-col justify-center text-center mt-4 md:mt-0">
         {contactLinks.map(
           (link) =>
-            link.label && (
+            link?.label && (
               <li key={link.href} className="flex justify-center md:block">
                 <a
                   href={link.href}
@@ -48,14 +44,16 @@ const FooterNavigation = ({
         )}
         <li>
           <div className="flex space-x-4 justify-center md:justify-start">
-            {socialLinks.map((s) => (
+            {socialLinks.map((link) => (
               <a
-                key={s.label}
-                href={s.href}
-                aria-label={s.label}
+                key={link.label}
+                href={link.href}
+                aria-label={link.label}
                 className="text-brand-light hover:text-brand-default transition-colors flex items-center"
               >
-                <FontAwesomeIcon icon={s.icon} className="text-2xl" />
+                {link.icon && (
+                  <FontAwesomeIcon icon={link.icon} className="text-2xl" />
+                )}
               </a>
             ))}
           </div>

@@ -11,6 +11,7 @@ export type NavigationType = {
     name?: string;
     link?: string;
   };
+  socialLinks?: string[];
   email?: string;
   footerImages?: {
     left?: string;
