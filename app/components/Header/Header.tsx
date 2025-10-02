@@ -26,7 +26,7 @@ const Header = ({
   const { navigation, privacyPolicy } = header;
 
   return (
-    <header className="absolute top-0 left-0 w-full pt-4 pb-4 z-10 md:pt-8 max-md:sticky max-md:bg-brand-dark max-md:bg-opacity-50 max-md:rounded-2xl">
+    <header className="absolute top-0 left-0 w-full pt-4 pb-4 z-10 md:pt-8 max-md:sticky max-md:bg-brand-dark max-md:bg-opacity-50 max-md:hover:!bg-opacity-80 max-md:rounded-2xl transition-all">
       <div className="container">
         <div className="flex items-center gap-10">
           <HeaderNav navigation={navigation} />

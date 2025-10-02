@@ -46,7 +46,7 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
                   {label}
                 </label>
                 <input
-                  className="w-full p-4 px-10 rounded-lg border border-brand-brick bg-brand-light text-base leading-[1.17]"
+                  className="w-full p-4 px-10 rounded-lg border transition-all border-brand-brick bg-brand-light text-base leading-[1.17]"
                   type={type}
                   placeholder={name}
                   required={required}
