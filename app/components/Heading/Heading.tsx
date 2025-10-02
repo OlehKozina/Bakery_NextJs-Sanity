@@ -1,27 +1,51 @@
+"use client";
 import React from "react";
+import {
+  getHeadingParts,
+  containerVariants,
+  charVariants,
+} from "../Hero/utils";
 import clsx from "clsx";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Heading = ({
   heading,
   className,
-  highlightLastWord = false,
 }: {
   heading?: string;
   className?: string;
-  highlightLastWord?: boolean;
 }) => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+
+  if (!heading) return null;
+  const { lastWord, fullText } = getHeadingParts(heading);
+  const lastWordStartIndex = fullText.length - lastWord.length;
+
   return (
-    <h2
+    <motion.h1
+      ref={ref}
+      variants={containerVariants}
+      initial="initial"
+      animate={inView ? "animate" : "initial"}
       className={clsx(
         "font-extrabold leading-tight text-3xl md:text-6xl",
         className
       )}
     >
-      {heading?.split(" ").slice(0, -1).join(" ")}{" "}
-      <span className={clsx(highlightLastWord && "text-brand-default")}>
-        {heading?.split(" ").pop()}
-      </span>
-    </h2>
+      {fullText.map((char, index) => {
+        const isLastWordChar = index >= lastWordStartIndex;
+        return (
+          <motion.span
+            key={index}
+            variants={charVariants}
+            className={isLastWordChar ? "text-brand-default" : ""}
+          >
+            {char}
+          </motion.span>
+        );
+      })}
+    </motion.h1>
   );
 };
 

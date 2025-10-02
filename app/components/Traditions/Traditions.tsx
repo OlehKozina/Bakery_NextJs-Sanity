@@ -14,7 +14,6 @@ function Traditions({ traditions }: { traditions?: ItemType }) {
           <div className="max-w-[43rem]">
             <Heading
               heading={heading}
-              highlightLastWord
               className="mb-6 mx-auto text-center md:mb-10"
             />
             <div className="mb-5">

@@ -29,7 +29,6 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
     >
       <Heading
         heading={heading}
-        highlightLastWord
         className={clsx(
           "mb-4 mx-auto text-center",
           theme === "dark" ? "text-brand-light" : "text-black"

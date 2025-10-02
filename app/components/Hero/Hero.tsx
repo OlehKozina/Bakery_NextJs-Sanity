@@ -5,6 +5,7 @@ import { ModalForm } from "../Form";
 import { FormType } from "@/types";
 import { PortableTextBlock } from "next-sanity";
 import { motion } from "framer-motion";
+import { getHeadingParts, containerVariants, charVariants } from "./utils";
 
 const Hero = ({
   hero,
@@ -21,19 +22,7 @@ const Hero = ({
   if (!hero) return null;
   const { heading, image } = hero;
 
-  const words = heading.split(" ");
-  const firstWord = words[0];
-  const fullText = heading.split("");
-  const containerVariants = {
-    animate: {
-      transition: { staggerChildren: 0.03 },
-    },
-  };
-
-  const charVariants = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { duration: 0.2 } },
-  };
+  const { firstWord, fullText } = getHeadingParts(heading);
 
   return (
     <section

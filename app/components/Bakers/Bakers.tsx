@@ -17,7 +17,6 @@ export default function Bakers({
         {heading && (
           <Heading
             heading={heading}
-            highlightLastWord
             className="block mx-auto text-center mb-6 max-w-[32.5rem] relative md:mb-20"
           />
         )}
