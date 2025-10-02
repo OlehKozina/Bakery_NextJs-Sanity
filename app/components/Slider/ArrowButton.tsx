@@ -17,7 +17,7 @@ const ArrowButton = ({
         "absolute bg-white rounded-full h-8 w-8 top-1/2 transform -translate-y-1/2 p-2 z-5 transition-transform",
         direction === "left"
           ? "left-0 hover:-translate-x-2"
-          : "right-0 hover:translate-x-2"
+          : "right-0 hover:translate-x-4"
       )}
     >
       <FontAwesomeIcon

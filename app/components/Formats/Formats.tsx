@@ -1,62 +1,46 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { FormatType } from "@/types";
 import Format from "./Format";
 import Heading from "../Heading";
 import { ArrowButton } from "../Slider";
 
 export default function Formats({ formats }: { formats?: FormatType }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesPerPage, setSlidesPerPage] = useState(1);
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) setSlidesPerPage(3);
-      else if (window.innerWidth >= 640) setSlidesPerPage(2);
-      else setSlidesPerPage(1);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
   if (!formats) return null;
   const { bakeryTypes, heading } = formats;
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + slidesPerPage >= bakeryTypes.length
-        ? 0
-        : prevIndex + slidesPerPage
-    );
-  };
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0
-        ? bakeryTypes.length - slidesPerPage
-        : prevIndex - slidesPerPage
-    );
-  };
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    slidesToScroll: 1,
+    skipSnaps: false,
+    align: "start",
+    loop: true,
+  });
+  const scrollPrev = () => emblaApi?.scrollPrev();
+  const scrollNext = () => emblaApi?.scrollNext();
 
   return (
     <section className="py-5 md:py-12" id="formats">
       <div className="container mx-auto px-0">
         <Heading heading={heading} className="mb-6 text-center md:mb-10" />
-        <div className="mx-auto max-w-[69rem] relative">
-          <div className=" relative w-full mx-auto max-w-[69rem] overflow-hidden">
-            <div
-              className=" flex transition-transform duration-300"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / slidesPerPage)}%)`,
-              }}
-            >
+        <div className="relative max-w-[21rem] sm:max-w-[42rem] md:max-w-[69rem] mx-auto">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
               {bakeryTypes.map((type) => {
                 const { _key, content, image, name } = type;
-                return <Format key={_key} {...{ content, image, name }} />;
+                return (
+                  <div
+                    key={_key}
+                    className="flex-[0_0_100%] sm:flex-[0_0_50%] flex sm:justify-between md:flex-[0_0_33.3333%] px-2"
+                  >
+                    <Format {...{ content, image, name }} />
+                  </div>
+                );
               })}
             </div>
           </div>
-          <ArrowButton direction="left" onClick={prevSlide} />
-          <ArrowButton direction="right" onClick={nextSlide} />
+          <ArrowButton direction="left" onClick={scrollPrev} />
+          <ArrowButton direction="right" onClick={scrollNext} />
         </div>
       </div>
     </section>
