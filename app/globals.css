@@ -17,7 +17,7 @@
     font-weight: 400;
     line-height: 1.5;
     margin: 0;
-    background-color: theme("colors.brand-light");
+    background: linear-gradient(to bottom, #fdf6e3, #f5e1c4);
   }
   img {
     display: block;

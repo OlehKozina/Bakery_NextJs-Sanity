@@ -8,12 +8,12 @@ import Heading from "../Heading";
 
 interface FormProps {
   heading?: string;
-  theme?: "light" | "dark";
+  theme?: "light" | "dark" | "none";
   privacyPolicy?: PortableTextBlock;
   form?: FormType;
 }
 
-const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
+const Form = ({ heading, privacyPolicy, form, theme = "none" }: FormProps) => {
   const [isPolicyVisible, setIsPolicyVisible] = useState(false);
   const openPolicy = () => setIsPolicyVisible(true);
   const closePolicy = () => setIsPolicyVisible(false);
@@ -24,7 +24,8 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
     <div
       className={clsx(
         "max-w-[38rem] rounded-3xl p-4 mx-auto",
-        theme === "dark" ? "bg-brand-dark" : "bg-brand-light"
+        theme === "dark" && "bg-brand-dark",
+        theme === "light" && "bg-brand-light"
       )}
     >
       <Heading
@@ -35,7 +36,7 @@ const Form = ({ heading, privacyPolicy, form, theme = "light" }: FormProps) => {
         )}
       />
       <p className="text-brand-default text-center mb-3">{name}</p>
-      <form data-form="contact-form">
+      <form data-form="contact-form" className="max-w-[30rem] mx-auto">
         {!!fields?.length &&
           fields.map((field) => {
             const { name, required, type, label } = field;
