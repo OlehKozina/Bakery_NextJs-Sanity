@@ -52,7 +52,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-overlay mx-auto p-10 text-brand-light max-w-[38rem] flex items-center justify-center"
+          className="fixed inset-0 z-overlay mx-auto p-10 text-brand-light max-w-[38rem] max-h-screen flex items-center justify-center"
         >
           <div className="relative py-10 z-10 overflow-y-auto items-left w-full max-w-[37rem] bg-brand-dark rounded-[2rem] transition-opacity duration-slow md:max-w-[55rem] px-8 overflow-scroll">
             <button

@@ -5,7 +5,7 @@ import { FormatType } from "@/types";
 import Format from "./Format";
 import Heading from "../Heading";
 import { ArrowButton } from "../Slider";
-import Icons from "../Icons";
+import Icons, { Flour } from "../Icons";
 
 export default function Formats({ formats }: { formats?: FormatType }) {
   if (!formats) return null;
@@ -21,17 +21,9 @@ export default function Formats({ formats }: { formats?: FormatType }) {
   const scrollNext = () => emblaApi?.scrollNext();
 
   return (
-    <section className="py-5 md:py-12 relative" id="formats">
-      <img
-        src="/flour.png"
-        alt="Flour"
-        className="absolute left-0 bottom-0 opacity-20 z-under"
-      />
-      <img
-        src="/flour.png"
-        alt="Flour"
-        className="absolute right-0 bottom-0 opacity-20 z-under"
-      />
+    <section className="py-5 md:py-12 relative overflow-hidden" id="formats">
+      <Flour className="left-0 bottom-0" />
+      <Flour className="right-0" />
       <Icons />
       <div className="container mx-auto px-0">
         <Heading heading={heading} className="mb-6 text-center md:mb-10" />

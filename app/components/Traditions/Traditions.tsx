@@ -2,7 +2,7 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { ItemType } from "@/types";
 import Heading from "../Heading";
-import Icons from "../Icons";
+import Icons, { Flour } from "../Icons";
 
 function Traditions({ traditions }: { traditions?: ItemType }) {
   if (!traditions) return null;
@@ -10,14 +10,10 @@ function Traditions({ traditions }: { traditions?: ItemType }) {
 
   return (
     <section
-      className="py-10 md:py-24 text-sm md:text-base relative"
+      className="py-10 md:py-24 text-sm md:text-base relative overflow-hidden"
       id="traditions"
     >
-      <img
-        src="/flour.png"
-        alt="Flour"
-        className="absolute left-0 opacity-20 z-under"
-      />
+      <Flour className="left-0" />
       <Icons />
       <div className="container relative">
         <div className="flex flex-col md:flex-row items-start justify-center gap-10 md:gap-0 md:space-x-10 text-base md:text-xl">

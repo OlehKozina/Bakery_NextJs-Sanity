@@ -30,7 +30,7 @@ const Form = ({
   return (
     <div
       className={clsx(
-        "max-w-[38rem] rounded-3xl p-4 mx-auto",
+        "max-w-[38rem] rounded-3xl p-12 mx-auto",
         theme === "dark" && "bg-brand-dark",
         theme === "light" && "bg-brand-light",
         className

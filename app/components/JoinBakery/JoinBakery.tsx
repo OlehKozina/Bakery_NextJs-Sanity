@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { JoinBakeryType } from "@/types";
-import Form from "../Form/Form";
-import Icons from "../Icons";
+import Form from "../Form";
+import Icons, { Flour } from "../Icons";
 
 function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
   if (!joinBakery) return null;
@@ -10,11 +10,7 @@ function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
   console.log("heading", heading);
   return (
     <section className="py-5 md:py-12 relative overflow-hidden" id="contacts">
-      <img
-        src="/flour.png"
-        alt="Flour"
-        className="absolute left-2/3 bottom-0 opacity-20 z-under"
-      />
+      <Flour className="bottom-0 left-2/3" />
       <Icons />
       <div className="container">
         <div className="flex flex-col items-center gap-6 pb-0 md:flex-row md:gap-10 md:pb-24">
