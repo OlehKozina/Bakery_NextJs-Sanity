@@ -1,39 +1,52 @@
 import Image from "next/image";
 
-const iconPaths = [
-  "/icons/bread1.svg",
-  "/icons/bread2.svg",
-  "/icons/breadBasket.svg",
-  "/icons/breadLoaf.svg",
-  "/icons/baguette.svg",
-  "/icons/donut.svg",
-  "/icons/muffin.svg",
-];
+const iconPaths = {
+  bread1: "/icons/bread1.svg",
+  bread2: "/icons/bread2.svg",
+  basket: "/icons/breadBasket.svg",
+  loaf: "/icons/breadLoaf.svg",
+  baguette: "/icons/baguette.svg",
+  donut: "/icons/donut.svg",
+  muffin: "/icons/muffin.svg",
+};
+
+type IconPosition =
+  | "top-left"
+  | "top-right"
+  | "center"
+  | "bottom-left"
+  | "bottom-right";
 
 interface IconsProps {
-  count?: number;
+  icons?: { name: keyof typeof iconPaths; position: IconPosition }[];
 }
 
-export default function Icons({ count = 5 }: IconsProps) {
-  const randomIcons = iconPaths.sort(() => Math.random() - 0.5).slice(0, count);
-  const positions = [
-    "top-10 left-10",
-    "top-1/3 right-0",
-    "bottom-0 left-1/4",
-    "bottom-10 right-1/3",
-    "top-1/2 left-1/2",
-  ];
+export default function Icons({
+  icons = [
+    { name: "bread1", position: "top-left" },
+    { name: "donut", position: "top-right" },
+    { name: "muffin", position: "bottom-left" },
+    { name: "loaf", position: "bottom-right" },
+  ],
+}: IconsProps) {
+  const positionClasses: Record<IconPosition, string> = {
+    "top-left": "top-10 left-0 sm:left-10",
+    "top-right": "top-10 right-0 sm:right-20",
+    center: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+    "bottom-left": "bottom-10 left-0 sm:left-20",
+    "bottom-right": "bottom-10 right-0 sm:right-6",
+  };
 
   return (
     <div className="absolute z-under inset-0 overflow-hidden pointer-events-none invert">
-      {randomIcons.map((icon, i) => (
+      {icons.map(({ name, position }, i) => (
         <Image
           key={i}
-          src={icon}
-          alt=""
+          src={iconPaths[name]}
+          alt={name}
           width={80}
           height={80}
-          className={`absolute opacity-20 w-24 ${positions[i] || ""}`}
+          className={`absolute opacity-20 w-24 ${positionClasses[position]}`}
         />
       ))}
     </div>

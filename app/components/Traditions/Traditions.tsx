@@ -14,7 +14,14 @@ function Traditions({ traditions }: { traditions?: ItemType }) {
       id="traditions"
     >
       <Flour className="left-0" />
-      <Icons />
+      <Icons
+        icons={[
+          { name: "bread2", position: "top-left" },
+          { name: "basket", position: "top-right" },
+          { name: "loaf", position: "bottom-left" },
+          { name: "baguette", position: "bottom-right" },
+        ]}
+      />
       <div className="container relative">
         <div className="flex flex-col md:flex-row items-start justify-center gap-10 md:gap-0 md:space-x-10 text-base md:text-xl">
           <div className="max-w-[43rem]">

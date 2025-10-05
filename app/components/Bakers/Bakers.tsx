@@ -15,7 +15,14 @@ export default function Bakers({
   return (
     <section className="py-5 md:py-12 relative overflow-hidden" id="bakers">
       <Flour className="left-1/3" />
-      <Icons />
+      <Icons
+        icons={[
+          { name: "bread1", position: "top-left" },
+          { name: "donut", position: "top-right" },
+          { name: "muffin", position: "bottom-left" },
+          { name: "loaf", position: "bottom-right" },
+        ]}
+      />
       <div className="container">
         {heading && (
           <Heading

@@ -24,7 +24,14 @@ export default function Formats({ formats }: { formats?: FormatType }) {
     <section className="py-5 md:py-12 relative overflow-hidden" id="formats">
       <Flour className="left-0 bottom-0" />
       <Flour className="right-0" />
-      <Icons />
+      <Icons
+        icons={[
+          { name: "bread2", position: "top-left" },
+          { name: "basket", position: "top-right" },
+          { name: "loaf", position: "bottom-left" },
+          { name: "baguette", position: "bottom-right" },
+        ]}
+      />
       <div className="container mx-auto px-0">
         <Heading heading={heading} className="mb-6 text-center md:mb-10" />
         <div className="relative max-w-[21rem] sm:max-w-[42rem] md:max-w-[69rem] mx-auto">

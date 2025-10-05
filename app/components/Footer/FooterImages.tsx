@@ -13,7 +13,7 @@ const FooterImages = ({
         alt="bread-left"
         width={100}
         height={24}
-        className="w-[11rem] bg-no-repeat absolute max-md:top-0 md:bottom-0 left-0"
+        className="w-[8rem] md:w-[11rem] bg-no-repeat absolute max-md:top-0 md:bottom-0 left-0"
       />
       <Image
         src={footerImages?.right || "/bread-large.png"}
