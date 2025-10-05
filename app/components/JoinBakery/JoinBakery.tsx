@@ -9,7 +9,10 @@ function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
   const { direction, form, heading } = joinBakery;
   console.log("heading", heading);
   return (
-    <section className="py-5 md:py-12 relative overflow-hidden" id="contacts">
+    <section
+      className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16"
+      id="contacts"
+    >
       <Flour className="bottom-0 left-2/3" />
       <Icons />
       <div className="container">
@@ -21,7 +24,7 @@ function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
             className="hover:scale-105 transition-transform !p-8"
           />
           <iframe
-            className="flex-shrink-0 -mx-6 rounded-lg w-full border-none md:mx-auto md:w-80 lg:w-[38rem]"
+            className="flex-shrink-0 -mx-6 rounded-lg w-full border-none md:mx-auto md:max-w-[30rem] lg:max-w-[38rem]"
             src={direction}
             width="600"
             height="450"

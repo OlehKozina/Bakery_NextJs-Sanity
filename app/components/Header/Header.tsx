@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { NavigationType, FormType } from "@/types";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { ModalForm } from "../Form";
+import clsx from "clsx";
 
 const Header = ({
   header,
@@ -26,9 +27,14 @@ const Header = ({
   const { navigation, privacyPolicy } = header;
 
   return (
-    <header className="absolute top-0 left-0 w-full pt-4 pb-4 z-10 md:pt-8 max-md:sticky max-md:bg-brand-dark max-md:bg-opacity-50 max-md:hover:!bg-opacity-80 max-md:rounded-2xl transition-all">
+    <header
+      className={clsx(
+        "absolute top-0 left-0 w-full pt-4 pb-4 z-10 md:pt-8 max-md:sticky max-md:bg-brand-dark/50 max-md:hover:!bg-brand-dark/80 max-md:rounded-2xl transition-all",
+        isMobMenuVisible && "!rounded-br-none"
+      )}
+    >
       <div className="container">
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-10 relative">
           <HeaderNav navigation={navigation} />
           <button
             className="hidden transition-all md:block px-5 py-2.5 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold hover:bg-opacity-80 md:px-4 md:py-2"
@@ -43,22 +49,23 @@ const Header = ({
             privacyPolicy={privacyPolicy}
             form={form}
           />
-          <button
-            className=" bg-transparent border-none text-brand-light md:hidden menu-btn-open"
-            type="button"
-          >
-            <FontAwesomeIcon
-              icon={faBars}
-              className="hover:text-brand-default w-6"
-              onClick={openMenu}
-            />
-          </button>
+          {!isMobMenuVisible && (
+            <button
+              className=" bg-transparent border-none text-brand-light md:hidden menu-btn-open"
+              type="button"
+            >
+              <FontAwesomeIcon
+                icon={faBars}
+                className="hover:text-brand-default w-6"
+                onClick={openMenu}
+              />
+            </button>
+          )}
           <MobileMenu
             onClose={closeMenu}
-            form={form}
             isVisible={isMobMenuVisible}
             navigation={navigation}
-            privacyPolicy={privacyPolicy}
+            className="absolute -right-6 -top-3.5"
           />
         </div>
       </div>

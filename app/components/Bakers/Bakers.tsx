@@ -13,8 +13,11 @@ export default function Bakers({
   const { bakers, heading } = bakersData;
 
   return (
-    <section className="py-5 md:py-12 relative overflow-hidden" id="bakers">
-      <Flour className="left-1/3" />
+    <section
+      className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16"
+      id="bakers"
+    >
+      <Flour className="left-1/4 top-0 max-md:w-[20rem]" />
       <Icons
         icons={[
           { name: "bread1", position: "top-left" },

@@ -39,7 +39,7 @@ const Form = ({
       <Heading
         heading={heading}
         className={clsx(
-          "mb-4 mx-auto text-center",
+          "mb-4 mx-auto text-center max-md:text-2xl max-lg:!text-3xl",
           theme === "dark" ? "text-brand-light" : "text-black"
         )}
       />

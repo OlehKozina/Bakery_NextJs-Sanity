@@ -21,7 +21,10 @@ export default function Formats({ formats }: { formats?: FormatType }) {
   const scrollNext = () => emblaApi?.scrollNext();
 
   return (
-    <section className="py-5 md:py-12 relative overflow-hidden" id="formats">
+    <section
+      className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16"
+      id="formats"
+    >
       <Flour className="left-0 bottom-0" />
       <Flour className="right-0" />
       <Icons

@@ -10,10 +10,10 @@ function Traditions({ traditions }: { traditions?: ItemType }) {
 
   return (
     <section
-      className="py-10 md:py-24 text-sm md:text-base relative overflow-hidden"
+      className="py-10 md:py-24 text-sm md:text-base relative overflow-hidden max-md:scroll-mt-16"
       id="traditions"
     >
-      <Flour className="left-0" />
+      <Flour className="left-0 top-0 max-md:w-[20rem]" />
       <Icons
         icons={[
           { name: "bread2", position: "top-left" },
