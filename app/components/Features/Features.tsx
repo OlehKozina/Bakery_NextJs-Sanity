@@ -6,17 +6,17 @@ function Features({ features }: { features?: FeaturesType }) {
   const { advantages } = features;
 
   return (
-    <section className="pt-10 pb-0 md:pt-4 md:pb-4 md:bg-brand-default">
+    <section className="py-4 bg-brand-default">
       <Marquee
         gradient={false}
         speed={50}
-        className="bg-muted-green rounded-3xl p-6 md:bg-brand-default md:rounded-none md:p-4"
+        className="rounded-3xl md:rounded-none"
       >
         {!!advantages?.length &&
           advantages.map((advantage) => (
             <span
               key={advantage}
-              className="mx-10 text-sm md:text-lg md:font-light md:text-brand-light"
+              className="mx-10 text-sm md:text-lg md:font-light md:text-brand-light font-bold"
             >
               {advantage}
             </span>

@@ -2,6 +2,7 @@ import React from "react";
 import { BakersType } from "@/types";
 import Baker from "./Baker";
 import Heading from "../Heading";
+import Icons from "../Icons";
 
 export default function Bakers({
   bakers: bakersData,
@@ -12,7 +13,13 @@ export default function Bakers({
   const { bakers, heading } = bakersData;
 
   return (
-    <section className="py-5 md:py-12" id="bakers">
+    <section className="py-5 md:py-12 relative" id="bakers">
+      <img
+        src="/flour.png"
+        alt="Flour"
+        className="absolute left-1/3 opacity-20 z-under"
+      />
+      <Icons />
       <div className="container">
         {heading && (
           <Heading

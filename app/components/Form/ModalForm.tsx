@@ -30,9 +30,9 @@ const ModalForm: React.FC<FormProps> = ({
           exit={{ opacity: 0, pointerEvents: "none" }}
           transition={{ duration: 0.5 }}
         >
-          <div className="relative z-10 overflow-y-auto flex flex-col justify-center items-center w-full max-w-[37rem] h-full bg-brand-light rounded-[2rem] transition-opacity duration-slow md:max-w-[55rem]">
+          <div className="relative z-10 overflow-y-auto flex flex-col justify-center items-center w-auto h-auto bg-brand-light rounded-[2rem] transition-opacity duration-slow">
             <button
-              className="border-none bg-transparent cursor-pointer absolute top-10 right-10"
+              className="border-none bg-transparent cursor-pointer absolute top-5 right-5"
               type="button"
             >
               <FontAwesomeIcon
@@ -42,7 +42,8 @@ const ModalForm: React.FC<FormProps> = ({
               />
             </button>
             <Form
-              theme="light"
+              theme="dark"
+              className="p-12"
               heading="Request a call"
               privacyPolicy={privacyPolicy}
               form={form}

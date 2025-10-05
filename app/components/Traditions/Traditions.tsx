@@ -2,14 +2,24 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { ItemType } from "@/types";
 import Heading from "../Heading";
+import Icons from "../Icons";
 
 function Traditions({ traditions }: { traditions?: ItemType }) {
   if (!traditions) return null;
   const { content, heading, image } = traditions;
 
   return (
-    <section className="py-10 md:py-24 text-sm md:text-base" id="traditions">
-      <div className="container">
+    <section
+      className="py-10 md:py-24 text-sm md:text-base relative"
+      id="traditions"
+    >
+      <img
+        src="/flour.png"
+        alt="Flour"
+        className="absolute left-0 opacity-20 z-under"
+      />
+      <Icons />
+      <div className="container relative">
         <div className="flex flex-col md:flex-row items-start justify-center gap-10 md:gap-0 md:space-x-10 text-base md:text-xl">
           <div className="max-w-[43rem]">
             <Heading

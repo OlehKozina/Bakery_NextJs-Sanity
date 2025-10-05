@@ -52,16 +52,16 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5 text-black"
+          className="fixed inset-0 z-overlay mx-auto p-10 text-brand-light max-w-[38rem] flex items-center justify-center"
         >
-          <div className="relative z-10 overflow-y-auto flex flex-col justify-center items-left w-full max-w-[37rem] h-full bg-brand-light rounded-[2rem] transition-opacity duration-slow md:max-w-[55rem] px-8">
+          <div className="relative py-10 z-10 overflow-y-auto items-left w-full max-w-[37rem] bg-brand-dark rounded-[2rem] transition-opacity duration-slow md:max-w-[55rem] px-8 overflow-scroll">
             <button
-              className="text-brand-dark z-10 border-none absolute top-10 right-10"
+              className="z-10 border-none absolute top-5 right-5"
               type="button"
             >
               <FontAwesomeIcon
                 icon={faXmark}
-                className="hover:text-brand-default text-xl text-black transition-colors"
+                className="hover:text-brand-default text-xl transition-colors"
                 onClick={onClose}
               />
             </button>

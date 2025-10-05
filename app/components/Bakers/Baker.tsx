@@ -26,7 +26,7 @@ const Baker = ({ image, content, name }: BakerType) => {
   };
 
   return (
-    <div className="mb-4 text-brand-dark text-2xl font-bold md:text-4xl">
+    <div className="mb-4 text-brand-light text-2xl font-bold md:text-4xl">
       <div className="flex gap-4 list-none items-start">
         {image && (
           <motion.div
@@ -45,7 +45,8 @@ const Baker = ({ image, content, name }: BakerType) => {
           </motion.div>
         )}
         <div>
-          {name || ""}
+          <h3 className="font-extrabold"> {name || ""}</h3>
+
           {content && (
             <div className="max-w-[12rem] mt-6 mb-6 text-sm font-thin last:mb-0 md:text-xl md:max-w-[21rem]">
               <PortableText value={content || []} />

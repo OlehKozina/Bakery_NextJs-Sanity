@@ -11,9 +11,16 @@ interface FormProps {
   theme?: "light" | "dark" | "none";
   privacyPolicy?: PortableTextBlock;
   form?: FormType;
+  className?: string;
 }
 
-const Form = ({ heading, privacyPolicy, form, theme = "none" }: FormProps) => {
+const Form = ({
+  heading,
+  privacyPolicy,
+  form,
+  theme = "none",
+  className,
+}: FormProps) => {
   const [isPolicyVisible, setIsPolicyVisible] = useState(false);
   const openPolicy = () => setIsPolicyVisible(true);
   const closePolicy = () => setIsPolicyVisible(false);
@@ -25,7 +32,8 @@ const Form = ({ heading, privacyPolicy, form, theme = "none" }: FormProps) => {
       className={clsx(
         "max-w-[38rem] rounded-3xl p-4 mx-auto",
         theme === "dark" && "bg-brand-dark",
-        theme === "light" && "bg-brand-light"
+        theme === "light" && "bg-brand-light",
+        className
       )}
     >
       <Heading
@@ -36,7 +44,10 @@ const Form = ({ heading, privacyPolicy, form, theme = "none" }: FormProps) => {
         )}
       />
       <p className="text-brand-default text-center mb-3">{name}</p>
-      <form data-form="contact-form" className="max-w-[30rem] mx-auto">
+      <form
+        data-form="contact-form"
+        className="max-w-[30rem] mx-auto text-brand-dark"
+      >
         {!!fields?.length &&
           fields.map((field) => {
             const { name, required, type, label } = field;
