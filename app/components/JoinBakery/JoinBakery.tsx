@@ -21,7 +21,7 @@ function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
             heading={heading}
             form={form}
             theme="dark"
-            className="hover:scale-105 transition-transform !p-8"
+            className="hover:scale-105 transition-transform !p-8 bg-opacity-50"
           />
           <iframe
             className="flex-shrink-0 -mx-6 rounded-lg w-full border-none md:mx-auto md:max-w-[30rem] lg:max-w-[38rem]"

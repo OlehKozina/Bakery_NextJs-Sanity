@@ -4,7 +4,7 @@ import { HeroType } from "@/types/Hero";
 import { ModalForm } from "../Form";
 import { FormType } from "@/types";
 import { PortableTextBlock } from "next-sanity";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { getHeadingParts, containerVariants, charVariants } from "./utils";
 
 const Hero = ({
@@ -20,17 +20,21 @@ const Hero = ({
   const openForm = () => setIsFormVisible(true);
   const closeForm = () => setIsFormVisible(false);
   if (!hero) return null;
-  const { heading, image } = hero;
 
+  const { heading, image } = hero;
   const { firstWord, fullText } = getHeadingParts(heading);
+  const { scrollY } = useScroll();
+  const yBg = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
-    <section
-      className="relative flex items-center bg-cover bg-top py-[10rem] lg:py-[20rem] max-md:-mt-20 h-screen"
-      style={{
-        backgroundImage: `url(${image})`,
-      }}
-    >
+    <section className="relative flex items-center overflow-hidden max-md:-mt-20 h-screen">
+      <motion.div
+        style={{
+          backgroundImage: `url(${image})`,
+          y: yBg,
+        }}
+        className="absolute inset-0 bg-cover bg-top"
+      />
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/0" />
       <div className="container flex flex-col gap-5">
         {heading && (

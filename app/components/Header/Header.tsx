@@ -30,14 +30,14 @@ const Header = ({
     <header
       className={clsx(
         "absolute top-0 left-0 w-full pt-4 pb-4 z-10 md:pt-8 max-md:sticky max-md:bg-brand-dark/50 max-md:hover:!bg-brand-dark/80 max-md:rounded-2xl transition-all",
-        isMobMenuVisible && "!rounded-br-none"
+        isMobMenuVisible && "!xrounded-br-none"
       )}
     >
       <div className="container">
         <div className="flex items-center gap-10 relative">
           <HeaderNav navigation={navigation} />
           <button
-            className="hidden transition-all md:block px-5 py-2.5 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold hover:bg-opacity-80 md:px-4 md:py-2"
+            className="hidden transition-all md:block bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer text-xl font-extrabold hover:bg-opacity-80 px-6 py-3"
             type="button"
             onClick={openForm}
           >

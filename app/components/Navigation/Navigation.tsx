@@ -13,33 +13,33 @@ interface NavigationProps {
   };
   onClose?: () => void;
 }
-const list = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1, // delay between items
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 10 },
-  show: { opacity: 1, y: 0 },
-};
 
 const Navigation = ({ navigation, classNames, onClose }: NavigationProps) => {
   if (!navigation?.length) return null;
   return (
     <motion.ul
       className={classNames?.root}
-      variants={list}
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.1,
+          },
+        },
+      }}
       initial="hidden"
       animate="show"
     >
       {!!navigation?.length &&
         navigation.map((link) => (
-          <motion.li key={link.sectionId} variants={item}>
+          <motion.li
+            key={link.sectionId}
+            variants={{
+              hidden: { opacity: 0, y: 10 },
+              show: { opacity: 1, y: 0 },
+            }}
+          >
             <a
               className={clsx(
                 "text-brand-light no-underline transition-colors hover:text-brand-default",

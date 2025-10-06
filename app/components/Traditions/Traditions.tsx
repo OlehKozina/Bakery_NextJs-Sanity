@@ -1,5 +1,9 @@
+"use client";
 import { PortableText } from "@portabletext/react";
+import React from "react";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import { m } from "framer-motion";
 import { ItemType } from "@/types";
 import Heading from "../Heading";
 import Icons, { Flour } from "../Icons";
@@ -7,11 +11,15 @@ import Icons, { Flour } from "../Icons";
 function Traditions({ traditions }: { traditions?: ItemType }) {
   if (!traditions) return null;
   const { content, heading, image } = traditions;
-
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
   return (
     <section
       className="py-10 md:py-24 text-sm md:text-base relative overflow-hidden max-md:scroll-mt-16"
       id="traditions"
+      ref={ref}
     >
       <Flour className="left-0 top-0 max-md:w-[20rem]" />
       <Icons
@@ -23,7 +31,7 @@ function Traditions({ traditions }: { traditions?: ItemType }) {
         ]}
       />
       <div className="container relative">
-        <div className="flex flex-col md:flex-row items-start justify-center gap-10 md:gap-0 md:space-x-10 text-base md:text-xl">
+        <div className="flex flex-col md:flex-row items-start max-md:items-center justify-center gap-10 md:gap-0 md:space-x-10 text-base md:text-xl">
           <div className="max-w-[43rem]">
             <Heading
               heading={heading}
@@ -33,13 +41,36 @@ function Traditions({ traditions }: { traditions?: ItemType }) {
               <PortableText value={content} />
             </div>
           </div>
-          <Image
-            src={image}
-            alt="baker"
-            width={393}
-            height={466}
-            className="hidden md:block rounded-t-full"
-          />
+          <m.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="hidden md:block"
+          >
+            <Image
+              src={image}
+              alt="baker"
+              width={393}
+              height={466}
+              className="rounded-t-full"
+            />
+          </m.div>
+
+          {/* mobile image */}
+          <m.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="block md:hidden"
+          >
+            <Image
+              src="/bakery-horizontal.jpg"
+              alt="baker"
+              width={566}
+              height={393}
+              className="rounded-3xl"
+            />
+          </m.div>
         </div>
       </div>
     </section>

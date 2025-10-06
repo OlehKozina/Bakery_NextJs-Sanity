@@ -66,7 +66,7 @@ const Form = ({
             );
           })}
         <button
-          className="mx-auto transition-opacity mb-6 block px-5 py-2 bg-brand-default hover:opacity-80 text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold md:px-8 md:py-4"
+          className="mx-auto transition-opacity mb-6 block px-5 py-2 bg-brand-default hover:bg-opacity-80 text-brand-light border border-brand-default rounded-lg cursor-pointer text-xl font-extrabold md:px-8 md:py-4"
           type="button"
         >
           {buttonLabel}
