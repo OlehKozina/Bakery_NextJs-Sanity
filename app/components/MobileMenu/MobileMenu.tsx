@@ -1,6 +1,6 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import React from "react";
 import Navigation from "../Navigation";
 import clsx from "clsx";
@@ -24,13 +24,7 @@ const MobileMenu: React.FC<MenuProps> = ({
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className={clsx("z-50 md:hidden pt-10", className)}
-        >
+        <div className={clsx("z-50 md:hidden pt-10", className)}>
           <button
             className="text-brand-dark z-10 border-none absolute top-6 right-7"
             type="button"
@@ -49,7 +43,7 @@ const MobileMenu: React.FC<MenuProps> = ({
               link: "no-underline !text-brand-light transition-colors hover:!text-brand-default",
             }}
           />
-        </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );
