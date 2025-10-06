@@ -45,11 +45,18 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
           className={clsx(
-            "fixed inset-0 z-overlay p-10 text-brand-light py-20 flex items-center justify-center bg-brand-dark bg-opacity-50",
+            "fixed inset-0 z-overlay p-5 text-brand-light py-20 flex items-center justify-center bg-brand-dark bg-opacity-50",
             className
           )}
         >
-          <div className="relative py-10 z-10 no-scroll-bar items-left w-full bg-brand-dark max-h-[80vh] rounded-[2rem] transition-opacity duration-slow max-w-[35rem] px-8">
+          <div className="relative z-10 items-left w-full bg-brand-dark rounded-[2rem] transition-opacity duration-slow max-w-[38rem] px-8">
+            <div className="no-scroll-bar h-full max-h-[57vh] md:max-h-[62vh] py-10">
+              {" "}
+              <PortableText
+                value={privacyPolicy || []}
+                components={components}
+              />
+            </div>
             <button
               className="z-10 border-none absolute top-5 right-5"
               type="button"
@@ -60,7 +67,6 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                 onClick={onClose}
               />
             </button>
-            <PortableText value={privacyPolicy || []} components={components} />
           </div>
         </motion.div>
       )}

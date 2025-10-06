@@ -35,10 +35,10 @@ const ModalForm: React.FC<FormProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.95 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative z-10 overflow-y-auto flex flex-col justify-center items-center w-auto h-auto bg-brand-light rounded-[2rem] transition-opacity duration-slow"
+            className="relative max-w-[38rem] z-10 overflow-y-auto flex flex-col justify-center items-center w-full h-auto bg-brand-light rounded-[2rem] transition-opacity duration-slow"
           >
             <button
-              className="border-none bg-transparent cursor-pointer absolute top-5 right-5"
+              className="border-none bg-transparent cursor-pointer absolute top-7 right-5"
               type="button"
             >
               <FontAwesomeIcon
@@ -49,7 +49,7 @@ const ModalForm: React.FC<FormProps> = ({
             </button>
             <Form
               theme="dark"
-              className="p-12"
+              className="p-12 w-full !mx-0"
               heading="Request a call"
               privacyPolicy={privacyPolicy}
               isVisible={isVisible}
