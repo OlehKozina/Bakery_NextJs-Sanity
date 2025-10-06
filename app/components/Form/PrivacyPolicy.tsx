@@ -6,12 +6,14 @@ import {
   PortableTextBlock,
   PortableTextComponents,
 } from "next-sanity";
-import React, { useEffect } from "react";
+import React from "react";
+import clsx from "clsx";
 
 interface PrivacyPolicyProps {
   onClose: () => void;
   isVisible?: boolean;
   privacyPolicy?: PortableTextBlock;
+  className?: string;
 }
 const components: PortableTextComponents = {
   block: {
@@ -32,18 +34,8 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
   isVisible,
   onClose,
   privacyPolicy,
+  className,
 }) => {
-  useEffect(() => {
-    if (isVisible) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isVisible]);
   return (
     <AnimatePresence>
       {isVisible && (
@@ -52,9 +44,12 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-overlay mx-auto p-10 text-brand-light max-w-[38rem] py-20 flex items-center justify-center"
+          className={clsx(
+            "fixed inset-0 z-overlay p-10 text-brand-light py-20 flex items-center justify-center bg-brand-dark bg-opacity-50",
+            className
+          )}
         >
-          <div className="relative py-10 z-10 overflow-y-scroll items-left w-full max-w-[37rem] bg-brand-dark max-h-[80vh] rounded-[2rem] transition-opacity duration-slow md:max-w-[55rem] px-8">
+          <div className="relative py-10 z-10 no-scroll-bar items-left w-full bg-brand-dark max-h-[80vh] rounded-[2rem] transition-opacity duration-slow max-w-[35rem] px-8">
             <button
               className="z-10 border-none absolute top-5 right-5"
               type="button"

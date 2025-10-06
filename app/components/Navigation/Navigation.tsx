@@ -14,6 +14,7 @@ interface NavigationProps {
   };
   onClose?: () => void;
   isHeader?: boolean;
+  activeSection?: string | null;
 }
 
 const Navigation = ({
@@ -21,6 +22,7 @@ const Navigation = ({
   classNames,
   onClose,
   isHeader = false,
+  activeSection,
 }: NavigationProps) => {
   if (!navigation?.length) return null;
   const [hoveredIndex, setHoveredIndex] = useState<null | number>(null);
@@ -42,7 +44,7 @@ const Navigation = ({
       {navigation?.map((link, index) => {
         const linkRef = React.useRef<HTMLAnchorElement | null>(null);
         const [linkWidth, setLinkWidth] = React.useState<number | null>(null);
-
+        const isActive = activeSection === link?.sectionId?.replace("#", "");
         React.useEffect(() => {
           if (linkRef.current) {
             setLinkWidth(linkRef.current.offsetWidth);
@@ -76,7 +78,7 @@ const Navigation = ({
               <LineSvg
                 className="absolute top-full"
                 width={linkWidth}
-                isHovered={hoveredIndex === index}
+                isHovered={hoveredIndex === index || isActive}
               />
             )}
           </motion.li>

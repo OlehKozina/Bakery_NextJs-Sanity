@@ -7,6 +7,7 @@ import { NavigationType, FormType } from "@/types";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { ModalForm } from "../Form";
 import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
 
 const Header = ({
   header,
@@ -23,6 +24,7 @@ const Header = ({
   const openMenu = () => setIsMobMenuVisible(true);
   const closeMenu = () => setIsMobMenuVisible(false);
   const [hidden, setHidden] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -36,6 +38,27 @@ const Header = ({
 
     window.addEventListener("scroll", updateScroll);
     return () => window.removeEventListener("scroll", updateScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.id;
+          if (entry.isIntersecting) {
+            if (id === "hero") {
+              setActiveSection(null);
+            } else setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
   if (!header) return null;
@@ -55,7 +78,7 @@ const Header = ({
         )}
       >
         <div className="flex items-center gap-10 relative">
-          <HeaderNav navigation={navigation} />
+          <HeaderNav navigation={navigation} activeSection={activeSection} />
           <button
             className="hidden transition-all md:block bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer text-lg lg:text-xl font-extrabold hover:bg-opacity-80 px-6 py-3"
             type="button"

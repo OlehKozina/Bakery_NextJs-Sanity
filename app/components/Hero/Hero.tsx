@@ -27,7 +27,10 @@ const Hero = ({
   const yBg = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
-    <section className="relative flex items-center overflow-hidden -mt-[7.5rem] h-screen">
+    <section
+      className="relative flex items-center overflow-hidden -mt-[7.5rem] h-screen"
+      id="hero"
+    >
       <motion.div
         style={{
           backgroundImage: `url(${image})`,

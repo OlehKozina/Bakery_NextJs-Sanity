@@ -3,11 +3,17 @@ import React from "react";
 import { JoinBakeryType } from "@/types";
 import Form from "../Form";
 import Icons from "../Icons";
+import { PortableTextBlock } from "next-sanity";
 
-function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
+function JoinBakery({
+  joinBakery,
+  privacyPolicy,
+}: {
+  joinBakery?: JoinBakeryType;
+  privacyPolicy?: PortableTextBlock;
+}) {
   if (!joinBakery) return null;
   const { direction, form, heading } = joinBakery;
-  console.log("heading", heading);
   return (
     <section
       className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16"
@@ -20,7 +26,8 @@ function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
             heading={heading}
             form={form}
             theme="dark"
-            className="hover:scale-105 transition-transform !p-8 bg-opacity-50"
+            className="!p-8 bg-opacity-50"
+            privacyPolicy={privacyPolicy}
           />
           <iframe
             className="flex-shrink-0 max-md:h-[15rem] md:aspect-square -mx-6 rounded-3xl w-full border-none md:mx-auto md:max-w-[30rem] lg:max-w-[38rem]"

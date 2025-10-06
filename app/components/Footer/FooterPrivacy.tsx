@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PrivacyPolicy from "../Form/PrivacyPolicy";
 import { PortableTextBlock } from "next-sanity";
+import { useLockScroll } from "@/app/hooks/useLockScroll";
 
 const FooterPrivacy = ({
   privacyPolicy,
@@ -10,6 +11,7 @@ const FooterPrivacy = ({
   const [isPolicyVisible, setIsPolicyVisible] = useState(false);
   const openPolicy = () => setIsPolicyVisible(true);
   const closePolicy = () => setIsPolicyVisible(false);
+  useLockScroll(!!isPolicyVisible);
   return (
     <ul className="footer__bottom z-content">
       <li className="flex justify-center lg:block">

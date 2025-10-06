@@ -55,7 +55,10 @@ export default async function Home() {
         <Traditions traditions={traditions[0]} />
         <Bakers bakers={bakers[0]} />
         <Formats formats={formats[0]} />
-        <JoinBakery joinBakery={joinBakery[0]} />
+        <JoinBakery
+          joinBakery={joinBakery[0]}
+          privacyPolicy={header[0].privacyPolicy}
+        />
         <Footer footer={footer[0]} />
       </Background>
     </div>

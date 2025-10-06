@@ -4,11 +4,13 @@ import Navigation from "../Navigation";
 
 const HeaderNav = ({
   navigation,
+  activeSection,
 }: {
   navigation?: {
     title?: string;
     sectionId?: string;
   }[];
+  activeSection?: string | null;
 }) => {
   return (
     <nav className="flex items-center flex-grow gap-10">
@@ -17,6 +19,7 @@ const HeaderNav = ({
       </a>
       <Navigation
         navigation={navigation}
+        activeSection={activeSection}
         isHeader
         classNames={{
           root: "hidden md:flex list-none gap-16 flex-grow justify-center text-lg lg:text-xl font-extrabold",

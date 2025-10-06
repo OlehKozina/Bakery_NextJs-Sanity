@@ -5,13 +5,18 @@ import React, { useState } from "react";
 import PrivacyPolicy from "./PrivacyPolicy";
 import { FormType } from "@/types";
 import Heading from "../Heading";
+import { useLockScroll } from "@/app/hooks/useLockScroll";
 
 interface FormProps {
   heading?: string;
+  isVisible?: boolean;
   theme?: "light" | "dark" | "none";
   privacyPolicy?: PortableTextBlock;
   form?: FormType;
   className?: string;
+  classNames?: {
+    privacyPolicy?: string;
+  };
 }
 
 const Form = ({
@@ -20,8 +25,11 @@ const Form = ({
   form,
   theme = "none",
   className,
+  classNames,
+  isVisible,
 }: FormProps) => {
   const [isPolicyVisible, setIsPolicyVisible] = useState(false);
+  useLockScroll(isVisible || isPolicyVisible);
   const openPolicy = () => setIsPolicyVisible(true);
   const closePolicy = () => setIsPolicyVisible(false);
   if (!form) return;
@@ -66,12 +74,12 @@ const Form = ({
             );
           })}
         <button
-          className="mx-auto transition-opacity mb-6 block px-5 py-2 bg-brand-default hover:bg-opacity-80 text-brand-light border border-brand-default rounded-lg cursor-pointer text-xl font-extrabold md:px-8 md:py-4"
+          className="mx-auto transition-all mb-6 block px-5 py-2 bg-brand-default hover:bg-opacity-80 text-brand-light border border-brand-default rounded-lg cursor-pointer text-xl font-extrabold md:px-8 md:py-4"
           type="button"
         >
           {buttonLabel}
         </button>
-        <p
+        <div
           className={clsx(
             "mx-auto max-w-[15rem] text-xs text-center",
             theme == "dark" && "text-brand-default"
@@ -91,10 +99,11 @@ const Form = ({
                 onClose={closePolicy}
                 privacyPolicy={privacyPolicy}
                 isVisible={isPolicyVisible}
+                className={classNames?.privacyPolicy}
               />
             )}
           </span>
-        </p>
+        </div>
       </form>
     </div>
   );

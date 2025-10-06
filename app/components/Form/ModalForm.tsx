@@ -52,7 +52,9 @@ const ModalForm: React.FC<FormProps> = ({
               className="p-12"
               heading="Request a call"
               privacyPolicy={privacyPolicy}
+              isVisible={isVisible}
               form={form}
+              classNames={{ privacyPolicy: "!bg-opacity-0" }}
             />
           </motion.div>
         </motion.div>
