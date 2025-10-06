@@ -2,7 +2,7 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeaderNav from "./HeaderNav";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavigationType, FormType } from "@/types";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { ModalForm } from "../Form";
@@ -22,6 +22,21 @@ const Header = ({
   const [isMobMenuVisible, setIsMobMenuVisible] = useState(false);
   const openMenu = () => setIsMobMenuVisible(true);
   const closeMenu = () => setIsMobMenuVisible(false);
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const updateScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY && currentY > 80) setHidden(true);
+      else setHidden(false);
+      lastScrollY = currentY;
+    };
+
+    window.addEventListener("scroll", updateScroll);
+    return () => window.removeEventListener("scroll", updateScroll);
+  }, []);
 
   if (!header) return null;
   const { navigation, privacyPolicy } = header;
@@ -29,11 +44,16 @@ const Header = ({
   return (
     <header
       className={clsx(
-        "absolute top-0 left-0 w-full pt-4 pb-4 z-10 md:pt-8 max-md:sticky max-md:bg-brand-dark/50 max-md:hover:!bg-brand-dark/80 max-md:rounded-2xl transition-all",
-        isMobMenuVisible && "!xrounded-br-none"
+        "top-0 left-0 w-full py-4 z-10 sticky transition-all",
+        hidden && "-translate-y-full"
       )}
     >
-      <div className="container">
+      <div
+        className={clsx(
+          "container bg-brand-dark/60 hover:bg-brand-dark/90 transition-all rounded-3xl p-4",
+          isMobMenuVisible && "rounded-br-none"
+        )}
+      >
         <div className="flex items-center gap-10 relative">
           <HeaderNav navigation={navigation} />
           <button

@@ -17,6 +17,7 @@ const HeaderNav = ({
       </a>
       <Navigation
         navigation={navigation}
+        isHeader
         classNames={{
           root: "hidden md:flex list-none gap-16 flex-grow justify-center text-lg lg:text-xl font-extrabold",
         }}
