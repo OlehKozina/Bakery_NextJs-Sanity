@@ -2,7 +2,7 @@ import React from "react";
 import { BakersType } from "@/types";
 import Baker from "./Baker";
 import Heading from "../Heading";
-import Icons, { Flour } from "../Icons";
+import Icons from "../Icons";
 
 export default function Bakers({
   bakers: bakersData,
@@ -17,7 +17,6 @@ export default function Bakers({
       className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16"
       id="bakers"
     >
-      <Flour className="left-1/4 top-0 max-md:w-[20rem]" />
       <Icons
         icons={[
           { name: "bread1", position: "top-left" },

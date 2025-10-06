@@ -32,7 +32,7 @@ export default function Icons({
   const positionClasses: Record<IconPosition, string> = {
     "top-left": "top-0 sm:top-1/2 left-0 sm:left-1/2",
     "top-right": "top-10 right-0 sm:right-1/4",
-    center: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+    center: "top-1/2 left-1/3",
     "bottom-left": "bottom-10 left-0 sm:left-10",
     "bottom-right": "bottom-10 right-0 sm:right-[15rem]",
   };

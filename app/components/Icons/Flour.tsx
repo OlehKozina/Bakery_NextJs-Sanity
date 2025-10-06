@@ -7,7 +7,7 @@ const Flour = ({ className }: { className?: string }) => {
       <img
         src="/flour.png"
         alt="Flour"
-        className={clsx("absolute opacity-20 z-under", className)}
+        className={clsx("opacity-20 z-under", className)}
       />
     </>
   );

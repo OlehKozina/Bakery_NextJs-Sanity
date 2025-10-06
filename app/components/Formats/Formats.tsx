@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { FormatType } from "@/types";
 import Format from "./Format";
 import Heading from "../Heading";
 import { ArrowButton } from "../Slider";
-import Icons, { Flour } from "../Icons";
+import Icons from "../Icons";
 
 export default function Formats({ formats }: { formats?: FormatType }) {
   if (!formats) return null;
@@ -25,8 +25,6 @@ export default function Formats({ formats }: { formats?: FormatType }) {
       className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16"
       id="formats"
     >
-      <Flour className="left-0 bottom-0" />
-      <Flour className="right-0" />
       <Icons
         icons={[
           { name: "bread2", position: "top-left" },

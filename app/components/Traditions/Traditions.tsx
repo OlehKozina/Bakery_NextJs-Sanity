@@ -1,34 +1,20 @@
 "use client";
 import { PortableText } from "@portabletext/react";
 import React from "react";
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
 import { ItemType } from "@/types";
 import Heading from "../Heading";
-import Icons, { Flour } from "../Icons";
+import Icons from "../Icons";
 import Illustration from "./Illustration";
 
 function Traditions({ traditions }: { traditions?: ItemType }) {
   if (!traditions) return null;
   const { content, heading, image, horizontalImage } = traditions;
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
-
-  React.useEffect(() => {
-    controls.start(inView ? "visible" : "hidden");
-  }, [controls, inView]);
-
-  const imageVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
 
   return (
     <section
       className="py-10 md:py-24 text-sm md:text-base relative overflow-hidden max-md:scroll-mt-16"
       id="traditions"
     >
-      <Flour className="left-0 top-0 max-md:w-[20rem]" />
       <Icons
         icons={[
           { name: "bread2", position: "top-left" },

@@ -2,7 +2,7 @@
 import React from "react";
 import { JoinBakeryType } from "@/types";
 import Form from "../Form";
-import Icons, { Flour } from "../Icons";
+import Icons from "../Icons";
 
 function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
   if (!joinBakery) return null;
@@ -13,7 +13,6 @@ function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
       className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16"
       id="contacts"
     >
-      <Flour className="bottom-0 left-2/3" />
       <Icons />
       <div className="container">
         <div className="flex flex-col items-center gap-6 pb-0 md:flex-row md:gap-10 md:pb-24">
