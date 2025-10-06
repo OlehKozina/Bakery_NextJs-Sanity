@@ -24,16 +24,16 @@ const ModalForm: React.FC<FormProps> = ({
       {isVisible && (
         <motion.div
           className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5"
-          initial={{ opacity: 0, pointerEvents: "none" }}
-          animate={{ opacity: 1, pointerEvents: "all" }}
-          exit={{ opacity: 0, pointerEvents: "none" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
           key="form"
         >
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.95 }}
+            initial={{ y: 50, scale: 0.95 }}
+            animate={{ y: 0, scale: 1 }}
+            exit={{ y: 50, scale: 0.95 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="relative max-w-[38rem] z-10 overflow-y-auto flex flex-col justify-center items-center w-full h-auto bg-brand-light rounded-[2rem] transition-opacity duration-slow"
           >
@@ -49,7 +49,7 @@ const ModalForm: React.FC<FormProps> = ({
             </button>
             <Form
               theme="dark"
-              className="p-12 w-full !mx-0 no-scroll-bar !h-full !max-h-[60vh]"
+              className="px-12 py-20 w-full !mx-0 no-scroll-bar !h-full !max-h-[60vh] md:!max-h-[70vh]"
               heading="Request a call"
               privacyPolicy={privacyPolicy}
               isVisible={isVisible}

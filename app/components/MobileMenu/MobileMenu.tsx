@@ -22,7 +22,7 @@ const MobileMenu: React.FC<MenuProps> = ({
   className,
 }) => {
   return (
-    <AnimatePresence initial={false}>
+    <AnimatePresence>
       {isVisible && (
         <motion.div
           initial={{ opacity: 0 }}
