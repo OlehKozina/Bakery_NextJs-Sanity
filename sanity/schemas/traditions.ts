@@ -15,6 +15,13 @@ const traditions = {
     },
     {
       group: "content",
+      name: "horizontalImage",
+      options: { hotspot: true },
+      title: "Horizontal Image",
+      type: "image",
+    },
+    {
+      group: "content",
       name: "content",
       of: [{ type: "block" }],
       title: "Content",

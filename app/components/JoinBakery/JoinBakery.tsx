@@ -24,10 +24,8 @@ function JoinBakery({ joinBakery }: { joinBakery?: JoinBakeryType }) {
             className="hover:scale-105 transition-transform !p-8 bg-opacity-50"
           />
           <iframe
-            className="flex-shrink-0 -mx-6 rounded-lg w-full border-none md:mx-auto md:max-w-[30rem] lg:max-w-[38rem]"
+            className="flex-shrink-0 max-md:h-[15rem] md:aspect-square -mx-6 rounded-3xl w-full border-none md:mx-auto md:max-w-[30rem] lg:max-w-[38rem]"
             src={direction}
-            width="600"
-            height="450"
             loading="lazy"
           />
         </div>

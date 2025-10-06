@@ -1,5 +1,14 @@
 import { FeaturesType } from "@/types";
 import Marquee from "react-fast-marquee";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBreadSlice,
+  faWheatAwn,
+  faCookieBite,
+  faSeedling,
+} from "@fortawesome/free-solid-svg-icons";
+
+const bakeryIcons = [faBreadSlice, faWheatAwn, faCookieBite, faSeedling];
 
 function Features({ features }: { features?: FeaturesType }) {
   if (!features) return null;
@@ -13,13 +22,16 @@ function Features({ features }: { features?: FeaturesType }) {
         className="rounded-3xl md:rounded-none"
       >
         {!!advantages?.length &&
-          advantages.map((advantage) => (
-            <span
-              key={advantage}
-              className="mx-10 text-sm md:text-lg md:font-light md:text-brand-light font-bold"
-            >
-              {advantage}
-            </span>
+          advantages.map((advantage, i) => (
+            <div key={advantage} className="flex items-center mr-8">
+              <span className="text-sm md:text-lg md:font-light md:text-brand-light font-bold">
+                {advantage}
+              </span>
+              <FontAwesomeIcon
+                icon={bakeryIcons[i % bakeryIcons.length]}
+                className="ml-8 text-brand-light text-lg md:text-xl"
+              />
+            </div>
           ))}
       </Marquee>
     </section>

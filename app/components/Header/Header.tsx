@@ -37,7 +37,7 @@ const Header = ({
         <div className="flex items-center gap-10 relative">
           <HeaderNav navigation={navigation} />
           <button
-            className="hidden transition-all md:block bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer text-xl font-extrabold hover:bg-opacity-80 px-6 py-3"
+            className="hidden transition-all md:block bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer text-lg lg:text-xl font-extrabold hover:bg-opacity-80 px-6 py-3"
             type="button"
             onClick={openForm}
           >

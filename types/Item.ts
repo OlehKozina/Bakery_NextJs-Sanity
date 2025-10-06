@@ -6,6 +6,7 @@ export type ItemType = {
   name: string;
   heading?: string;
   image: string;
+  horizontalImage?: string;
   content: PortableTextBlock[];
   joinBakery?: any;
 };

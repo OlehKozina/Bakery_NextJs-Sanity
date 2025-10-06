@@ -14,7 +14,7 @@ interface BakerType {
 
 const Baker = ({ image, content, name }: BakerType) => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.3 });
+  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
 
   React.useEffect(() => {
     controls.start(inView ? "visible" : "hidden");

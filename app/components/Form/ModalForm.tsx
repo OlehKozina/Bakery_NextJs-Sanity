@@ -23,14 +23,19 @@ const ModalForm: React.FC<FormProps> = ({
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5 {
-}"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5"
           initial={{ opacity: 0, pointerEvents: "none" }}
           animate={{ opacity: 1, pointerEvents: "all" }}
           exit={{ opacity: 0, pointerEvents: "none" }}
           transition={{ duration: 0.5 }}
         >
-          <div className="relative z-10 overflow-y-auto flex flex-col justify-center items-center w-auto h-auto bg-brand-light rounded-[2rem] transition-opacity duration-slow">
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.95 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="relative z-10 overflow-y-auto flex flex-col justify-center items-center w-auto h-auto bg-brand-light rounded-[2rem] transition-opacity duration-slow"
+          >
             <button
               className="border-none bg-transparent cursor-pointer absolute top-5 right-5"
               type="button"
@@ -48,7 +53,7 @@ const ModalForm: React.FC<FormProps> = ({
               privacyPolicy={privacyPolicy}
               form={form}
             />
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

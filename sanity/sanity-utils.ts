@@ -95,6 +95,7 @@ export function getTraditions() {
   return fetchSanity<ItemType>(groq`*[_type == "traditions"]{
     heading,
     "image": image.asset->url,
+    "horizontalImage": horizontalImage.asset->url,
     content,
   }`);
 }
