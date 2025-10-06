@@ -47,25 +47,25 @@ const Form = ({
       <Heading
         heading={heading}
         className={clsx(
-          "mb-4 mx-auto text-center max-md:text-2xl max-lg:!text-3xl",
+          "mb-4 mx-auto text-center text-2xl lg:!text-6xl",
           theme === "dark" ? "text-brand-light" : "text-black"
         )}
       />
       <p className="text-brand-default text-center mb-3">{name}</p>
       <form
         data-form="contact-form"
-        className="max-w-[30rem] mx-auto text-brand-dark"
+        className="max-w-[30rem] flex flex-col items-center mx-auto text-brand-dark"
       >
         {!!fields?.length &&
           fields.map((field) => {
             const { name, required, type, label } = field;
             return (
-              <div className="mb-8" key={label}>
+              <div className="mb-4 md:mb-8 w-3/4" key={label}>
                 <label className="hidden" htmlFor="user-name">
                   {label}
                 </label>
                 <input
-                  className="w-full p-4 px-10 rounded-lg border transition-all border-brand-brick bg-brand-light text-base leading-[1.17]"
+                  className="w-full py-2 md:py-4 px-5 md:px-10 rounded-lg border transition-all border-brand-brick bg-brand-light text-base leading-[1.17]"
                   type={type}
                   placeholder={name}
                   required={required}

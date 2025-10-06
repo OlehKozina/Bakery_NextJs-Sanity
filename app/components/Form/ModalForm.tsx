@@ -35,7 +35,7 @@ const ModalForm: React.FC<FormProps> = ({
             animate={{ y: 0, scale: 1 }}
             exit={{ y: 50, scale: 0.95 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative max-w-[38rem] z-10 overflow-y-auto flex flex-col justify-center items-center w-full h-auto bg-brand-light rounded-[2rem] transition-opacity duration-slow"
+            className="relative !max-w-[28rem] md:!max-w-[38rem] z-10 overflow-y-auto flex flex-col justify-center items-center w-full h-auto rounded-[2rem] transition-opacity duration-slow"
           >
             <button
               className="border-none bg-transparent cursor-pointer absolute top-7 right-5"
@@ -49,7 +49,7 @@ const ModalForm: React.FC<FormProps> = ({
             </button>
             <Form
               theme="dark"
-              className="px-12 py-20 w-full !mx-0 no-scroll-bar !h-full !max-h-[60vh] md:!max-h-[70vh]"
+              className="px-12 py-10 md:py-20 w-full !mx-0 no-scroll-bar !h-full !max-h-[60vh] md:!max-h-[70vh]"
               heading="Request a call"
               privacyPolicy={privacyPolicy}
               isVisible={isVisible}

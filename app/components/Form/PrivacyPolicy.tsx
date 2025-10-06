@@ -49,7 +49,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
             className
           )}
         >
-          <div className="relative z-10 items-left w-full bg-brand-dark rounded-[2rem] transition-opacity duration-slow max-w-[38rem] px-8">
+          <div className="relative z-10 items-left w-full bg-brand-dark rounded-[2rem] transition-opacity duration-slow max-w-[28rem] md:max-w-[38rem] px-8">
             <div className="no-scroll-bar h-full max-h-[60vh] md:max-h-[70vh] py-10">
               <PortableText
                 value={privacyPolicy || []}
