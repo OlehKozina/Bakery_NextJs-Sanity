@@ -22,7 +22,7 @@ const MobileMenu: React.FC<MenuProps> = ({
   className,
 }) => {
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isVisible && (
         <motion.div
           initial={{ opacity: 0, pointerEvents: "none" }}
@@ -30,6 +30,7 @@ const MobileMenu: React.FC<MenuProps> = ({
           exit={{ opacity: 0, pointerEvents: "none" }}
           transition={{ duration: 0.5 }}
           className={clsx("z-50 md:hidden pt-10", className)}
+          key="mobile-menu"
         >
           <button
             className="text-brand-dark z-10 border-none absolute top-6 right-7"

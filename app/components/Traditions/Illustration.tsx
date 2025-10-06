@@ -2,6 +2,7 @@ import React, { useState, useId, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import dynamic from "next/dynamic";
 
 type IllustrationProps = {
   className?: string;
@@ -94,4 +95,4 @@ const Illustration = ({
   );
 };
 
-export default Illustration;
+export default dynamic(() => Promise.resolve(Illustration), { ssr: false });

@@ -20,7 +20,7 @@ const ModalForm: React.FC<FormProps> = ({
   form,
 }) => {
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isVisible && (
         <motion.div
           className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5"
@@ -28,6 +28,7 @@ const ModalForm: React.FC<FormProps> = ({
           animate={{ opacity: 1, pointerEvents: "all" }}
           exit={{ opacity: 0, pointerEvents: "none" }}
           transition={{ duration: 0.5 }}
+          key="form"
         >
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
