@@ -62,7 +62,7 @@ const Hero = ({
           </motion.h1>
         )}
         <button
-          className="md:hidden mx-auto block px-4 py-2 bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer font-semibold md:px-8 md:py-4 z-1 relative"
+          className="md:hidden mx-auto block px-4 py-2 bg-brand-default transition-all text-brand-light border border-brand-default rounded-lg cursor-pointer hover:bg-opacity-60 font-semibold md:px-8 md:py-4 z-1 relative"
           type="button"
           onClick={openForm}
         >

@@ -20,7 +20,7 @@ const ModalForm: React.FC<FormProps> = ({
   form,
 }) => {
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence initial={false}>
       {isVisible && (
         <motion.div
           className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5"
@@ -49,7 +49,7 @@ const ModalForm: React.FC<FormProps> = ({
             </button>
             <Form
               theme="dark"
-              className="p-12 w-full !mx-0"
+              className="p-12 w-full !mx-0 no-scroll-bar !h-full !max-h-[60vh]"
               heading="Request a call"
               privacyPolicy={privacyPolicy}
               isVisible={isVisible}
