@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const iconPaths = {
-  bread1: "/icons/bread1.svg",
+  breadCut: "/icons/bread1.svg",
   bread2: "/icons/bread2.svg",
   basket: "/icons/breadBasket.svg",
   loaf: "/icons/breadLoaf.svg",
@@ -23,15 +23,15 @@ interface IconsProps {
 
 export default function Icons({
   icons = [
-    { name: "bread1", position: "top-left" },
+    { name: "breadCut", position: "top-left" },
     { name: "donut", position: "top-right" },
     { name: "muffin", position: "bottom-left" },
     { name: "loaf", position: "bottom-right" },
   ],
 }: IconsProps) {
   const positionClasses: Record<IconPosition, string> = {
-    "top-left": "top-0 sm:top-1/2 left-0 sm:left-1/2",
-    "top-right": "top-10 right-0 sm:right-1/4",
+    "top-left": "top-0 sm:top-1/2 left-0 sm:left-1/3",
+    "top-right": "top-10 right-0 sm:right-1/3",
     center: "top-1/2 left-1/3",
     "bottom-left": "bottom-10 left-0 sm:left-10",
     "bottom-right": "bottom-10 right-0 sm:right-[15rem]",

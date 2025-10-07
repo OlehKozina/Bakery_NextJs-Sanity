@@ -17,8 +17,7 @@ const Hero = ({
   privacyPolicy?: PortableTextBlock;
 }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const openForm = () => setIsFormVisible(true);
-  const closeForm = () => setIsFormVisible(false);
+  const toggleForm = () => setIsFormVisible((prev) => !prev);
   if (!hero) return null;
 
   const { heading, image } = hero;
@@ -64,12 +63,12 @@ const Hero = ({
         <button
           className="lg:hidden mx-auto block px-4 py-2 bg-brand-default transition-all text-brand-light border border-brand-default rounded-lg cursor-pointer hover:bg-opacity-60 font-semibold md:px-8 md:py-4 z-1 relative"
           type="button"
-          onClick={openForm}
+          onClick={toggleForm}
         >
           Request a call
         </button>
         <ModalForm
-          onClose={closeForm}
+          onClose={toggleForm}
           isVisible={isFormVisible}
           form={form}
           privacyPolicy={privacyPolicy}

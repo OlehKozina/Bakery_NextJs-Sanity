@@ -9,8 +9,7 @@ const FooterPrivacy = ({
   privacyPolicy?: PortableTextBlock;
 }) => {
   const [isPolicyVisible, setIsPolicyVisible] = useState(false);
-  const openPolicy = () => setIsPolicyVisible(true);
-  const closePolicy = () => setIsPolicyVisible(false);
+  const togglePolicy = () => setIsPolicyVisible((prev) => !prev);
   useLockScroll(!!isPolicyVisible);
   return (
     <ul className="footer__bottom z-content">
@@ -18,12 +17,12 @@ const FooterPrivacy = ({
         <button
           className="text-sm font-light text-brand-light hover:text-brand-default transition-colors flex flex-col md:flex-row items-start"
           type="button"
-          onClick={openPolicy}
+          onClick={togglePolicy}
         >
           Privacy Policy
         </button>
         <PrivacyPolicy
-          onClose={closePolicy}
+          onClose={togglePolicy}
           privacyPolicy={privacyPolicy}
           isVisible={isPolicyVisible}
         />

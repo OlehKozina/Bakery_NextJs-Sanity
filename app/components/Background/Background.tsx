@@ -6,10 +6,19 @@ export default function Background({
 }: {
   children: React.ReactNode;
 }) {
+  const flours = [
+    { position: "left-1/4 bottom-0" },
+    { position: "right-1/4 top-0" },
+  ];
+
   return (
     <div className="relative overflow-hidden">
-      <Flour className="fixed left-1/3 bottom-0 w-[25rem] opacity-20 z-under" />
-      <Flour className="fixed right-1/4 top-0 w-[25rem] opacity-20 z-under" />
+      {flours.map((flour, index) => (
+        <Flour
+          key={index}
+          className={`pointer-events-none fixed w-[25rem] opacity-20 z-under ${flour.position}`}
+        />
+      ))}
       {children}
     </div>
   );

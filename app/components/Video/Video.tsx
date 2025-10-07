@@ -10,10 +10,10 @@ const Video = ({ video }: { video?: VideoSectionType }) => {
   if (!video) return null;
   const [ref, inView] = useInView({ threshold: 0.5, triggerOnce: true });
   return (
-    <section className="container relative p-5 sm:p-10" id="our-process">
+    <section className="container relative p-5 sm:p-10" id="baking">
       {video.heading && (
         <Heading
-          className="text-3xl font-bold text-left whitespace-pre-line absolute top-0 max-sm:md:-top-5 left-10 sm:left-20 z-above-content"
+          className="text-3xl font-bold text-left whitespace-pre-line absolute max-sm:-top-5 top-0 md:-top-5 left-10 sm:left-20 z-above-content"
           heading={video.heading}
         />
       )}

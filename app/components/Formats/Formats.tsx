@@ -33,7 +33,7 @@ export default function Formats({ formats }: { formats?: FormatType }) {
 
     setScrollSnaps(emblaApi.scrollSnapList());
     emblaApi.on("select", onSelect);
-    onSelect(); // run once on mount
+    onSelect();
   }, [emblaApi]);
 
   useEffect(() => {

@@ -6,11 +6,11 @@ import PrivacyPolicy from "./PrivacyPolicy";
 import { FormType } from "@/types";
 import Heading from "../Heading";
 import { useLockScroll } from "@/app/hooks/useLockScroll";
+import FormField from "./FormField";
 
 interface FormProps {
   heading?: string;
   isVisible?: boolean;
-  theme?: "light" | "dark" | "none";
   privacyPolicy?: PortableTextBlock;
   form?: FormType;
   className?: string;
@@ -23,33 +23,26 @@ const Form = ({
   heading,
   privacyPolicy,
   form,
-  theme = "none",
   className,
   classNames,
   isVisible,
 }: FormProps) => {
   const [isPolicyVisible, setIsPolicyVisible] = useState(false);
   useLockScroll(isVisible || isPolicyVisible);
-  const openPolicy = () => setIsPolicyVisible(true);
-  const closePolicy = () => setIsPolicyVisible(false);
+  const togglePolicy = () => setIsPolicyVisible((prev) => !prev);
   if (!form) return;
   const { name, fields, buttonLabel } = form;
 
   return (
     <div
       className={clsx(
-        "max-w-[38rem] rounded-3xl p-12 mx-auto",
-        theme === "dark" && "bg-brand-dark",
-        theme === "light" && "bg-brand-light",
+        "max-w-[38rem] rounded-3xl p-12 mx-auto bg-brand-dark",
         className
       )}
     >
       <Heading
         heading={heading}
-        className={clsx(
-          "mb-4 mx-auto text-center text-2xl lg:!text-6xl",
-          theme === "dark" ? "text-brand-light" : "text-black"
-        )}
+        className="mb-4 mx-auto text-center text-2xl lg:!text-6xl"
       />
       <p className="text-brand-default text-center mb-3">{name}</p>
       <form
@@ -58,20 +51,7 @@ const Form = ({
       >
         {!!fields?.length &&
           fields.map((field) => {
-            const { name, required, type, label } = field;
-            return (
-              <div className="mb-4 md:mb-8 w-3/4" key={label}>
-                <label className="hidden" htmlFor="user-name">
-                  {label}
-                </label>
-                <input
-                  className="w-full py-2 md:py-4 px-5 md:px-10 rounded-lg border transition-all border-brand-brick bg-brand-light text-base leading-[1.17]"
-                  type={type}
-                  placeholder={name}
-                  required={required}
-                />
-              </div>
-            );
+            return <FormField field={field} key={field.label} />;
           })}
         <button
           className="mx-auto transition-all mb-6 block px-5 py-2 bg-brand-default hover:bg-opacity-80 text-brand-light border border-brand-default rounded-lg cursor-pointer text-xl font-extrabold md:px-8 md:py-4"
@@ -81,8 +61,7 @@ const Form = ({
         </button>
         <div
           className={clsx(
-            "mx-auto max-w-[15rem] text-xs text-center",
-            theme == "dark" && "text-brand-default"
+            "mx-auto max-w-[15rem] text-xs text-center text-brand-default"
           )}
         >
           By clicking the button I agree with{" "}
@@ -90,13 +69,13 @@ const Form = ({
             <button
               type="button"
               className="text-brand-default underline hover:opacity-80 transition-opacity"
-              onClick={openPolicy}
+              onClick={togglePolicy}
             >
               privacy policy
             </button>
             {privacyPolicy && (
               <PrivacyPolicy
-                onClose={closePolicy}
+                onClose={togglePolicy}
                 privacyPolicy={privacyPolicy}
                 isVisible={isPolicyVisible}
                 className={classNames?.privacyPolicy}

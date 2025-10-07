@@ -48,7 +48,6 @@ const ModalForm: React.FC<FormProps> = ({
               />
             </button>
             <Form
-              theme="dark"
               className="px-12 py-10 md:py-20 w-full !mx-0 no-scroll-bar !h-full !max-h-[60vh] md:!max-h-[70vh]"
               heading="Request a call"
               privacyPolicy={privacyPolicy}

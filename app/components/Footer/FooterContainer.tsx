@@ -9,23 +9,20 @@ const FooterContainer = ({
   footerContainer?: NavigationType;
 }) => {
   return (
-    <div className="container z-content relative">
-      <div className="flex flex-col md:flex-row md:gap-10">
-        <nav className="flex text-center flex-grow flex-col md:flex-row">
-          <div className=" mt-4 flex justify-center md:inline-block md:justify-start md:mt-0 z-[5]">
-            <a href="#">
-              <Image
-                src="/logo.svg"
-                alt="bakery_logo"
-                width={100}
-                height={24}
-                className="relative z-5"
-              />
-            </a>
-          </div>
-          <FooterNavigation footerNavigation={footerContainer} />
-        </nav>
-      </div>
+    <div className="container z-content relative flex text-center flex-grow flex-col md:flex-row">
+      <a
+        href="#"
+        className="mt-4 flex justify-center md:inline-block md:justify-start md:mt-0 z-[5]"
+      >
+        <Image
+          src="/logo.svg"
+          alt="bakery_logo"
+          width={100}
+          height={24}
+          className="relative z-5"
+        />
+      </a>
+      <FooterNavigation footerNavigation={footerContainer} />
     </div>
   );
 };

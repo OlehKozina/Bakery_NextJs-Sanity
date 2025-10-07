@@ -9,7 +9,7 @@ export default function Bakers({
 }: {
   bakers?: BakersType;
 }) {
-  if (!bakersData) return <p>No bakers found</p>;
+  if (!bakersData) return;
   const { bakers, heading } = bakersData;
 
   return (
@@ -19,7 +19,6 @@ export default function Bakers({
     >
       <Icons
         icons={[
-          { name: "bread1", position: "top-left" },
           { name: "donut", position: "top-right" },
           { name: "muffin", position: "bottom-left" },
           { name: "loaf", position: "bottom-right" },

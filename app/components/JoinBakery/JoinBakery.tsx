@@ -25,7 +25,6 @@ function JoinBakery({
           <Form
             heading={heading}
             form={form}
-            theme="dark"
             className="!p-8 bg-opacity-50"
             privacyPolicy={privacyPolicy}
           />
