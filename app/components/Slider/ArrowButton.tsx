@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
 
 const ArrowButton = ({
@@ -14,14 +14,14 @@ const ArrowButton = ({
     <button
       onClick={onClick}
       className={clsx(
-        "absolute bg-white rounded-full h-8 w-8 top-1/2 transform -translate-y-1/2 p-2 z-5 transition-transform text-black",
+        "shadow-xl absolute bg-brand-brick hover:opacity-100 opacity-90 rounded-full h-8 w-8 top-1/2 transform -translate-y-1/2 p-2 z-5 transition-all text-black",
         direction === "left"
           ? "left-0 hover:-translate-x-2"
           : "right-0 hover:translate-x-4"
       )}
     >
       <FontAwesomeIcon
-        icon={direction === "left" ? faAngleLeft : faAngleRight}
+        icon={direction === "left" ? faArrowLeft : faArrowRight}
         className="text-base"
       />
     </button>

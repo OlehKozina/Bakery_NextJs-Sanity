@@ -13,7 +13,7 @@ const Format = ({
   name?: string;
 }) => {
   return (
-    <div className="cursor-pointer max-md:max-w-[20rem] flex-shrink-0 group text-white font-medium relative mt-8 mb-4 hover:scale-105 transition-transform aspect-[349/444] w-full">
+    <div className="max-md:max-w-[20rem] flex-shrink-0 group text-white font-medium relative mt-8 mb-4 hover:scale-105 transition-transform aspect-[349/444] w-full">
       <div className="relative w-full h-full rounded-3xl overflow-hidden p-10">
         {image && (
           <Image
