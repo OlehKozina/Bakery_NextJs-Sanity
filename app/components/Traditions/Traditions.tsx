@@ -12,7 +12,7 @@ function Traditions({ traditions }: { traditions?: ItemType }) {
 
   return (
     <section
-      className="py-10 md:py-24 text-sm md:text-base relative overflow-hidden max-md:scroll-mt-16"
+      className="py-10 md:py-20 text-sm md:text-base relative overflow-hidden max-md:scroll-mt-16"
       id="traditions"
     >
       <Icons

@@ -8,6 +8,7 @@ import {
   getFormats,
   getFooter,
   getForm,
+  getVideo,
 } from "@/sanity/sanity-utils";
 import Bakers from "./components/Bakers";
 import Features from "./components/Features";
@@ -18,6 +19,7 @@ import Hero from "./components/Hero";
 import JoinBakery from "./components/JoinBakery";
 import Traditions from "./components/Traditions";
 import Background from "./components/Background";
+import Video from "./components/Video";
 
 export default async function Home() {
   const [
@@ -30,6 +32,7 @@ export default async function Home() {
     footer,
     joinBakery,
     form,
+    video,
   ] = await Promise.all([
     getHeader(),
     getHero(),
@@ -40,6 +43,7 @@ export default async function Home() {
     getFooter(),
     getJoinBakery(),
     getForm(),
+    getVideo(),
   ]);
 
   return (
@@ -53,6 +57,7 @@ export default async function Home() {
       <Features features={features[0]} />
       <Background>
         <Traditions traditions={traditions[0]} />
+        <Video video={video[0]} />
         <Bakers bakers={bakers[0]} />
         <Formats formats={formats[0]} />
         <JoinBakery

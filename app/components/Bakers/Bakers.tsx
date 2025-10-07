@@ -29,7 +29,7 @@ export default function Bakers({
         {heading && (
           <Heading
             heading={heading}
-            className="block mx-auto text-center mb-6 max-w-[32.5rem] relative md:mb-20"
+            className="block mx-auto text-center mb-6 relative md:mb-20 whitespace-pre-line"
           />
         )}
         <div className="list-none justify-center flex gap-8 flex-wrap sm:justify-center">

@@ -23,7 +23,7 @@ const Heading = ({
   const lastWordStartIndex = fullText.length - lastWord.length;
 
   return (
-    <motion.h1
+    <motion.h2
       ref={ref}
       variants={containerVariants}
       initial="initial"
@@ -45,7 +45,7 @@ const Heading = ({
           </motion.span>
         );
       })}
-    </motion.h1>
+    </motion.h2>
   );
 };
 

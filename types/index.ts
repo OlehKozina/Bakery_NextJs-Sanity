@@ -5,6 +5,7 @@ import { HeroType } from "./Hero";
 import { ItemType } from "./Item";
 import { JoinBakeryType, FormType } from "./JoinBakeryType";
 import { NavigationType } from "./Navigation";
+import { VideoSectionType } from "./VideoSectionType";
 
 export type {
   NavigationType,
@@ -15,4 +16,5 @@ export type {
   ItemType,
   JoinBakeryType,
   FormType,
+  VideoSectionType,
 };

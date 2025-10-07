@@ -8,6 +8,7 @@ import {
   ItemType,
   JoinBakeryType,
   FormType,
+  VideoSectionType,
 } from "@/types";
 
 const client = createClient({
@@ -29,8 +30,18 @@ export function getFormats() {
       _key,
       name,
       "image": image.asset->url,
-      content
+      content,
     }
+  }`);
+}
+
+export function getVideo() {
+  return fetchSanity<VideoSectionType>(groq`*[_type == "videoSection"]{
+    _id,
+    heading,
+    "videoUrl": video.asset->url,
+    "image": image.asset->url,
+    text
   }`);
 }
 

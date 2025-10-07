@@ -9,6 +9,8 @@ import joinBakery from "./joinBakery";
 import link from "./link";
 import privacyPolicy from "./privacyPolicy";
 import traditions from "./traditions";
+import videoSection from "./videoSection";
+
 const schemas = [
   formats,
   hero,
@@ -21,5 +23,6 @@ const schemas = [
   privacyPolicy,
   joinBakery,
   form,
+  videoSection,
 ];
 export default schemas;

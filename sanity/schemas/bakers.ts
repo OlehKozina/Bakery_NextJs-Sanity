@@ -4,7 +4,7 @@ const bakers = {
       group: "content",
       name: "heading",
       title: "Heading",
-      type: "string",
+      type: "text",
     },
     {
       group: "content",
