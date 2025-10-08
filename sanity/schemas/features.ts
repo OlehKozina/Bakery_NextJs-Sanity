@@ -1,44 +1,57 @@
-const features = {
-  fields: [
-    {
-      group: "content",
-      initialValue: "Features",
-      name: "heading",
-      readOnly: true,
-      title: "Heading",
-      type: "string",
-    },
-    {
-      group: "content",
-      name: "advantages",
-      of: [
-        {
-          name: "advantage",
-          title: "Advantage",
-          type: "string",
-        },
-      ],
-      title: "Advantages",
-      type: "array",
-    },
-    { group: "seo", name: "seoTitle", title: "SEO title", type: "string" },
-    { group: "seo", name: "seoKeywords", title: "Keywords", type: "string" },
-    { group: "seo", name: "seoSlug", title: "Slug", type: "slug" },
-    { group: "seo", name: "seoImage", title: "Image", type: "image" },
-  ],
-  groups: [
-    {
-      name: "content",
-      title: "Content",
-    },
-    {
-      name: "seo",
-      title: "SEO",
-    },
-  ],
-  name: "features",
-  title: "Features",
-  type: "document",
-};
+import { defineType } from "sanity";
+import { FaCheckCircle } from "react-icons/fa";
+import { F, G } from "./tool";
 
-export default features;
+export default defineType({
+  name: "features",
+  type: "document",
+  icon: FaCheckCircle,
+
+  groups: [G.define("content", { default: true }), G.define("seo")],
+
+  fields: [
+    ...G.group("content", [
+      F.string({
+        name: "heading",
+      }),
+      F.array({
+        name: "advantages",
+        of: [F.string({ name: "advantage" })],
+      }),
+    ]),
+
+    ...G.group("seo", [
+      F.string({ name: "seoTitle" }),
+      F.string({ name: "seoKeywords" }),
+      F.slug?.({ name: "seoSlug" }),
+      F.image({ name: "seoImage" }),
+    ]),
+  ],
+
+  preview: {
+    select: {
+      heading: "heading",
+      advantages: "advantages",
+    },
+    prepare({
+      heading,
+      advantages,
+    }: {
+      heading?: string;
+      advantages?: string[];
+    }) {
+      const firstAdvantage =
+        Array.isArray(advantages) && advantages.length
+          ? advantages[0]
+          : undefined;
+
+      return {
+        title: heading || "Features section",
+        subtitle: firstAdvantage
+          ? `${firstAdvantage}…`
+          : "No advantages added yet",
+        media: FaCheckCircle,
+      };
+    },
+  },
+});

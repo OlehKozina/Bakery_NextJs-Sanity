@@ -1,37 +1,45 @@
 import { defineType, defineField } from "sanity";
+import { FaVideo } from "react-icons/fa";
+import { F } from "./tool";
 
 export default defineType({
   name: "videoSection",
-  title: "Video Section",
   type: "document",
+  icon: FaVideo,
+
   fields: [
-    defineField({
+    F.string({
       name: "heading",
-      title: "Heading",
-      type: "text",
-      validation: (Rule) => Rule.required(),
     }),
-    defineField({
+    F.text({
       name: "text",
-      title: "Text",
-      type: "text",
-      description: "A short description or paragraph to display near the video",
+      title: "Description",
+      rows: 3,
     }),
-    defineField({
+    F.image({
       name: "image",
-      title: "Image",
-      type: "image",
-      options: { hotspot: true },
-      description: "An image to display near the video",
+      hotspot: true,
     }),
-    defineField({
+    F.file({
       name: "video",
-      title: "Video File",
-      type: "file",
-      options: {
-        accept: "video/*",
-      },
-      validation: (Rule) => Rule.required(),
+      accept: "video/*",
     }),
   ],
+
+  preview: {
+    select: {
+      title: "heading",
+      subtitle: "text",
+      media: "image",
+    },
+    prepare({ title, subtitle, media }) {
+      return {
+        title: title || "Untitled Video Section",
+        subtitle: subtitle
+          ? subtitle.slice(0, 50) + "..."
+          : "No description yet",
+        media,
+      };
+    },
+  },
 });

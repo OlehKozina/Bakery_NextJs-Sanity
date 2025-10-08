@@ -1,57 +1,64 @@
-const bakers = {
-  fields: [
-    {
-      group: "content",
-      name: "heading",
-      title: "Heading",
-      type: "text",
-    },
-    {
-      group: "content",
-      name: "bakers",
-      of: [
-        {
-          fields: [
-            { name: "name", title: "Name", type: "string" },
-            {
-              name: "image",
-              options: { hotspot: true },
-              title: "Image",
-              type: "image",
-            },
-            {
-              name: "content",
-              of: [{ type: "block" }],
-              title: "Content",
-              type: "array",
-            },
-          ],
-          name: "bakerInfo",
-          title: "Baker",
-          type: "object",
-        },
-      ],
-      title: "Bakers",
-      type: "array",
-    },
-    { group: "seo", name: "seoTitle", title: "SEO title", type: "string" },
-    { group: "seo", name: "seoKeywords", title: "Keywords", type: "string" },
-    { group: "seo", name: "seoSlug", title: "Slug", type: "slug" },
-    { group: "seo", name: "seoImage", title: "Image", type: "image" },
-  ],
-  groups: [
-    {
-      name: "content",
-      title: "Content",
-    },
-    {
-      name: "seo",
-      title: "SEO",
-    },
-  ],
-  name: "bakers",
-  title: "Bakers",
-  type: "document",
-};
+import { defineType } from "sanity";
+import { F, G } from "./tool";
+import { UserIcon } from "@sanity/icons";
 
-export default bakers;
+export default defineType({
+  name: "bakers",
+  type: "document",
+  icon: UserIcon,
+  groups: [G.define("content", { default: true }), G.define("seo")],
+
+  fields: [
+    ...G.group("content", [
+      F.text({ name: "heading" }),
+      F.array({
+        name: "bakers",
+        of: [
+          F.object({
+            name: "bakerInfo",
+            fields: [
+              F.string({
+                name: "name",
+                validation: (Rule: any) => Rule.required(),
+              }),
+              F.image({ name: "image", hotspot: true }),
+              F.block({ name: "content" }),
+            ],
+          }),
+        ],
+      }),
+    ]),
+
+    ...G.group("seo", [
+      F.string({ name: "seoTitle" }),
+      F.string({ name: "seoKeywords" }),
+      F.slug({ name: "seoSlug" }),
+      F.image({ name: "seoImage" }),
+    ]),
+  ],
+
+  preview: {
+    select: {
+      heading: "heading",
+      bakerName: "bakers.0.name",
+      image: "bakers.0.image",
+    },
+    prepare({
+      heading,
+      bakerName,
+      image,
+    }: {
+      heading?: string;
+      bakerName?: string;
+      image?: any;
+    }) {
+      return {
+        title: heading || bakerName || "Bakers section",
+        subtitle: bakerName
+          ? `Includes ${bakerName} and others`
+          : "No bakers yet",
+        media: image,
+      };
+    },
+  },
+});

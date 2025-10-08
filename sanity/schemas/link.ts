@@ -1,11 +1,6 @@
-const link = {
-  fields: [
-    { name: "title", type: "string" },
-    { name: "sectionId", title: "Section ID", type: "string" },
-  ],
-  name: "link",
-  title: "Link",
-  type: "object",
-};
+import { F } from "./tool";
 
-export default link;
+export const link = F.object({
+  name: "link",
+  fields: [F.string({ name: "title" }), F.string({ name: "sectionId" })],
+});

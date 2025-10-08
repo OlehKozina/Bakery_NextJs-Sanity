@@ -1,20 +1,37 @@
-const header = {
+import { defineType } from "sanity";
+import { FaBars } from "react-icons/fa";
+import { F } from "./tool";
+
+export default defineType({
+  name: "header",
+  type: "document",
+  title: "Header",
+  icon: FaBars,
+
   fields: [
-    {
+    F.array({
       name: "navigation",
       of: [{ type: "link" }],
-      type: "array",
-    },
-    {
+      title: "Navigation Links",
+    }),
+    F.reference({
       name: "privacyPolicy",
-      title: "Privacy Policy",
       to: [{ type: "privacyPolicy" }],
-      type: "reference",
-    },
+    }),
   ],
-  name: "header",
-  title: "Header",
-  type: "document",
-};
 
-export default header;
+  preview: {
+    select: {
+      navigation: "navigation",
+      privacyPolicy: "privacyPolicy",
+    },
+    prepare({ navigation, privacyPolicy }) {
+      const navCount = Array.isArray(navigation) ? navigation.length : 0;
+      return {
+        title: "Header",
+        subtitle: `Links: ${navCount}${privacyPolicy ? ", includes Privacy Policy" : ""}`,
+        media: FaBars,
+      };
+    },
+  },
+});

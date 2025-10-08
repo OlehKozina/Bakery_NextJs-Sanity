@@ -1,66 +1,61 @@
-const footer = {
+import { defineType, defineField } from "sanity";
+import { FilterIcon } from "@sanity/icons";
+import { F } from "./tool";
+
+export default defineType({
+  name: "footer",
+  type: "document",
+  icon: FilterIcon,
   fields: [
-    {
+    F.array({
       name: "navigation",
       of: [{ type: "link" }],
-      type: "array",
-    },
-    {
-      name: "phone",
-      type: "string",
-    },
-    {
-      name: "email",
-      type: "string",
-    },
-    {
+    }),
+    F.string({ name: "phone" }),
+    F.string({ name: "email" }),
+    F.reference({
       name: "privacyPolicy",
-      title: "Privacy Policy",
       to: [{ type: "privacyPolicy" }],
-      type: "reference",
-    },
-    {
-      name: "footerImages",
-      type: "object",
-      fields: [
-        {
-          name: "leftImage",
-          options: { hotspot: true },
-          title: "Left Image",
-          type: "image",
-        },
-        {
-          name: "rightImage",
-          options: { hotspot: true },
-          title: "Right Image",
-          type: "image",
-        },
-      ],
-    },
-    {
-      fields: [
-        {
-          name: "name",
-          title: "Name",
-          type: "string",
-        },
-        {
-          name: "link",
-          title: "Link",
-          type: "string",
-        },
-      ],
-      name: "address",
-      type: "object",
-    },
-    {
+    }),
+    defineField(
+      F.object({
+        name: "footerImages",
+        fields: [
+          defineField({
+            name: "leftImage",
+            type: "image",
+            options: { hotspot: true },
+          }),
+          defineField({
+            name: "rightImage",
+            type: "image",
+            options: { hotspot: true },
+          }),
+        ],
+      })
+    ),
+    defineField(
+      F.object({
+        name: "address",
+        fields: [F.string({ name: "name" }), F.string({ name: "link" })],
+      })
+    ),
+    F.array({
       name: "socialLinks",
-      of: [{ name: "socialLink", type: "string" }],
-      type: "array",
-    },
+      of: [{ type: "string" }],
+    }),
   ],
-  name: "footer",
-  title: "Footer",
-  type: "document",
-};
-export default footer;
+  preview: {
+    select: {
+      email: "email",
+      phone: "phone",
+    },
+    prepare({ email, phone }: { email?: string; phone?: string }) {
+      return {
+        title: "Footer",
+        subtitle:
+          email || phone ? `${email || ""} ${phone || ""}` : "No contact info",
+      };
+    },
+  },
+});
