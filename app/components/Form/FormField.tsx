@@ -1,4 +1,4 @@
-import { FormFieldType } from "@/types/JoinBakeryType";
+import { FormFieldType } from "@/types/ContactType";
 import React from "react";
 
 const FormField = ({ field }: { field?: FormFieldType }) => {

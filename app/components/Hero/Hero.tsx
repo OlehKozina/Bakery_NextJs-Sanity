@@ -2,32 +2,21 @@
 import React, { useState } from "react";
 import { HeroType } from "@/types/Hero";
 import { ModalForm } from "../Form";
-import { FormType } from "@/types";
-import { PortableTextBlock } from "next-sanity";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { getHeadingParts, containerVariants, charVariants } from "./utils";
 
-const Hero = ({
-  hero,
-  form,
-  privacyPolicy,
-}: {
-  hero: HeroType;
-  form?: FormType;
-  privacyPolicy?: PortableTextBlock;
-}) => {
+const Hero = ({ hero }: { hero: HeroType }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const toggleForm = () => setIsFormVisible((prev) => !prev);
   if (!hero) return null;
-
-  const { heading, image } = hero;
+  const { heading, image, privacyPolicy, form } = hero;
   const { firstWord, fullText } = getHeadingParts(heading);
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
     <section
-      className="relative flex items-center overflow-hidden -mt-[7.5rem] h-screen"
+      className="relative flex items-center overflow-hidden h-screen"
       id="hero"
     >
       <motion.div

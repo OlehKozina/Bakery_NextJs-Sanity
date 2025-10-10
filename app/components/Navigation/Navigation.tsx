@@ -6,7 +6,6 @@ import { LineSvg } from "../Icons";
 interface NavigationProps {
   navigation?: {
     title?: string;
-    sectionId?: string;
   }[];
   classNames?: {
     root?: string;
@@ -26,6 +25,15 @@ const Navigation = ({
 }: NavigationProps) => {
   if (!navigation?.length) return null;
   const [hoveredIndex, setHoveredIndex] = useState<null | number>(null);
+
+  function generateId(title?: string) {
+    if (title)
+      return title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+  }
+
   return (
     <motion.ul
       className={classNames?.root}
@@ -44,7 +52,7 @@ const Navigation = ({
       {navigation?.map((link, index) => {
         const linkRef = React.useRef<HTMLAnchorElement | null>(null);
         const [linkWidth, setLinkWidth] = React.useState<number | null>(null);
-        const isActive = activeSection === link?.sectionId?.replace("#", "");
+        const isActive = activeSection === generateId(link?.title || "");
         React.useEffect(() => {
           if (linkRef.current) {
             setLinkWidth(linkRef.current.offsetWidth);
@@ -53,7 +61,7 @@ const Navigation = ({
 
         return (
           <motion.li
-            key={link.sectionId}
+            key={link.title}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
             variants={{
@@ -69,7 +77,7 @@ const Navigation = ({
                 !isHeader && "hover:text-brand-default transition-all",
                 classNames?.link
               )}
-              href={`#${link.sectionId}`}
+              href={`#${generateId(link?.title)}`}
               onClick={onClose}
             >
               {link.title}

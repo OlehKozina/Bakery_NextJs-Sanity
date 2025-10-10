@@ -8,7 +8,6 @@ const HeaderNav = ({
 }: {
   navigation?: {
     title?: string;
-    sectionId?: string;
   }[];
   activeSection?: string | null;
 }) => {

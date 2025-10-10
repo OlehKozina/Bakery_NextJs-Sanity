@@ -1,20 +1,14 @@
-import { BakersType } from "./Bakers";
-import { FeaturesType } from "./Features";
-import { FormatType } from "./Formats";
+import { CardsType } from "./Cards";
 import { HeroType } from "./Hero";
 import { ItemType } from "./Item";
-import { JoinBakeryType, FormType } from "./JoinBakeryType";
+import { ContactType, FormType } from "./ContactType";
 import { NavigationType } from "./Navigation";
-import { VideoSectionType } from "./VideoSectionType";
 
 export type {
   NavigationType,
   HeroType,
-  FormatType,
-  FeaturesType,
-  BakersType,
+  CardsType,
   ItemType,
-  JoinBakeryType,
+  ContactType,
   FormType,
-  VideoSectionType,
 };

@@ -7,28 +7,19 @@ import { NavigationType, FormType } from "@/types";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { ModalForm } from "../Form";
 import clsx from "clsx";
-import { useInView } from "react-intersection-observer";
 
-const Header = ({
-  header,
-  form,
-}: {
-  header: NavigationType;
-  form: FormType;
-}) => {
+const Header = ({ header }: { header: NavigationType }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const openForm = () => setIsFormVisible(true);
-  const closeForm = () => setIsFormVisible(false);
+  const toggleForm = () => setIsFormVisible((prev) => !prev);
 
   const [isMobMenuVisible, setIsMobMenuVisible] = useState(false);
-  const openMenu = () => setIsMobMenuVisible(true);
-  const closeMenu = () => setIsMobMenuVisible(false);
+  const toggleMobMenu = () => setIsMobMenuVisible((prev) => !prev);
+
   const [hidden, setHidden] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
-
     const updateScroll = () => {
       const currentY = window.scrollY;
       if (currentY > lastScrollY && currentY > 80) setHidden(true);
@@ -62,7 +53,7 @@ const Header = ({
   }, []);
 
   if (!header) return null;
-  const { navigation, privacyPolicy } = header;
+  const { navigation, privacyPolicy, form } = header;
 
   return (
     <header
@@ -82,12 +73,12 @@ const Header = ({
           <button
             className="hidden transition-all lg:block bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer text-lg lg:text-xl font-extrabold hover:bg-opacity-80 px-6 py-3"
             type="button"
-            onClick={openForm}
+            onClick={toggleForm}
           >
             Request a call
           </button>
           <ModalForm
-            onClose={closeForm}
+            onClose={toggleForm}
             isVisible={isFormVisible}
             privacyPolicy={privacyPolicy}
             form={form}
@@ -100,12 +91,12 @@ const Header = ({
               <FontAwesomeIcon
                 icon={faBars}
                 className="hover:text-brand-default w-6"
-                onClick={openMenu}
+                onClick={toggleMobMenu}
               />
             </button>
           )}
           <MobileMenu
-            onClose={closeMenu}
+            onClose={toggleMobMenu}
             isVisible={isMobMenuVisible}
             navigation={navigation}
             className="absolute -right-6 -top-3.5"

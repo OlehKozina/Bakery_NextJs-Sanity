@@ -1,11 +1,12 @@
 import { PortableTextBlock } from "next-sanity";
+import { FormType } from "./ContactType";
 
 export type NavigationType = {
   navigation?: {
     title?: string;
-    sectionId?: string;
   }[];
   privacyPolicy?: PortableTextBlock;
+  form?: FormType;
   phone?: string;
   address?: {
     name?: string;

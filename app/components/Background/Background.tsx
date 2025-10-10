@@ -12,7 +12,7 @@ export default function Background({
   ];
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden -mt-[--header-height]">
       {flours.map((flour, index) => (
         <Flour
           key={index}

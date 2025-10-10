@@ -16,6 +16,11 @@ export const F = {
   }) => defineType({ type: "object", ...opts }),
   array: (opts: { name: string; of: any[]; title?: string }) =>
     defineField({ type: "array", ...opts }),
+  field: (type: string) =>
+    defineField({
+      type,
+      name: type,
+    }),
   boolean: (opts: { name: string; title?: string }) =>
     defineField({ type: "boolean", ...opts }),
   file: (opts: { name: string; title?: string; accept?: string }) =>

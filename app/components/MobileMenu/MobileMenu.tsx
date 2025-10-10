@@ -11,7 +11,6 @@ interface MenuProps {
   isVisible?: boolean;
   navigation?: {
     title?: string;
-    sectionId?: string;
   }[];
 }
 
