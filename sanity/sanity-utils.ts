@@ -21,7 +21,7 @@ export async function getPageHome() {
     hero[0]{
       heading,
       "image": image.asset->url,
-      "privacyPolicy": *[_type == "privacyPolicy"].content,
+      "privacyPolicy": *[_type == "privacyPolicy"][0].content,
       "form": *[_type == "form"][0]${formQuery},
     },
       ${componentsQuery}
@@ -31,7 +31,7 @@ export async function getPageHome() {
 export function getHeader() {
   return client.fetch(groq`*[_type == "header"][0]{
     navigation[]{ title, sectionId },
-    "privacyPolicy": *[_type == "privacyPolicy"].content,
+    "privacyPolicy": *[_type == "privacyPolicy"][0].content,
     "form": *[_type == "form"][0]${formQuery},
   }`);
 }
