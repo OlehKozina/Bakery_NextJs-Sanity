@@ -1,4 +1,4 @@
-import { createClient, groq } from "next-sanity";
+import { createClient } from "next-sanity";
 import { componentsQuery } from "./queries/componentsQuery";
 
 const client = createClient({
@@ -15,8 +15,12 @@ export const formQuery = `{
 }
 `;
 
+async function fetchNoCache(query: string, params: any = {}) {
+  return client.fetch(query, params, { cache: "no-store" });
+}
+
 export async function getPageHome() {
-  return client.fetch(`*[_type == "pageHome"]{
+  return fetchNoCache(`*[_type == "pageHome"]{
     ...,
     hero[0]{
       heading,
@@ -29,7 +33,7 @@ export async function getPageHome() {
 }
 
 export function getHeader() {
-  return client.fetch(groq`*[_type == "header"][0]{
+  return fetchNoCache(`*[_type == "header"][0]{
     navigation[]{ title, sectionId },
     "privacyPolicy": *[_type == "privacyPolicy"][0].content,
     "form": *[_type == "form"][0]${formQuery},
@@ -37,7 +41,7 @@ export function getHeader() {
 }
 
 export function getFooter() {
-  return client.fetch(groq`*[_type == "footer"][0]{
+  return fetchNoCache(`*[_type == "footer"][0]{
     navigation[]{ title, sectionId },
     phone,
     email,
