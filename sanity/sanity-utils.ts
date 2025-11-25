@@ -2,9 +2,9 @@ import { createClient } from "next-sanity";
 import { componentsQuery } from "./queries/componentsQuery";
 
 const client = createClient({
-  apiVersion: "2024-07-17",
-  dataset: "production",
-  projectId: "fqinbqr2",
+  apiVersion: process.env.SANITY_STUDIO_API_VERSION,
+  dataset: process.env.SANITY_STUDIO_API_DATASET,
+  projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
   useCdn: false,
 });
 

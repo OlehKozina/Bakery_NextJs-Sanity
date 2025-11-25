@@ -4,10 +4,10 @@ import schemas from "./sanity/schemas";
 import { visionTool } from "@sanity/vision";
 
 export default defineConfig({
-  projectId: "fqinbqr2",
-  dataset: "production",
+  projectId: process.env.SANITY_STUDIO_API_PROJECT_ID!,
+  dataset: process.env.SANITY_STUDIO_API_DATASET!,
   title: "Bakery Website",
-  apiVersion: "2024-07-17",
+  apiVersion: process.env.SANITY_STUDIO_API_VERSION!,
   basePath: "/admin",
   plugins: [
     deskTool({
